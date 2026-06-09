@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{D82A69CF-8CFB-42F0-A2D3-5B41FD0D56DF}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  
+    
+    <Projects>
+      <Projects Name="TAMInscricoes.exe">TAMInscricoes.bdsproj</Projects>
+      <Projects Name="UMNucleo.bpl">..\..\..\..\..\..\sistemas\UMNucleo\fontes\UMNucleo.bdsproj</Projects>
+      <Projects Name="UMUteis.bpl">..\..\..\..\..\..\sistemas\UMUteis\fontes\UMUteis.bdsproj</Projects>
+      <Projects Name="Targets">TAMInscricoes.exe UMNucleo.bpl UMUteis.bpl</Projects>
+    </Projects>
+    <Dependencies>
+      <Dependency GUID="{9261F030-4A3E-4941-93E5-E1A62F1F33EF}">
+        <Dependency GUID="{7BADFB97-B310-4B78-BEE5-9F270D2C9A66}"/>
+      </Dependency>
+    </Dependencies>
+  </Default.Personality>
+</BorlandProject>

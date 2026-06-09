@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009/07/14 12:46:19.968.bdsgroup,C:\Documents and Settings\daniel\Meus documentos\Borland Studio Projects\ProjectGroup1.bdsgroup=D:\Programacao\desenvolvimento\unimestre\terminalacessomovel\trunk\fontes\TerminalAcessoMovel.bdsgroup</Transaction>
+  </Transactions>
+	<Default.Personality>
+		<Projects ActiveProject="TerminalAcessoMovel.exe"/>
+	</Default.Personality>
+</BorlandProject>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/04/13 16:08:39.218.bdsproj,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\Package1.bdsproj=C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\UMSvcIntegraIdeau.bdsproj</Transaction>
+    <Transaction>2010/04/13 16:09:29.000.pas,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\Unit1.pas=C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uSvcIntegraIdeauPessoa.pas</Transaction>
+    <Transaction>2010/04/13 16:09:56.156.pas,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\Unit1.pas=C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uSvcIntegraIdeau.pas</Transaction>
+    <Transaction>2010/04/13 16:11:14.703.pas,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uSvcIntegraIdeau.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\servicos\integraideau\uSvcIntegraIdeau.pas</Transaction>
+    <Transaction>2010/04/13 16:11:18.953.pas,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uSvcIntegraIdeauPessoa.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\servicos\integraideau\uSvcIntegraIdeauPessoa.pas</Transaction>
+    <Transaction>2010/04/13 16:11:22.703.bdsproj,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\UMSvcIntegraIdeau.bdsproj=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\servicos\integraideau\UMSvcIntegraIdeau.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

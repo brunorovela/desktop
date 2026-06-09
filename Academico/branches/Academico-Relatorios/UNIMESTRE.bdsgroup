@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{72BD6145-C1D3-47C3-B566-31C7DE155E8B}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  <Projects>
+      <Projects Name="UMNucleo.bpl">..\..\..\..\sistemas\UMNucleo\fontes\UMNucleo.bdsproj</Projects>
+      <Projects Name="UMUteis.bpl">..\..\..\..\sistemas\UMUteis\fontes\UMUteis.bdsproj</Projects>
+      <Projects Name="Unimestre_relatorios.exe">fontes\Unimestre_relatorios.bdsproj</Projects>
+      <Projects Name="Targets">UMNucleo.bpl UMUteis.bpl Unimestre_relatorios.exe</Projects>
+    </Projects>
+    <Dependencies>
+      <Dependency GUID="{4BD5F5DC-EDBD-44C5-A996-8935D006D39B}">
+        <Dependency GUID="{2AF54C37-934C-4EAF-B4FD-BB708B4709DA}"/>
+      </Dependency>
+      <Dependency GUID="{E1A979B7-327C-4A37-95D3-6D1D46AF1AB3}">
+        <Dependency GUID="{4BD5F5DC-EDBD-44C5-A996-8935D006D39B}"/>
+        <Dependency GUID="{2AF54C37-934C-4EAF-B4FD-BB708B4709DA}"/>
+      </Dependency>
+    </Dependencies>
+  </Default.Personality>
+	<StarTeamAssociation></StarTeamAssociation>
+	<StarTeamNonRelativeFiles></StarTeamNonRelativeFiles>
+</BorlandProject>

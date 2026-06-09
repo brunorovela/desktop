@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/06/20 10:57:15.042.pas,C:\Users\Amauri\Documents\Borland Studio Projects\Unit1.pas=D:\Programacao\Desenvolvimento\Unimestre\configuraini\uConfiguraIni.pas</Transaction>
+    <Transaction>2013/06/20 10:57:15.042.dfm,C:\Users\Amauri\Documents\Borland Studio Projects\Unit1.dfm=D:\Programacao\Desenvolvimento\Unimestre\configuraini\uConfiguraIni.dfm</Transaction>
+    <Transaction>2013/06/20 10:57:26.902.bdsproj,C:\Users\Amauri\Documents\Borland Studio Projects\Project1.bdsproj=D:\Programacao\Desenvolvimento\Unimestre\configuraini\ConfiguracaoIni.bdsproj</Transaction>
+    <Transaction>2013/08/29 08:42:28.651.bdsproj,D:\Programacao\Desenvolvimento\Unimestre\configuraini\ConfiguracaoIni.bdsproj=D:\Programacao\Desenvolvimento\Unimestre\configuraini\trunk\ConfiguracaoIni.bdsproj</Transaction>
+    <Transaction>2013/08/29 08:43:00.121.pas,D:\Programacao\Desenvolvimento\Unimestre\configuraini\uConfiguraIni.pas=D:\Programacao\Desenvolvimento\Unimestre\configuraini\trunk\fontes\uConfiguraIni.pas</Transaction>
+    <Transaction>2013/08/29 08:43:00.121.dfm,D:\Programacao\Desenvolvimento\Unimestre\configuraini\uConfiguraIni.dfm=D:\Programacao\Desenvolvimento\Unimestre\configuraini\trunk\fontes\uConfiguraIni.dfm</Transaction>
+    <Transaction>2013/08/29 08:44:36.335.pas,D:\Programacao\Desenvolvimento\Unimestre\configuraini\trunk\fontes\uConfiguraIni.pas=D:\Programacao\Desenvolvimento\Unimestre\configuraini\uConfiguraIni.pas</Transaction>
+    <Transaction>2013/08/29 08:44:36.335.dfm,D:\Programacao\Desenvolvimento\Unimestre\configuraini\trunk\fontes\uConfiguraIni.dfm=D:\Programacao\Desenvolvimento\Unimestre\configuraini\uConfiguraIni.dfm</Transaction>
+    <Transaction>2013/08/29 08:45:19.979.bdsproj,D:\Programacao\Desenvolvimento\Unimestre\configuraini\trunk\ConfiguracaoIni.bdsproj=D:\Programacao\Desenvolvimento\Unimestre\configuraini\ConfiguracaoIni.bdsproj</Transaction>
+    <Transaction>2013/08/29 08:47:48.970.pas,C:\Users\Amauri\Desktop\teste\uConfiguraIni.pas=D:\Programacao\Desenvolvimento\Unimestre\configuraini\trunk\fontes\uConfiguraIni.pas</Transaction>
+    <Transaction>2013/08/29 08:47:48.970.dfm,C:\Users\Amauri\Desktop\teste\uConfiguraIni.dfm=D:\Programacao\Desenvolvimento\Unimestre\configuraini\trunk\fontes\uConfiguraIni.dfm</Transaction>
+    <Transaction>2013/08/29 08:48:05.222.bdsproj,C:\Users\Amauri\Desktop\teste\ConfiguracaoIni.bdsproj=D:\Programacao\Desenvolvimento\Unimestre\configuraini\trunk\exe\ConfiguracaoIni.bdsproj</Transaction>
+    <Transaction>2013/08/29 09:01:19.850.bdsproj,D:\Programacao\Desenvolvimento\Unimestre\configuraini\trunk\exe\ConfiguracaoIni.bdsproj=D:\Programacao\Desenvolvimento\Unimestre\configuraini\trunk\fontes\ConfiguracaoIni.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

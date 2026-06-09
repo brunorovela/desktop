@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/03/07 10:50:29.000.608,=D:\Projetos\SDK_Exemplos\SDK_Exemplos 3.0.1\Projeto SDK\GeradorVersaoSDK\PackagePadrao\SDK-EasyInner\Exemplos\Delphi\Unit1.pas</Transaction>
+    <Transaction>2016/03/07 10:50:45.000.236,D:\Projetos\SDK_Exemplos\SDK_Exemplos 3.0.1\Projeto SDK\GeradorVersaoSDK\PackagePadrao\SDK-EasyInner\Exemplos\Delphi\Unit1.pas=D:\Projetos\SDK_Exemplos\SDK_Exemplos 3.0.1\Projeto SDK\GeradorVersaoSDK\PackagePadrao\SDK-EasyInner\Exemplos\Delphi\Entity\Utils.pas</Transaction>
+  </Transactions>
+</BorlandProject>

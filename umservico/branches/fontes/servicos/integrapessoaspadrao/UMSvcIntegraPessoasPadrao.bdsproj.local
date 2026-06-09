@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/09/25 10:02:05.707.bdsproj,C:\Users\Amauri\Documents\Borland Studio Projects\Package1.bdsproj=D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrapessoaspadrao\UMSvcIntegraPessoasPadrao.bdsproj</Transaction>
+    <Transaction>2013/09/25 10:04:18.604.pas,D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrapessoaspadrao\Unit1.pas=D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrapessoaspadrao\uSvcIntegra.pas</Transaction>
+    <Transaction>2013/09/25 10:04:49.890.pas,D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrapessoaspadrao\Unit1.pas=D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrapessoaspadrao\uSvcIntegraPessoasPadrao.pas</Transaction>
+    <Transaction>2013/09/25 11:24:54.190.pas,D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrabase\uIntegraBase.pas=</Transaction>
+    <Transaction>2013/09/25 17:56:12.389.pas,D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrapessoaspadrao\uSvcIntegraPessoasPadrao.pas=D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrapessoaspadrao\uSvcIntegraPessoa.pas</Transaction>
+    <Transaction>2013/09/25 17:56:21.179.pas,D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrapessoaspadrao\uSvcIntegra.pas=D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrapessoaspadrao\uSvcIntegraPessoasPadrao.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{169FEF4B-47A5-4A52-B671-5B1CF6A0DFEE}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  <Projects>
+      <Projects Name="UMUteis.bpl">..\..\..\..\..\sistemas\UMUteis\fontes\UMUteis.bdsproj</Projects>
+      <Projects Name="UMNucleo.bpl">..\..\..\..\..\sistemas\UMNucleo\fontes\UMNucleo.bdsproj</Projects>
+      <Projects Name="UMConexao.bpl">..\..\..\..\..\sistemas\UMConexao\fontes\UMConexao.bdsproj</Projects>
+      <Projects Name="TerminalAcessoMovel.exe">TerminalAcessoMovel.bdsproj</Projects>
+      <Projects Name="Targets">UMUteis.bpl UMNucleo.bpl UMConexao.bpl TerminalAcessoMovel.exe</Projects>
+    </Projects>
+    <Dependencies>
+      <Dependency GUID="{BF78BFD6-AA13-432A-8558-2FF1B48A9055}">
+        <Dependency GUID="{4BD5F5DC-EDBD-44C5-A996-8935D006D39B}"/>
+        <Dependency GUID="{2AF54C37-934C-4EAF-B4FD-BB708B4709DA}"/>
+        <Dependency GUID="{C068A8B2-3480-42D1-B8E8-9CE9B44FC624}"/>
+      </Dependency>
+    </Dependencies>
+  </Default.Personality>
+	<StarTeamAssociation></StarTeamAssociation>
+	<StarTeamNonRelativeFiles></StarTeamNonRelativeFiles>
+</BorlandProject>

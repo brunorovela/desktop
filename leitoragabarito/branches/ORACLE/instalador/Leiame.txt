@@ -1,0 +1,56 @@
+=========================================================
+ATUALIZAÇÃO DO UNIMESTRE
+=========================================================
+
+
+Aviso!
+
+   A Forma de Controle de Versões foi alterada!! Agora, o UNI-MESTRE adota uma sequencia numérica normal, não mais vinculada ao ano. Essa versão será a 1.0.2.0!
+
+Regras que usamos na alteração de Versões:
+
+   X.0.0.0 - Alteramos esse número (X) quando há mudanças completas no sistema.
+      Ex: Integração dos Módulos.
+   0.X.0.0 - Alteramos esse número (X) quando há grande mudanças no sistema.
+      Ex: Inclusão de uma nova funcionalidade como o Contas a Pagar.
+   0.0.X.0 - Alteramos esse número (X) quando há mudanças normais no sistema.
+      Ex: Inclusão de uma tela de cadastro de aulas;
+   0.0.0.X - Alteramos esse número (X) quando há pequenas correções no sistema.
+      Ex: Identificação de bugs, etc.
+
+==========================================================
+Histórico de Alterações:
+==========================================================
+
+   1.0.2.20 - Corrigido erro no sorteio aleatório de gabaritos.
+
+   1.0.2.16 - Corrigida uma falha no cadastro de turmas na prova.
+
+   1.0.2.15 - Colocado ZERO quando cadastra uma questão somatória com resposta menor que 10
+
+   1.0.2.14 - Corrigido um problema na correção de gabaritos com mais de um cartão
+            - Implementado um CHECKBOX no ato da correção, se este estiver desligado, a correção ficará mais rápida, pois o sistema não irá contabilizar cada acerto/erro. Para fazer esta contagem, poderá então usar o "Recalcular gabaritos" na tela de visualizar correções.
+
+   1.0.2.13 - Implementadas duas colunas na listagem de respostas de cada aluno: disciplina e peso. Assim pode-se verificar estas informações na conferência do gabarito
+
+   1.0.2.8 - Corrigida uma falha no re-cálculo de gabaritos. A soma dos acertos total na prova estava incorreta em alguns casos.
+	   - Corrigido um problema na atribuição de notas de provas com peso menor que 10.
+
+   1.0.2.6 - Corrigida uma falha na re-cálculo de gabaritos. Caso um aluno respondesse uma letra numa somatória, o sistema gerava um erro.
+	   - Corrigido o problema de não aparecer a versão na barra de título do módulo
+
+   1.0.2.5 - Corrigido um problema ao se amarrar turmas na prova
+
+   1.0.2.3 - Corrigido um problema na atribuição de notas em provas com peso total quebrado
+	   - Implementao o sistema para que aceite gabaritos com mais questões do que o número constante nos cartões de resposta
+
+   1.0.2.2 - Corrigido um problema na atribuição de notas em provas que utilizavam questões com peso.
+	   - Havia outro problema na atribuição, o sistema atribuia a mesma nota para todo e qualquer bimestre em que o aluno possuisse registro.
+
+   1.0.2.1 - O sistema não estava trabalhando corretamente com notas especiais (RBs) na hora de atribuir as notas. Este problema foi corrigido.
+
+   1.0.2.0 - Acrescentado ao cálculo de somatórias parciais, o modo de cálculo da UFSC.
+           - Correção do recálculo de gabaritos, que contabilizava de forma errada em questões somatórias.
+           - Definidos módulos. É necessário que se verifique as permissões no módulo Acadêmico, em Configurações > Módulos e Usuários.
+
+

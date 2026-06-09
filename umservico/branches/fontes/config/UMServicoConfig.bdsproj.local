@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009/08/07 18:15:04.296.bdsproj,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\Project1.bdsproj=C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\UMServicoConfig.bdsproj</Transaction>
+    <Transaction>2009/08/07 18:15:14.375.pas,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\Unit1.pas=C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uFPirncipa.pas</Transaction>
+    <Transaction>2009/08/07 18:15:14.375.dfm,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\Unit1.dfm=C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uFPirncipa.dfm</Transaction>
+    <Transaction>2009/08/07 18:15:22.093.pas,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uFPirncipa.pas=C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uFPrincipal.pas</Transaction>
+    <Transaction>2009/08/07 18:15:22.093.dfm,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uFPirncipa.dfm=C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uFPrincipal.dfm</Transaction>
+    <Transaction>2009/08/07 18:15:38.734.pas,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uFPrincipal.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFPrincipal.pas</Transaction>
+    <Transaction>2009/08/07 18:15:38.734.dfm,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\uFPrincipal.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFPrincipal.dfm</Transaction>
+    <Transaction>2009/08/07 18:15:41.140.bdsproj,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\UMServicoConfig.bdsproj=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\UMServicoConfig.bdsproj</Transaction>
+    <Transaction>2009/08/10 09:25:10.531.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFConfig.pas</Transaction>
+    <Transaction>2009/08/10 09:25:10.531.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFConfig.dfm</Transaction>
+    <Transaction>2009/08/10 09:35:05.359.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFConfig.pas=</Transaction>
+    <Transaction>2009/08/10 09:35:05.359.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFConfig.dfm=</Transaction>
+    <Transaction>2009/08/10 09:37:09.343.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFBiblioshop.pas</Transaction>
+    <Transaction>2009/08/10 09:37:09.343.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFBiblioshop.dfm</Transaction>
+    <Transaction>2009/08/10 09:58:55.984.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFTasy.pas</Transaction>
+    <Transaction>2009/08/10 09:58:55.984.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFTasy.dfm</Transaction>
+    <Transaction>2009/08/10 10:01:28.093.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFBorges.pas</Transaction>
+    <Transaction>2009/08/10 10:01:28.093.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFBorges.dfm</Transaction>
+    <Transaction>2009/08/10 10:06:47.671.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.pas</Transaction>
+    <Transaction>2009/08/10 10:06:47.671.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.dfm</Transaction>
+    <Transaction>2009/08/11 15:13:55.421.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uSvcConfClasses.pas</Transaction>
+    <Transaction>2009/08/12 11:08:45.046.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFSplash.pas</Transaction>
+    <Transaction>2009/08/12 11:08:45.062.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFSplash.dfm</Transaction>
+    <Transaction>2009/08/12 14:45:07.687.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecado.pas</Transaction>
+    <Transaction>2009/08/12 14:45:07.687.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecado.dfm</Transaction>
+    <Transaction>2009/08/13 13:02:07.343.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados_.pas</Transaction>
+    <Transaction>2009/08/13 13:02:07.343.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados_.dfm</Transaction>
+    <Transaction>2009/08/13 13:02:33.203.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.pas</Transaction>
+    <Transaction>2009/08/13 13:02:33.203.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.dfm</Transaction>
+    <Transaction>2009/08/13 13:02:39.640.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados.pas</Transaction>
+    <Transaction>2009/08/13 13:02:39.640.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados.dfm</Transaction>
+    <Transaction>2009/08/13 15:06:26.921.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados_.pas=</Transaction>
+    <Transaction>2009/08/13 15:06:26.921.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados_.dfm=</Transaction>
+    <Transaction>2009/08/14 19:14:46.093.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFLogin.pas</Transaction>
+    <Transaction>2009/08/14 19:14:46.109.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFLogin.dfm</Transaction>
+    <Transaction>2010/02/25 08:24:20.828.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados_.pas</Transaction>
+    <Transaction>2010/02/25 08:24:20.828.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados_.dfm</Transaction>
+    <Transaction>2010/02/25 08:24:42.937.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit2.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.pas</Transaction>
+    <Transaction>2010/02/25 08:24:42.937.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit2.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.dfm</Transaction>
+    <Transaction>2010/02/25 08:25:01.578.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados.pas</Transaction>
+    <Transaction>2010/02/25 08:25:01.578.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFRecados.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados.dfm</Transaction>
+    <Transaction>2010/02/25 18:24:21.765.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados_.pas=</Transaction>
+    <Transaction>2010/02/25 18:24:21.781.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\recados\uFRecados_.dfm=</Transaction>
+    <Transaction>2010/02/26 15:08:57.375.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFSplash.pas=</Transaction>
+    <Transaction>2010/02/26 15:08:57.390.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFSplash.dfm=</Transaction>
+    <Transaction>2010/02/26 19:32:43.796.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit2.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFConexao.pas</Transaction>
+    <Transaction>2010/02/26 19:32:43.796.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit2.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFConexao.dfm</Transaction>
+    <Transaction>2010/03/09 14:35:59.093.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit2.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFSplashScreen.pas</Transaction>
+    <Transaction>2010/03/09 14:35:59.093.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\Unit2.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\config\uFSplashScreen.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

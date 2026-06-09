@@ -1,0 +1,27 @@
+unit UCadastroComissao;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls;
+
+type
+  TfrmCadastroComissao = class(TForm)
+    Panel3: TPanel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroComissao: TfrmCadastroComissao;
+
+implementation
+
+uses uDM;
+
+{$R *.dfm}
+
+end.

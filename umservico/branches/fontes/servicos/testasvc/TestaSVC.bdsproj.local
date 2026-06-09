@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/04/23 14:47:45.758.pas,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\Unit1.pas=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\testasvc\uTestaSvc.pas</Transaction>
+    <Transaction>2008/04/23 14:47:45.774.dfm,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\Unit1.dfm=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\testasvc\uTestaSvc.dfm</Transaction>
+    <Transaction>2008/04/23 14:47:50.222.bdsproj,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\Project1.bdsproj=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\testasvc\TestaSVC.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

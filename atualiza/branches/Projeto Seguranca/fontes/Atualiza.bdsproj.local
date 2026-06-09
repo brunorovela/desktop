@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2012/02/15 10:19:25.563.bdsproj,C:\Users\JosimarDell\Documents\Borland Studio Projects\Project1.bdsproj=C:\Users\JosimarDell\Documents\Borland Studio Projects\Atualiza.bdsproj</Transaction>
+    <Transaction>2012/02/15 10:19:36.490.pas,C:\Users\JosimarDell\Documents\Borland Studio Projects\Unit1.pas=C:\Users\JosimarDell\Documents\Borland Studio Projects\UFPrincipal.pas</Transaction>
+    <Transaction>2012/02/15 10:19:36.490.dfm,C:\Users\JosimarDell\Documents\Borland Studio Projects\Unit1.dfm=C:\Users\JosimarDell\Documents\Borland Studio Projects\UFPrincipal.dfm</Transaction>
+    <Transaction>2012/02/15 10:19:57.800.pas,C:\Users\JosimarDell\Documents\Borland Studio Projects\UFPrincipal.pas=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\UFPrincipal.pas</Transaction>
+    <Transaction>2012/02/15 10:19:57.800.dfm,C:\Users\JosimarDell\Documents\Borland Studio Projects\UFPrincipal.dfm=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\UFPrincipal.dfm</Transaction>
+    <Transaction>2012/02/15 10:20:10.483.bdsproj,C:\Users\JosimarDell\Documents\Borland Studio Projects\Atualiza.bdsproj=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\Atualiza.bdsproj</Transaction>
+    <Transaction>2012/02/15 10:24:30.560.pas,D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\Unit1.pas=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\UDM.pas</Transaction>
+    <Transaction>2012/02/15 10:24:30.560.dfm,D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\UDM.dfm</Transaction>
+    <Transaction>2012/02/15 10:26:19.248.pas,D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\Unit1.pas=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\UFLogin.pas</Transaction>
+    <Transaction>2012/02/15 10:26:19.248.dfm,D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\UFLogin.dfm</Transaction>
+    <Transaction>2012/02/15 13:58:56.272.pas,D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\Unit1.pas=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\UFunctions.pas</Transaction>
+    <Transaction>2012/02/15 14:40:22.365.pas,D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\Unit1.pas=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\UFConexao.pas</Transaction>
+    <Transaction>2012/02/15 14:40:22.365.dfm,D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\UFConexao.dfm</Transaction>
+    <Transaction>2012/03/28 15:56:58.733.sql,D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\atualizacao.sql=</Transaction>
+    <Transaction>2012/05/11 15:10:01.077.pas,D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\Unit1.pas=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\UDMNotify.pas</Transaction>
+    <Transaction>2012/05/11 15:10:01.077.dfm,D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\atualiza\branches\versao2\fontes\UDMNotify.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

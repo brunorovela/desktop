@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{A22C1CC5-C910-4A9A-8EBA-50BBFAE293CC}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  <Projects>
+      <Projects Name="UMConexao.bpl">..\..\..\..\..\sistemas\UMConexao\fontes\UMConexao.bdsproj</Projects>
+      <Projects Name="core.bpl">core\core.bdsproj</Projects>
+      <Projects Name="henry7x.bpl">henry7x\henry7x.bdsproj</Projects>
+      <Projects Name="henry8x.bpl">henry8x\henry8x.bdsproj</Projects>
+      <Projects Name="inner.bpl">inner\inner.bdsproj</Projects>
+      <Projects Name="umcatracas.exe">service\umcatracas.bdsproj</Projects>
+      <Projects Name="umGuardianCatracas.exe">app\umGuardianCatracas.bdsproj</Projects>
+      <Projects Name="umSocket.exe">app\simulador\umSocket.bdsproj</Projects>
+      <Projects Name="umCatracaDesktop.exe">desktop\umCatracaDesktop.bdsproj</Projects>
+      <Projects Name="Targets">UMConexao.bpl core.bpl henry7x.bpl henry8x.bpl inner.bpl umcatracas.exe umGuardianCatracas.exe umSocket.exe umCatracaDesktop.exe</Projects>
+    </Projects>
+    <Dependencies>
+      <Dependency GUID="{CB6AAFA8-B58E-4CCE-8683-B1603B1807E6}">
+        <Dependency GUID="{148657BB-26D2-44A3-869F-BA86645BE933}"/>
+      </Dependency>
+      <Dependency GUID="{270A352C-1E38-429D-8685-D1256590E1A5}">
+        <Dependency GUID="{148657BB-26D2-44A3-869F-BA86645BE933}"/>
+      </Dependency>
+      <Dependency GUID="{AED328E8-B472-4CED-BA49-680731F02885}">
+        <Dependency GUID="{148657BB-26D2-44A3-869F-BA86645BE933}"/>
+        <Dependency GUID="{CB6AAFA8-B58E-4CCE-8683-B1603B1807E6}"/>
+        <Dependency GUID="{270A352C-1E38-429D-8685-D1256590E1A5}"/>
+        <Dependency GUID="{94EC5C10-BA2E-415D-861D-859B2EF9A9C6}"/>
+        <Dependency GUID="{C068A8B2-3480-42D1-B8E8-9CE9B44FC624}"/>
+      </Dependency>
+    </Dependencies>
+  </Default.Personality>
+	<StarTeamAssociation></StarTeamAssociation>
+	<StarTeamNonRelativeFiles></StarTeamNonRelativeFiles>
+</BorlandProject>

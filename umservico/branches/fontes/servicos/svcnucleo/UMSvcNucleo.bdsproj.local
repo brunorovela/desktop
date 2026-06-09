@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/03/31 09:04:55.190.bdsproj,C:\Users\Amauri\Documents\Borland Studio Projects\Package1.bdsproj=D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\svcnucleo\UMSvcNucleo.bdsproj</Transaction>
+    <Transaction>2014/03/31 09:25:02.908.pas,D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\svcnucleo\Unit1.pas=D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\svcnucleo\uUteis.pas</Transaction>
+    <Transaction>2014/03/31 09:26:12.687.pas,D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\svcnucleo\Unit1.pas=D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\svcnucleo\uValidaIntegracao.pas</Transaction>
+    <Transaction>2014/03/31 09:26:39.747.pas,D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\svcnucleo\Unit1.pas=D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\svcnucleo\uRegistraIntegracao.pas</Transaction>
+    <Transaction>2014/04/03 10:35:46.718.pas,D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\svcnucleo\uValidaIntegracao.pas=D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrapessoasarquivo\uValidacaoIntegraca.pas</Transaction>
+    <Transaction>2014/04/03 10:36:05.130.pas,D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\integrapessoasarquivo\uValidacaoIntegraca.pas=</Transaction>
+    <Transaction>2014/04/03 10:36:50.525.pas,D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\svcnucleo\Unit1.pas=D:\Programacao\Desenvolvimento\Unimestre\umservico\branches\fontes\servicos\svcnucleo\uIValidacao.pas</Transaction>
+  </Transactions>
+</BorlandProject>

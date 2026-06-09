@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/04/04 15:44:49.817.bdsgroup,C:\Users\dev\Documents\Borland Studio Projects\ProjectGroup1.bdsgroup=D:\Programacao\Desenvolvimento\UNIMESTRE\academico\branches\ACADEMICO_COLIGADAS\UNIMESTRE.bdsgroup</Transaction>
+  </Transactions>
+	<Default.Personality>
+		<Projects ActiveProject="Unimestre_relatorios.exe"/>
+	</Default.Personality>
+</BorlandProject>

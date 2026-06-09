@@ -1,0 +1,2199 @@
+object fNFSe: TfNFSe
+  Left = 0
+  Top = 0
+  Caption = 'Gera'#231#227'o de Lotes RPS'
+  ClientHeight = 486
+  ClientWidth = 772
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poScreenCenter
+  Visible = True
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pgcAbas: TPageControl
+    Left = 0
+    Top = 0
+    Width = 772
+    Height = 486
+    ActivePage = tbsListaRps
+    Align = alClient
+    Style = tsFlatButtons
+    TabOrder = 0
+    OnChanging = pgcAbasChanging
+    object tbsListaRps: TTabSheet
+      Caption = 'Lista de Lotes Rps'
+      object bvlSep1: TBevel
+        Left = 0
+        Top = 430
+        Width = 764
+        Height = 3
+        Align = alBottom
+        Shape = bsSpacer
+        ExplicitTop = 383
+      end
+      object bvlSep2: TBevel
+        Left = 0
+        Top = 333
+        Width = 764
+        Height = 3
+        Align = alBottom
+        Shape = bsSpacer
+        ExplicitTop = 286
+      end
+      object tlbBotoesLista: TToolBar
+        Left = 0
+        Top = 433
+        Width = 764
+        Height = 22
+        Align = alBottom
+        ButtonWidth = 84
+        Caption = 'tlbBotoesLista'
+        Images = ilImagens
+        List = True
+        ShowCaptions = True
+        TabOrder = 0
+        object btnSep1: TToolButton
+          Left = 0
+          Top = 0
+          Width = 8
+          Style = tbsSeparator
+        end
+        object btnInserir: TToolButton
+          Left = 8
+          Top = 0
+          Caption = 'F2 Inserir'
+          ImageIndex = 0
+          OnClick = btnInserirClick
+        end
+        object btnEditar: TToolButton
+          Left = 92
+          Top = 0
+          Caption = 'F3 Editar'
+          Enabled = False
+          ImageIndex = 1
+          OnClick = btnEditarClick
+        end
+        object btnExcluir: TToolButton
+          Left = 176
+          Top = 0
+          Caption = 'F9 Excluir'
+          Enabled = False
+          ImageIndex = 6
+          OnClick = btnExcluirClick
+        end
+        object btnSep2: TToolButton
+          Left = 260
+          Top = 0
+          Width = 8
+          ImageIndex = 1
+          Style = tbsSeparator
+        end
+        object btnSalvar: TToolButton
+          Left = 268
+          Top = 0
+          Caption = 'F5 Salvar'
+          Enabled = False
+          ImageIndex = 2
+          OnClick = btnSalvarClick
+        end
+        object btnCancelar: TToolButton
+          Left = 352
+          Top = 0
+          Caption = 'F6 Cancelar'
+          Enabled = False
+          ImageIndex = 3
+          OnClick = btnCancelarClick
+        end
+        object btnSep3: TToolButton
+          Left = 436
+          Top = 0
+          Width = 8
+          Caption = 'btnSep3'
+          ImageIndex = 3
+          Style = tbsSeparator
+        end
+        object btnFechar: TToolButton
+          Left = 444
+          Top = 0
+          Caption = 'F12 Fechar'
+          ImageIndex = 4
+          OnClick = btnFecharClick
+        end
+        object btnSep4: TToolButton
+          Left = 528
+          Top = 0
+          Width = 8
+          ImageIndex = 4
+          Style = tbsSeparator
+        end
+      end
+      object pnlFiltros: TPanel
+        Left = 0
+        Top = 336
+        Width = 764
+        Height = 94
+        Align = alBottom
+        BevelOuter = bvNone
+        TabOrder = 1
+        object gbFiltros: TGroupBox
+          Left = 0
+          Top = 0
+          Width = 764
+          Height = 94
+          Align = alClient
+          Caption = 'Filtros:'
+          TabOrder = 0
+          object sbFiltrar: TSpeedButton
+            Left = 697
+            Top = 23
+            Width = 51
+            Height = 55
+            Caption = 'Filtrar'
+            Flat = True
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFDDD4CA8B6F528B6F52DCD1C6FFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8B6F52C3
+              AC8FC2AC8F8B6F52FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFF8B6F52C7B195C7B0948B6F52FFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8B6F52CA
+              B499C9B3988B6F52FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFF8B6F52CDB89ECCB89E8B6F52FFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8B6F52D0
+              BDA4CFBCA38B6F52FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFF8B6F52D3C1A9D3C1A98B6F52FFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8B6F52D6
+              C5AFD6C5AE8B6F52FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFF8B6F52D9C9B4D9C9B48B6F52FFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFCFBF9BBA893A58D73957B5E957B5E8B6F52D4
+              BEA3D3BEA38B6F52ECE6DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAF8F6AA9072
+              F8F6F3FEFEFDF1EDE88B6F52DFCEB6D2BCA1D2BCA0DFCEB78B6F52ECE6DEFFFF
+              FFFFFFFFFFFFFFFFFFFFBEAC97E6DCD0FFFFFFFEFEFD8B6F52E5D6C1DDCCB4E1
+              D2BCE1D1BCDDCBB4E5D6C28B6F52ECE6DEFFFFFFFFFFFFFFFFFFA89279EAE2D8
+              FFFEFE8B6F52E8DAC7E2D3BEE7DBC8E9DFCDE9DFCDE6DAC7E1D2BCE8D9C68B6F
+              52ECE6DEFFFFFFFFFFFFCCC0B2B89D7D8B6F52EADDCAE6DAC7EDE3D4F1EADEF4
+              EEE5F4EEE5F1EBDEEDE3D4E6D9C6EADECB8B6F52EBE5DEFFFFFFF0EAE48B6F52
+              F2E9D8F0E5D6F4ECDEF8F2E8FCF7F0FFFBF7FFFBF7FCF7F0F8F2E8F4ECDFF0E5
+              D5F4EADA8B6F52E7DFD68B6F528B6F528B6F528B6F528B6F528B6F528B6F528B
+              6F528B6F528B6F528B6F528B6F528B6F528B6F528B6F528B6F52}
+            Layout = blGlyphTop
+            OnClick = sbFiltrarClick
+          end
+          object rgSituacao: TRadioGroup
+            Left = 13
+            Top = 19
+            Width = 336
+            Height = 61
+            BiDiMode = bdLeftToRight
+            Caption = 'Situa'#231#227'o:'
+            Columns = 2
+            ItemIndex = 3
+            Items.Strings = (
+              'N'#227'o Processado'
+              'Processado com erros'
+              'Processado com sucesso'
+              'Todos')
+            ParentBiDiMode = False
+            TabOrder = 0
+          end
+          object gbDataEnvio: TGroupBox
+            Left = 355
+            Top = 19
+            Width = 336
+            Height = 61
+            Caption = 'Data de Envio:'
+            TabOrder = 1
+            object lblDataEnvioAte: TLabel
+              Left = 161
+              Top = 27
+              Width = 21
+              Height = 13
+              Caption = 'At'#233':'
+              Enabled = False
+            end
+            object dtpDataEnvioDe: TDateTimePicker
+              Left = 55
+              Top = 24
+              Width = 100
+              Height = 21
+              Date = 40371.000000000000000000
+              Time = 40371.000000000000000000
+              Enabled = False
+              TabOrder = 0
+            end
+            object dtpDataEnvioAte: TDateTimePicker
+              Left = 188
+              Top = 24
+              Width = 100
+              Height = 21
+              Date = 40371.000000000000000000
+              Time = 40371.000000000000000000
+              Enabled = False
+              TabOrder = 1
+            end
+            object chkDataEnvioDe: TCheckBox
+              Left = 16
+              Top = 25
+              Width = 33
+              Height = 18
+              Caption = 'De:'
+              TabOrder = 2
+              OnClick = chkDataEnvioDeClick
+            end
+          end
+        end
+      end
+      object pnlGeral: TPanel
+        Left = 0
+        Top = 0
+        Width = 764
+        Height = 333
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 2
+        object splSep1: TSplitter
+          Left = 425
+          Top = 0
+          Height = 333
+          ExplicitLeft = 592
+          ExplicitTop = 168
+          ExplicitHeight = 100
+        end
+        object pnlListaRps: TPanel
+          Left = 0
+          Top = 0
+          Width = 425
+          Height = 333
+          Align = alLeft
+          BevelOuter = bvNone
+          TabOrder = 0
+          object bvlSep3: TBevel
+            Left = 0
+            Top = 20
+            Width = 425
+            Height = 3
+            Align = alTop
+            Shape = bsSpacer
+            ExplicitLeft = 168
+            ExplicitTop = 168
+            ExplicitWidth = 50
+          end
+          object pnlListaRpsTit: TPanel
+            Left = 0
+            Top = 0
+            Width = 425
+            Height = 20
+            Align = alTop
+            BevelOuter = bvLowered
+            Caption = 'LISTA DE LOTES RPS'
+            Color = clBlue
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindow
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+          end
+          object dbgLotesRps: TDBGrid
+            Left = 0
+            Top = 23
+            Width = 425
+            Height = 310
+            Align = alClient
+            DataSource = dsLotesRps
+            Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
+            ReadOnly = True
+            TabOrder = 1
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+            Columns = <
+              item
+                Expanded = False
+                FieldName = 'cd_nfse_rps_xml'
+                Title.Caption = 'C'#243'digo'
+                Width = 51
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'lookupSituacao'
+                Title.Caption = 'Situa'#231#227'o'
+                Width = 170
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'dt_criacao'
+                Title.Caption = 'Data Cria'#231#227'o'
+                Width = 83
+                Visible = True
+              end
+              item
+                Expanded = False
+                FieldName = 'dt_envio'
+                Title.Caption = 'Data Envio'
+                Width = 81
+                Visible = True
+              end>
+          end
+        end
+        object pnlDadosRps: TPanel
+          Left = 428
+          Top = 0
+          Width = 336
+          Height = 333
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 1
+          object bvlSep4: TBevel
+            Left = 0
+            Top = 20
+            Width = 336
+            Height = 3
+            Align = alTop
+            Shape = bsSpacer
+            ExplicitLeft = 104
+            ExplicitTop = 144
+            ExplicitWidth = 50
+          end
+          object lblSituacao: TLabel
+            Left = 6
+            Top = 29
+            Width = 45
+            Height = 13
+            Caption = 'Situa'#231#227'o:'
+          end
+          object lblDataEnvio: TLabel
+            Left = 6
+            Top = 83
+            Width = 71
+            Height = 13
+            Caption = 'Data de Envio:'
+          end
+          object lblProtocolo: TLabel
+            Left = 6
+            Top = 136
+            Width = 49
+            Height = 13
+            Caption = 'Protocolo:'
+          end
+          object sbGerarXML: TSpeedButton
+            Left = 6
+            Top = 182
+            Width = 147
+            Height = 27
+            Caption = 'Gerar XML'
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000C30E0000C30E00000000000000000000FFFFFF000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000FFFFFFFFFFFF9B9C9B9B9C9B63656363656363656363656363656363
+              65636365636365636365636365636365639B9C9B000000FFFFFF636563CECFCE
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFCECF
+              CE6365639B9C9B000000636563CECFCE63656363656363656363656363656363
+              6563636563636563636563636563CECFCE636563636563000000636563CECFCE
+              CECFCECECFCECECFCECECFCECECFCECECFCECECFCECECFCECECFCECECFCECECF
+              CE636563636563000000636563CECFCECECFCECECFCECECFCECECFCECECFCECE
+              CFCECECFCECECFCECECFCE009A0000FF006365636365630000009B9C9BFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FF636563636563000000FFFFFF9B9C9BF3F3F3CECFCECECFCECECFCECECFCECE
+              CFCECECFCECECFCECECFCECECFCECECFCECECFCE9B9C9B000000FFFFFFFFFFFF
+              9B9C9B9B9C9B9B9C9B9B9C9B9B9C9B9B9C9B0000009B9C9B9B9C9B9B9C9B9B9C
+              9B9B9C9B9B9C9BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3E
+              B3FF00CFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFF3EB3FF46DDFF00CFFF46DDFF000000FFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3EB3FF3EB3FF3E
+              B3FF00CFFF000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3EB3FF00CFFF000000FFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3E
+              B3FF00CFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3EB3FF00CFFF000000FFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3E
+              B3FF009AFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            OnClick = sbGerarXMLClick
+          end
+          object sbTitulos: TSpeedButton
+            Left = 6
+            Top = 215
+            Width = 147
+            Height = 27
+            Caption = 'Ver T'#237'tulos'
+            Glyph.Data = {
+              F6000000424DF600000000000000760000002800000010000000100000000100
+              04000000000080000000CE0E0000D80E00001000000000000000000000000000
+              80000080000000808000800000008000800080800000C0C0C000808080000000
+              FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00222222222222
+              222200000000000022000FFFFFFFFFF020000FFFFFFF000080020FFFFFF08778
+              08220FFFFF0877E880220FFFFF07777870220FFFFF07E77870220FFFFF08EE78
+              80220FFFFFF0877802220FFFFFFF000022220FFFFFFFFFF022220FFFFFFF0000
+              22220FFFFFFF070222220FFFFFFF002222220000000002222222}
+            OnClick = sbTitulosClick
+          end
+          object sbRecriar: TSpeedButton
+            Left = 223
+            Top = 48
+            Width = 98
+            Height = 21
+            Caption = 'Recriar Lote'
+            Flat = True
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000C30E0000C30E00000000000000000000FFFFFF000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000FFFFFFFFFFFF9B9C9B9B9C9B63656363656363656363656363656363
+              65636365636365636365636365636365639B9C9B000000FFFFFF636563CECFCE
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFCECF
+              CE6365639B9C9B000000636563CECFCE63656363656363656363656363656363
+              6563636563636563636563636563CECFCE636563636563000000636563CECFCE
+              CECFCECECFCECECFCECECFCECECFCECECFCECECFCECECFCECECFCECECFCECECF
+              CE636563636563000000636563CECFCECECFCECECFCECECFCECECFCECECFCECE
+              CFCECECFCECECFCECECFCE009A0000FF006365636365630000009B9C9BFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FF636563636563000000FFFFFF9B9C9BF3F3F3CECFCECECFCECECFCECECFCECE
+              CFCECECFCECECFCECECFCECECFCECECFCECECFCE9B9C9B000000FFFFFFFFFFFF
+              9B9C9B9B9C9B9B9C9B9B9C9B9B9C9B9B9C9B0000009B9C9B9B9C9B9B9C9B9B9C
+              9B9B9C9B9B9C9BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3E
+              B3FF00CFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFF3EB3FF46DDFF00CFFF46DDFF000000FFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3EB3FF3EB3FF3E
+              B3FF00CFFF000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3EB3FF00CFFF000000FFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3E
+              B3FF00CFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3EB3FF00CFFF000000FFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3E
+              B3FF009AFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            OnClick = sbRecriarClick
+          end
+          object pnlDadosRpsTit: TPanel
+            Left = 0
+            Top = 0
+            Width = 336
+            Height = 20
+            Align = alTop
+            BevelOuter = bvLowered
+            Caption = 'DADOS DO LOTE RPS'
+            Color = clBlue
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindow
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+          end
+          object dblcSituacao: TDBLookupComboBox
+            Left = 6
+            Top = 48
+            Width = 211
+            Height = 21
+            DataField = 'lookupSituacao'
+            DataSource = dsLotesRps
+            TabOrder = 1
+          end
+          object dbeDataEnvio: TDBEdit
+            Left = 6
+            Top = 102
+            Width = 195
+            Height = 21
+            DataField = 'dt_envio'
+            DataSource = dsLotesRps
+            TabOrder = 2
+          end
+          object dbeProtocolo: TDBEdit
+            Left = 6
+            Top = 155
+            Width = 315
+            Height = 21
+            DataField = 'ds_protocolo'
+            DataSource = dsLotesRps
+            TabOrder = 3
+          end
+        end
+      end
+    end
+    object tbsNovoRps: TTabSheet
+      Caption = '[Cadastrar novo Lote Rps]'
+      ImageIndex = 1
+      object bvlSep5: TBevel
+        Left = 0
+        Top = 20
+        Width = 764
+        Height = 3
+        Align = alTop
+        Shape = bsSpacer
+        ExplicitLeft = 336
+        ExplicitTop = 152
+        ExplicitWidth = 50
+      end
+      object lblAnoSemestre: TLabel
+        Left = 8
+        Top = 30
+        Width = 72
+        Height = 13
+        Caption = 'Ano/Semestre:'
+      end
+      object lblDepto: TLabel
+        Left = 8
+        Top = 58
+        Width = 73
+        Height = 13
+        Caption = 'Departamento:'
+      end
+      object lblCurso: TLabel
+        Left = 8
+        Top = 85
+        Width = 32
+        Height = 13
+        Caption = 'Curso:'
+      end
+      object lblTurma: TLabel
+        Left = 8
+        Top = 112
+        Width = 34
+        Height = 13
+        Caption = 'Turma:'
+      end
+      object lblParcelaAte: TLabel
+        Left = 591
+        Top = 30
+        Width = 21
+        Height = 13
+        Caption = 'At'#233':'
+        Enabled = False
+      end
+      object lblDataVenctoAte: TLabel
+        Left = 630
+        Top = 58
+        Width = 21
+        Height = 13
+        Caption = 'At'#233':'
+        Enabled = False
+      end
+      object lblDataPagtoAte: TLabel
+        Left = 630
+        Top = 85
+        Width = 21
+        Height = 13
+        Caption = 'At'#233':'
+        Enabled = False
+      end
+      object lblDataCompAte: TLabel
+        Left = 630
+        Top = 112
+        Width = 21
+        Height = 13
+        Caption = 'At'#233':'
+        Enabled = False
+      end
+      object bvlSep6: TBevel
+        Left = 0
+        Top = 430
+        Width = 764
+        Height = 3
+        Align = alBottom
+        Shape = bsSpacer
+        ExplicitLeft = 3
+        ExplicitTop = 439
+      end
+      object bvlSep7: TBevel
+        Left = 0
+        Top = 354
+        Width = 764
+        Height = 3
+        Align = alBottom
+        Shape = bsSpacer
+        ExplicitLeft = 336
+        ExplicitTop = 288
+        ExplicitWidth = 50
+      end
+      object lblAlunos: TLabel
+        Left = 8
+        Top = 144
+        Width = 222
+        Height = 13
+        Caption = 'N'#227'o incluir os seguintes alunos no filtro:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object sbAdicionaAluno: TSpeedButton
+        Left = 324
+        Top = 213
+        Width = 23
+        Height = 22
+        Enabled = False
+        Flat = True
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000000000000000000000000000000000000FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00000000000000000000000000FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FF00FF0000000000FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FF00FF0000000000FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF0000000000000000000000000000000000FF00FF00000000000000
+          00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF0000000000000000000000000000000000FF00FF00000000000000
+          00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FF00FF0000000000FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FF00FF0000000000FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00000000000000000000000000FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+        Layout = blGlyphBottom
+        OnClick = sbAdicionaAlunoClick
+      end
+      object sbExcluiAluno: TSpeedButton
+        Left = 324
+        Top = 241
+        Width = 23
+        Height = 22
+        Enabled = False
+        Flat = True
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000000000000000000000000000000000000FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF000000000000000000FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF0000000000FFFFFF00FF00FF00FF00FF00FF00
+          FF00FF00FF000000000000000000FFFFFF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF0000000000FFFFFF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF000000000000000000FFFFFF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF0000000000FFFFFF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00000000000000000000000000FFFFFF00FF00FF00FF00FF00FF00
+          FF000000000000000000FFFFFF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00000000000000000000000000FFFFFF00FF00FF000000
+          000000000000FFFFFF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00000000000000000000000000000000000000
+          0000FFFFFF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00000000000000000000000000FFFF
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00000000000000000000000000000000000000
+          0000FFFFFF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00000000000000000000000000FFFFFF00FF00FF000000
+          000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00000000000000000000000000FFFFFF00FF00FF00FF00FF00FF00
+          FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF000000
+          0000000000000000000000000000FFFFFF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF000000000000000000FFFFFF00FF00FF00FF00FF00FF00FF000000
+          000000000000FFFFFF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+        Layout = blGlyphBottom
+        OnClick = sbExcluiAlunoClick
+      end
+      object sbLimpaAlunos: TSpeedButton
+        Left = 324
+        Top = 269
+        Width = 23
+        Height = 22
+        Enabled = False
+        Flat = True
+        Glyph.Data = {
+          36060000424D3606000000000000360000002800000020000000100000000100
+          18000000000000060000600F0000600F00000000000000000000FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFF5F5F28D8DB0737391D5D6D2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8F8F8B7B7B7A5A5A5E3E3E3FF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFA
+          AFAFA83A3995302FF0312FE625259D7C7C8ED3D4CEFDFDFDFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEC7C7C78686868E8E8E8C8C8C7C7C7CA9
+          A9A9E1E1E1FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8F8F57C7C9F
+          1F1EBD4140FF4140F23837DD4342FB3230E321208C454549C8C8C5FFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFAFAFAACACAC7D7D7D9A9A9A9797978F8F8F9A9A9A8D
+          8D8D777777818181D9D9D9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7A7AA33130E5
+          4746FF4241FF4947FF2A28A22D2CB34746FF3F3EF421206D5B5B498E8E91EAEB
+          EAFFFFFFFFFFFFFFFFFFABABAB8C8C8C9C9C9C9A9A9A9F9F9F7F7F7F8383839D
+          9D9D9797977373738D8D8DB3B3B3F1F1F1FFFFFFFFFFFFFFFFFF6C6CAD3E3DFF
+          4342FF4544FF3D3CEF302FC41F1F822929A34241FF2C2BD57C7C8BE9EADD6463
+          6AA0A0A3FCFCFCFFFFFFA5A5A59898989A9A9A9C9C9C9494948888887575757F
+          7F7F9A9A9A888888A8A8A8EFEFEF979797BFBFBFFDFDFDFFFFFFBEBFCA3D3CDE
+          4241FE3231C72F2EBF4241F74645FF2C2BAF1C1C752322B95151BEEDEDE2FFFF
+          FFA3A3A7818184ECEDEDD5D5D59292929A9A9A8989898686869898989D9D9D83
+          83837272727F7F7F999999F1F1F1FFFFFFC1C1C1AAAAAAF2F2F2F8F8F87070BF
+          2120CC3736DD4644FF4341FF4241FF4544FF4240F82524A802024298989AFFFF
+          FFFFFFFFDCDCDEA6A6A9FAFAFAAAAAAA8181818F8F8F9D9D9D9A9A9A9999999B
+          9B9B9898987D7D7D5D5D5DB9B9B9FFFFFFFFFFFFE8E8E8C3C3C3FFFFFFE6E6E5
+          7A79B44140E63A39FF4140FF4241FF4443FF4241FF2827DE373782C6C6BBCECE
+          CDCFCFD1FFFFFF9E9EA1FFFFFFEEEEEEADADAD9595959696969999999A9A9A9B
+          9B9B9A9A9A878787828282D7D7D7DDDDDDDEDEDEFFFFFFBEBEBEFFFFFFFFFFFF
+          FFFFFFEBEBE79191BB4544D53B3AFC2929C52F2F7D9796A4F2F2E8FFFFFFEAEA
+          EBA5A5A689898B86868AFFFFFFFFFFFFFFFFFFF0F0F0BABABA95959595959585
+          85857D7D7DBABABAF5F5F5FFFFFFF1F1F1C2C2C2B0B0B0ADADADFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFECECECA2A2B4969698E5E5DCFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFF999A9EC2C1C3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2F2F2C3C3C3B8
+          B8B8ECECECFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBBBBBBD5D5D5FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3F3F3D0D0D1CACACBEBEBEBF1F1F2B6B6
+          B9B2B1B4F1F1F2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7
+          F7F7DFDFDFDCDCDCF1F1F1F6F6F6CECECECACACAF6F6F6FFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEEEEEEC3C3C5AEAEB1DADA
+          DBFDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFF4F4F4D7D7D7C8C8C8E7E7E7FEFEFEFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        Layout = blGlyphBottom
+        NumGlyphs = 2
+        OnClick = sbLimpaAlunosClick
+      end
+      object lblTiposTitulo: TLabel
+        Left = 399
+        Top = 144
+        Width = 204
+        Height = 13
+        Caption = 'Incluir os seguintes tipos de t'#237'tulo no filtro:'
+      end
+      object sbDeselecionarTodos: TSpeedButton
+        Left = 728
+        Top = 251
+        Width = 25
+        Height = 22
+        Flat = True
+        Glyph.Data = {
+          76030000424D7603000000000000360000002800000011000000100000000100
+          18000000000040030000C30E0000C30E00000000000000000000FFFFFF999999
+          999999999999999999999999999999999999FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFF999999FFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FF00FFFFFF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF999999FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFF999999FFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFF00FFFFFF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF99
+          9999FFFFFF999999999999999999999999999999999999999999FFFFFF00FFFF
+          FF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF999999FFFFFF999999FFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF999999FFFFFF00FFFFFF9999999999999999999999
+          99999999999999999999FFFFFF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF99
+          9999FFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF999999FFFFFF00FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF999999FFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFF999999FFFFFF00FFFFFF999999999999999999999999999999
+          999999999999FFFFFF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF999999FFFF
+          FF00FFFFFF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF999999FFFFFF999999
+          999999999999999999999999999999999999FFFFFF00FFFFFF999999FFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFF00FFFFFF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF99
+          9999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFF
+          FF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF999999FFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFF999999FFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFF999999FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFF00FFFFFF999999999999999999999999999999999999999999FFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
+        OnClick = sbDeselecionarTodosClick
+      end
+      object sbSelecionarTodos: TSpeedButton
+        Left = 728
+        Top = 229
+        Width = 25
+        Height = 22
+        Flat = True
+        Glyph.Data = {
+          82020000424D8202000000000000420000002800000011000000100000000100
+          10000300000040020000C30E0000C30E00000000000000000000007C0000E003
+          00001F000000FF7F734E734E734E734E734E734E734EFF7FFF7FFF7FFF7FFF7F
+          FF7FFF7FFF7FFF7F0000FF7F734EFF7FFF7FFF7FFF7FFF7F734EFF7FFF7FFF7F
+          FF7FFF7FFF7FFF7FFF7FFF7F0000FF7F734EFF7FFF7F0000FF7FFF7F734EFF7F
+          FF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F0000FF7F734EFF7F0000FF7F0000FF7F
+          734EFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F0000FF7F734EFF7FFF7FFF7F
+          FF7F0000734EFF7F734E734E734E734E734E734E734EFF7F0000FF7F734EFF7F
+          FF7FFF7FFF7FFF7F734EFF7F734EFF7FFF7FFF7FFF7FFF7F734EFF7F0000FF7F
+          734E734E734E734E734E734E734EFF7F734EFF7FFF7F0000FF7FFF7F734EFF7F
+          0000FF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F734EFF7F0000FF7F0000FF7F
+          734EFF7F0000FF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F734EFF7FFF7FFF7F
+          FF7F0000734EFF7F0000FF7F734E734E734E734E734E734E734EFF7F734EFF7F
+          FF7FFF7FFF7FFF7F734EFF7F0000FF7F734EFF7FFF7FFF7FFF7FFF7F734EFF7F
+          734E734E734E734E734E734E734EFF7F0000FF7F734EFF7FFF7F0000FF7FFF7F
+          734EFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F0000FF7F734EFF7F0000FF7F
+          0000FF7F734EFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F0000FF7F734EFF7F
+          FF7FFF7FFF7F0000734EFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F0000FF7F
+          734EFF7FFF7FFF7FFF7FFF7F734EFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7F
+          0000FF7F734E734E734E734E734E734E734EFF7FFF7FFF7FFF7FFF7FFF7FFF7F
+          FF7FFF7F0000}
+        OnClick = sbSelecionarTodosClick
+      end
+      object tlbBotoesNovo: TToolBar
+        Left = 0
+        Top = 433
+        Width = 764
+        Height = 22
+        Align = alBottom
+        ButtonWidth = 89
+        Caption = 'tlbBotoesNovo'
+        Images = ilImagens
+        List = True
+        ShowCaptions = True
+        TabOrder = 0
+        object btnSep5: TToolButton
+          Left = 0
+          Top = 0
+          Width = 8
+          Style = tbsSeparator
+        end
+        object btnFiltrar: TToolButton
+          Left = 8
+          Top = 0
+          Caption = 'Filtrar T'#237'tulos'
+          ImageIndex = 5
+          OnClick = btnFiltrarClick
+        end
+        object btnSep6: TToolButton
+          Left = 97
+          Top = 0
+          Width = 8
+          ImageIndex = 6
+          Style = tbsSeparator
+        end
+        object btnSalvarNovo: TToolButton
+          Left = 105
+          Top = 0
+          Caption = 'F5 Salvar'
+          Enabled = False
+          ImageIndex = 2
+          OnClick = btnSalvarNovoClick
+        end
+        object btnCancelarNovo: TToolButton
+          Left = 194
+          Top = 0
+          Caption = 'F6 Cancelar'
+          ImageIndex = 3
+          OnClick = btnCancelarNovoClick
+        end
+        object btnSep7: TToolButton
+          Left = 283
+          Top = 0
+          Width = 8
+          ImageIndex = 4
+          Style = tbsSeparator
+        end
+      end
+      object pnlNovoLoteRpsTit: TPanel
+        Left = 0
+        Top = 0
+        Width = 764
+        Height = 20
+        Align = alTop
+        BevelOuter = bvLowered
+        Caption = 'FILTRAR/SELECIONAR T'#205'TULOS PARA GERAR NOVO LOTE RPS'
+        Color = clBlue
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindow
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+      end
+      object meAnoSemestre: TMaskEdit
+        Left = 136
+        Top = 27
+        Width = 44
+        Height = 22
+        EditMask = '9999/9;0;_'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        MaxLength = 6
+        ParentFont = False
+        TabOrder = 2
+        Text = '20101'
+        OnChange = meAnoSemestreChange
+      end
+      object udAnoSemestre: TUpDown
+        Left = 177
+        Top = 27
+        Width = 17
+        Height = 22
+        Min = -100
+        TabOrder = 3
+        OnClick = udAnoSemestreClick
+      end
+      object cbDepto: TComboBox
+        Left = 137
+        Top = 55
+        Width = 210
+        Height = 21
+        Style = csDropDownList
+        ItemHeight = 13
+        TabOrder = 4
+        OnSelect = cbDeptoSelect
+      end
+      object cbCurso: TComboBox
+        Left = 137
+        Top = 82
+        Width = 210
+        Height = 21
+        Style = csDropDownList
+        ItemHeight = 13
+        TabOrder = 5
+        OnSelect = cbCursoSelect
+      end
+      object cbTurma: TComboBox
+        Left = 137
+        Top = 109
+        Width = 210
+        Height = 21
+        Style = csDropDownList
+        ItemHeight = 13
+        TabOrder = 6
+        OnSelect = cbTurmaSelect
+      end
+      object chkParcela: TCheckBox
+        Left = 399
+        Top = 29
+        Width = 55
+        Height = 17
+        Caption = 'Parcela:'
+        TabOrder = 7
+        OnClick = chkParcelaClick
+      end
+      object speParcelaDe: TSpinEdit
+        Left = 527
+        Top = 27
+        Width = 58
+        Height = 22
+        Enabled = False
+        MaxValue = 100
+        MinValue = 1
+        TabOrder = 8
+        Value = 1
+        OnChange = cbDeptoChange
+      end
+      object speParcelaAte: TSpinEdit
+        Left = 618
+        Top = 27
+        Width = 58
+        Height = 22
+        Enabled = False
+        MaxValue = 100
+        MinValue = 1
+        TabOrder = 9
+        Value = 1
+        OnChange = cbDeptoChange
+      end
+      object chkDataVencto: TCheckBox
+        Left = 399
+        Top = 57
+        Width = 116
+        Height = 17
+        Caption = 'Data de Vencimento:'
+        TabOrder = 10
+        OnClick = chkDataVenctoClick
+      end
+      object dtpDataVenctoDe: TDateTimePicker
+        Left = 528
+        Top = 55
+        Width = 96
+        Height = 21
+        Date = 40359.000000000000000000
+        Time = 40359.000000000000000000
+        Enabled = False
+        TabOrder = 11
+        OnChange = cbDeptoChange
+      end
+      object dtpDataVenctoAte: TDateTimePicker
+        Left = 657
+        Top = 55
+        Width = 96
+        Height = 21
+        Date = 40359.000000000000000000
+        Time = 40359.000000000000000000
+        Enabled = False
+        TabOrder = 12
+        OnChange = cbDeptoChange
+      end
+      object chkDataPagto: TCheckBox
+        Left = 399
+        Top = 84
+        Width = 115
+        Height = 17
+        Caption = 'Data de Pagamento:'
+        TabOrder = 13
+        OnClick = chkDataPagtoClick
+      end
+      object dtpDataPagtoDe: TDateTimePicker
+        Left = 528
+        Top = 82
+        Width = 96
+        Height = 21
+        Date = 40359.000000000000000000
+        Time = 40359.000000000000000000
+        Enabled = False
+        TabOrder = 14
+        OnChange = cbDeptoChange
+      end
+      object dtpDataPagtoAte: TDateTimePicker
+        Left = 657
+        Top = 82
+        Width = 96
+        Height = 21
+        Date = 40359.000000000000000000
+        Time = 40359.000000000000000000
+        Enabled = False
+        TabOrder = 15
+        OnChange = cbDeptoChange
+      end
+      object chkDataComp: TCheckBox
+        Left = 399
+        Top = 111
+        Width = 123
+        Height = 18
+        Caption = 'Data de Compet'#234'ncia:'
+        TabOrder = 16
+        OnClick = chkDataCompClick
+      end
+      object dtpDataCompDe: TDateTimePicker
+        Left = 528
+        Top = 109
+        Width = 96
+        Height = 21
+        Date = 40359.000000000000000000
+        Time = 40359.000000000000000000
+        Enabled = False
+        TabOrder = 17
+        OnChange = cbDeptoChange
+      end
+      object dtpDataCompAte: TDateTimePicker
+        Left = 657
+        Top = 109
+        Width = 96
+        Height = 21
+        Date = 40359.000000000000000000
+        Time = 40359.000000000000000000
+        Enabled = False
+        TabOrder = 18
+        OnChange = cbDeptoChange
+      end
+      object pnlResumo: TPanel
+        Left = 0
+        Top = 357
+        Width = 764
+        Height = 73
+        Align = alBottom
+        BevelOuter = bvNone
+        TabOrder = 21
+        object gbResumo: TGroupBox
+          Left = 0
+          Top = 0
+          Width = 764
+          Height = 73
+          Align = alClient
+          Caption = 'Resumo:'
+          TabOrder = 0
+          object ledTotalParcelas: TLabeledEdit
+            Left = 18
+            Top = 40
+            Width = 121
+            Height = 21
+            EditLabel.Width = 75
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Total de t'#237'tulos:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ReadOnly = True
+            TabOrder = 0
+          end
+          object ledTotalBruto: TLabeledEdit
+            Left = 145
+            Top = 40
+            Width = 121
+            Height = 21
+            EditLabel.Width = 95
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Valor total servi'#231'os:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ReadOnly = True
+            TabOrder = 1
+          end
+          object ledTotalBolsas: TLabeledEdit
+            Left = 272
+            Top = 40
+            Width = 121
+            Height = 21
+            EditLabel.Width = 86
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Valor total bolsas:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ReadOnly = True
+            TabOrder = 2
+          end
+          object ledTotalPago: TLabeledEdit
+            Left = 399
+            Top = 40
+            Width = 121
+            Height = 21
+            EditLabel.Width = 80
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Valor total pago:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            ReadOnly = True
+            TabOrder = 3
+          end
+        end
+      end
+      object lbAlunos: TListBox
+        Left = 8
+        Top = 163
+        Width = 310
+        Height = 185
+        Style = lbOwnerDrawFixed
+        ItemHeight = 16
+        MultiSelect = True
+        TabOrder = 19
+        OnDrawItem = lbAlunosDrawItem
+      end
+      object clbTiposTitulo: TCheckListBox
+        Left = 399
+        Top = 163
+        Width = 323
+        Height = 185
+        OnClickCheck = clbTiposTituloClickCheck
+        ItemHeight = 13
+        TabOrder = 20
+      end
+    end
+  end
+  object ilImagens: TImageList
+    Left = 488
+    Top = 440
+    Bitmap = {
+      494C010107000900040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      0000000000003600000028000000400000003000000001002000000000000030
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000003163
+      9C0031639C000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000007B7B7B0000000000000000000000
+      00007B7B7B000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000052630031639C0031639C003163
+      9C0031639C000000000000526300005263000052630000526300005263000052
+      6300000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000526300316B9C00316B9C003163
+      9C0031639C000000000000CEFF0000CEFF0000CEFF0000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000526300296BA500296BA500296B
+      9C00296B9C000000000000CEFF0000CEFF0000CEFF000000000000000000FF00
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF00000000000000000000000000000000000000
+      0000FFFFFF000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000005263002173AD002173A5002173
+      A5002973A5000000000010CEFF0000CEFF0000CEFF0000000000FF000000FF00
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000FFFFFF00000000000000000000000000FFFF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000526300187BAD00187BAD00FFFF
+      FF002173AD000000000031D6FF0029D6FF0018D6FF00FF000000FF000000FF00
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000000000007B7B7B000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000FFFFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000005263001084B5001884B5001884
+      B500187BB5000000000063DEFF0052DEFF00FF000000FF000000FF000000FF00
+      0000FF000000FF000000FF000000000000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF000000000000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000526300088CBD00108CBD001084
+      BD001084B500000000008CE7FF00FF000000FF000000FF000000FF000000FF00
+      0000FF000000FF000000FF000000000000000000000000000000FFFFFF000000
+      00000000000000000000FFFFFF000000000000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000FFFFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000005263000894C600088CC600088C
+      C600088CBD0000000000B5EFFF00A5EFFF00FF000000FF000000FF000000FF00
+      0000FF000000FF000000FF000000000000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF000000000000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000FFFFFF000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000005263000094CE000094CE000094
+      C6000094C60000000000DEF7FF00CEF7FF00C6EFFF00FF000000FF000000FF00
+      0000000000000000000000000000000000000000000000000000FFFFFF000000
+      0000000000000000000000000000FFFFFF00FFFFFF00FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000526300009CCE00009CCE00009C
+      CE000094CE0000000000FFFFFF00F7F7FF00E7F7FF0000000000FF000000FF00
+      0000000000000000000000000000000000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000526300009CCE00009CCE00009C
+      CE00009CCE0000000000FFFFFF00FFFFFF00FFFFFF000000000000000000FF00
+      000000000000000000000000000000000000000000007B0000007B0000007B00
+      00007B0000007B0000007B0000007B0000007B0000007B0000007B0000000000
+      000000000000000000000000000000000000000000000000000000000000FFFF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000052630000526300009C
+      CE00009CCE000000000000526300005263000052630000526300000000000000
+      000000000000000000000000000000000000000000007B0000007B0000007B00
+      00007B0000007B0000007B0000007B0000007B0000007B0000007B0000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000052
+      6300005263000052630000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000FF000000FF000000FF000000FF000000FF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000FFFFFF00FFFFFF0000000000FFFF
+      FF000000000000000000FFFFFF00000000000000000000000000008484000084
+      8400000000000000000000000000000000000000000000000000000000000000
+      0000000000000084840000000000000000000000000000000000000000000000
+      FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF000000
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000FFFF0000000000000000000000FF
+      FF00FFFFFF0000FFFF00FFFFFF0000FFFF0000000000FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00000000000000000000000000008484000084
+      8400000000000000000000000000000000000000000000000000000000000000
+      00000000000000848400000000000000000000000000000000000000FF000000
+      FF000000000000000000000000000000000000000000000000000000FF000000
+      FF000000FF000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000FFFF00000000000000FFFF00FFFF
+      FF0000FFFF00FFFFFF00000000000000000000000000FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF0000000000FFFFFF00000000000000000000000000008484000084
+      8400000000000000000000000000000000000000000000000000000000000000
+      000000000000008484000000000000000000000000000000FF000000FF000000
+      FF000000FF000000000000000000000000000000000000000000000000000000
+      FF000000FF000000FF0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000FFFF000000000000FFFFFF0000FF
+      FF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000000000FFFFFF000000
+      000000000000FFFFFF00FFFFFF00000000000000000000000000008484000084
+      8400000000000000000000000000000000000000000000000000000000000000
+      000000000000008484000000000000000000000000000000FF00000000000000
+      FF000000FF000000FF0000000000000000000000000000000000000000000000
+      00000000FF000000FF0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000FFFF00000000000000FFFF00FFFF
+      FF0000FFFF00FFFFFF00000000000000000000000000000000000000000000FF
+      FF0000000000FFFFFF00FFFFFF00000000000000000000000000008484000084
+      8400008484000084840000848400008484000084840000848400008484000084
+      8400008484000084840000000000000000000000FF000000FF00000000000000
+      00000000FF000000FF000000FF00000000000000000000000000000000000000
+      0000000000000000FF000000FF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000FFFF000000000000FFFFFF0000FF
+      FF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF000000
+      0000FFFFFF00FFFFFF00FFFFFF00000000000000000000000000008484000084
+      8400000000000000000000000000000000000000000000000000000000000000
+      0000008484000084840000000000000000000000FF000000FF00000000000000
+      0000000000000000FF000000FF000000FF000000000000000000000000000000
+      0000000000000000FF000000FF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000FFFF00000000000000FFFF00FFFF
+      FF0000000000000000000000000000000000000000000000000000000000FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00000000000000000000000000008484000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000084840000000000000000000000FF000000FF00000000000000
+      000000000000000000000000FF000000FF000000FF0000000000000000000000
+      0000000000000000FF000000FF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000000000000000000000FF
+      FF00FFFFFF0000FFFF00000000000000000000FFFF0000000000FFFFFF00FFFF
+      FF000000000000000000FFFFFF00000000000000000000000000008484000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000084840000000000000000000000FF000000FF00000000000000
+      00000000000000000000000000000000FF000000FF000000FF00000000000000
+      0000000000000000FF000000FF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000FFFF0000000000FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00000000000000000000000000008484000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000084840000000000000000000000FF000000FF00000000000000
+      0000000000000000000000000000000000000000FF000000FF000000FF000000
+      0000000000000000FF000000FF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF0000000000FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00000000000000000000000000000000000000000000000000008484000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000008484000000000000000000000000000000FF000000FF000000
+      000000000000000000000000000000000000000000000000FF000000FF000000
+      FF00000000000000FF0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF0000000000FFFFFF00FFFFFF000000000000000000FFFF
+      FF0000000000FFFFFF00FFFFFF00000000000000000000000000008484000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000FF000000FF000000
+      FF000000000000000000000000000000000000000000000000000000FF000000
+      FF000000FF000000FF0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000FFFF000000000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF0000000000FFFFFF0000000000000000000000000000000000008484000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000000000000000FF000000
+      FF000000FF000000000000000000000000000000000000000000000000000000
+      FF000000FF000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      FF00000000000000000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF000000
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000FF000000FF000000FF000000FF000000FF00000000000000
+      000000000000000000000000000000000000424D3E000000000000003E000000
+      2800000040000000300000000100010000000000800100000000000000000000
+      000000000000000000000000FFFFFF0000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000FFFFF8F8FFFF0000E3FFFAFAFFF90000
+      83FFF870FFF90000000FF800E3F30000003FFA10E3F30000002FFA10E1C70000
+      000FF800F08F0000000F8001F81F000000018013FC3F000000018013F81F0000
+      00018013F09F0000000F801FE1C70000000F801F83E30000002F801F8FF10000
+      803F801FFFFF0000E3FFFFFFFFFF0000FFFFFC00FFFFFFFFFFFFFC00C001F83F
+      FFFF20008031E00FFFFF00008031CFC7FC7F0000803187E3FD7F00008001A3F3
+      FD7F0000800131F9E10F0000800138F9EFEF00008FF13C79E10F00008FF13E39
+      FD7FE0008FF13F19FD7FF8008FF19F8BFC7FF0008FF18FC3FFFFE0018FF5C7E7
+      FFFFC4038001E00FFFFFEC07FFFFF83F00000000000000000000000000000000
+      000000000000}
+  end
+  object qrySituacao: TUMZQuery
+    Connection = DM.db
+    SQL.Strings = (
+      'SELECT'
+      '   cd_situacao,'
+      '   ds_situacao'
+      'FROM'
+      '   fin_nfse_rps_xml_situacao')
+    Params = <>
+    Left = 24
+    Top = 192
+  end
+  object dsSituacao: TDataSource
+    AutoEdit = False
+    DataSet = qrySituacao
+    OnDataChange = dsSituacaoDataChange
+    Left = 56
+    Top = 192
+  end
+  object qryLotesRps: TUMZQuery
+    Connection = DM.db
+    AfterOpen = qryLotesRpsAfterRefresh
+    AfterRefresh = qryLotesRpsAfterRefresh
+    SQL.Strings = (
+      'SELECT'
+      '   cd_nfse_rps_xml,'
+      '   cd_situacao,'
+      '   dt_criacao,'
+      '   dt_envio,'
+      '   ds_protocolo,'
+      '   me_xml'
+      'FROM'
+      '   fin_nfse_rps_xml')
+    Params = <>
+    Left = 24
+    Top = 232
+    object qryLotesRpsdt_criacao: TDateTimeField
+      FieldName = 'dt_criacao'
+      Origin = 'WMESTRE12.fin_nfse_rps_xml.dt_criacao'
+    end
+    object qryLotesRpsdt_envio: TDateTimeField
+      FieldName = 'dt_envio'
+      Origin = 'WMESTRE12.fin_nfse_rps_xml.dt_envio'
+      DisplayFormat = 'dd/mm/yyyy hh:nn:ss'
+      EditMask = '99/99/9999 !90:00:00;1;_'
+    end
+    object qryLotesRpsds_protocolo: TStringField
+      FieldName = 'ds_protocolo'
+      Origin = 'WMESTRE12.fin_nfse_rps_xml.ds_protocolo'
+      FixedChar = True
+      Size = 50
+    end
+    object qryLotesRpsme_xml: TBlobField
+      FieldName = 'me_xml'
+      Origin = 'WMESTRE12.fin_nfse_rps_xml.me_xml'
+      Size = 1
+    end
+    object qryLotesRpslookupSituacao: TStringField
+      FieldKind = fkLookup
+      FieldName = 'lookupSituacao'
+      LookupDataSet = qrySituacao
+      LookupKeyFields = 'cd_situacao'
+      LookupResultField = 'ds_situacao'
+      KeyFields = 'cd_situacao'
+      Size = 50
+      Lookup = True
+    end
+    object qryLotesRpscd_nfse_rps_xml: TLargeintField
+      FieldName = 'cd_nfse_rps_xml'
+      Required = True
+    end
+    object qryLotesRpscd_situacao: TLargeintField
+      FieldName = 'cd_situacao'
+      Required = True
+    end
+  end
+  object dsLotesRps: TDataSource
+    DataSet = qryLotesRps
+    OnDataChange = dsLotesRpsDataChange
+    Left = 56
+    Top = 232
+  end
+  object qryDepto: TUMZQuery
+    Connection = DM.db
+    SQL.Strings = (
+      'SELECT'
+      '   codigo,'
+      '   descricao'
+      'FROM'
+      '   departamentos'
+      'ORDER BY'
+      '   descricao')
+    Params = <>
+    Left = 24
+    Top = 312
+    object qryDeptocodigo: TSmallintField
+      FieldName = 'codigo'
+      Origin = 'WMESTRE12.departamentos.codigo'
+    end
+    object qryDeptodescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'WMESTRE12.departamentos.descricao'
+      Size = 50
+    end
+  end
+  object qryCurso: TUMZQuery
+    Connection = DM.db
+    SQL.Strings = (
+      'SELECT'
+      '   anosemestre,'
+      '   codigo,'
+      '   apelido,'
+      '   descricao'
+      'FROM'
+      '   cursos'
+      'ORDER BY'
+      '   descricao')
+    Params = <>
+    Left = 56
+    Top = 312
+    object qryCursoanosemestre: TSmallintField
+      FieldName = 'anosemestre'
+      Origin = 'WMESTRE12.cursos.anosemestre'
+    end
+    object qryCursocodigo: TStringField
+      FieldName = 'codigo'
+      Origin = 'WMESTRE12.cursos.codigo'
+      Size = 15
+    end
+    object qryCursoapelido: TStringField
+      FieldName = 'apelido'
+      Origin = 'WMESTRE12.cursos.apelido'
+      Size = 255
+    end
+    object qryCursodescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'WMESTRE12.cursos.descricao'
+      Size = 255
+    end
+  end
+  object qryTurma: TUMZQuery
+    Connection = DM.db
+    SQL.Strings = (
+      'SELECT'
+      '   anosemestre,'
+      '   codigo,'
+      '   curso,'
+      '   descricao'
+      'FROM'
+      '   turmas'
+      'ORDER BY'
+      '   codigo')
+    Params = <>
+    Left = 88
+    Top = 312
+    object qryTurmaanosemestre: TSmallintField
+      FieldName = 'anosemestre'
+      Origin = 'WMESTRE12.turmas.anosemestre'
+    end
+    object qryTurmacodigo: TStringField
+      FieldName = 'codigo'
+      Origin = 'WMESTRE12.turmas.codigo'
+      Size = 50
+    end
+    object qryTurmacurso: TStringField
+      FieldName = 'curso'
+      Origin = 'WMESTRE12.turmas.curso'
+      Size = 15
+    end
+    object qryTurmadescricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'WMESTRE12.turmas.descricao'
+      Size = 255
+    end
+  end
+  object qryTiposTitulo: TUMZQuery
+    Connection = DM.db
+    SQL.Strings = (
+      'SELECT'
+      '   cd_tipo_titulo,'
+      '   ds_tipo_titulo'
+      'FROM'
+      '   fin_tipos_titulo'
+      'WHERE'
+      '   ct_tipo_titulo = 1'
+      'ORDER BY'
+      '   ds_tipo_titulo')
+    Params = <>
+    Left = 120
+    Top = 312
+    object qryTiposTitulods_tipo_titulo: TStringField
+      FieldName = 'ds_tipo_titulo'
+      Origin = 'WMESTRE12.fin_tipos_titulo.ds_tipo_titulo'
+      Size = 255
+    end
+    object qryTiposTitulocd_tipo_titulo: TIntegerField
+      FieldName = 'cd_tipo_titulo'
+      Required = True
+    end
+  end
+  object qryTitulos: TUMZQuery
+    Connection = DM.db
+    AfterOpen = qryTitulosAfterOpen
+    SQL.Strings = (
+      'SELECT'
+      '   m.cd_mensalidade,'
+      '   m.codigoaluno,'
+      '   m.turma,'
+      '   m.parcela,'
+      '   m.datavencimento,'
+      '   m.dt_competencia,'
+      '   m.dataemissao,'
+      '   m.nossonumero,'
+      '   m.cd_tipo_titulo,'
+      '   m.valorbruto,'
+      '   m.descontoextra,'
+      '   m.valortotal,'
+      '   m.valorjuros,'
+      '   m.valorjuros_fixo,'
+      '   m.valorpago,'
+      '   m.vl_faturamento,'
+      '   m.datapagamento,'
+      '   m.situacao,'
+      '   m.anosemestre,'
+      '   m.tipoparcela,'
+      '   m.cd_mensalidade_origem,'
+      '   m.cd_coligada,'
+      '   m.cd_centro_custo,'
+      '   m.cd_plano_conta,'
+      '   m.cd_caixa,'
+      '   m.cd_resp,'
+      '   m.nr_nf,'
+      '   a.cd_pessoa,'
+      '   a.nm_pessoa,'
+      '   m.curso,'
+      '   %s Discriminacao,'
+      
+        '   IFNULL(m.valorbruto, 0) + IFNULL(m.valorextra, 0) ValorServic' +
+        'os,'
+      
+        '   IFNULL(m.valorbruto, 0) + IFNULL(m.valorextra, 0) - IFNULL(m.' +
+        'descontoextra, 0) ValorLiquidoNfse,'
+      '   IFNULL(m.descontoextra, 0) DescontoIncondicionado,'
+      '   IFNULL(m.valordesconto, 0) DescontoCondicionado,'
+      '   CONCAT(l.ds_logradouro, " ", p.ds_logradouro) Endereco,'
+      '   p.ds_logradouro_nro Numero,'
+      '   p.ds_complemento Complemento,'
+      '   p.ds_bairro Bairro,'
+      '   n.ch_municipio CodigoMunicipio,'
+      '   p.ds_estado Uf,'
+      '   p.ds_cep Cep,'
+      '   IF(p.tp_pessoa = "J", p.ds_cnpj, "") Cnpj,'
+      '   IF(p.tp_pessoa = "F", p.ds_cpf, "") Cpf,'
+      '   p.tp_pessoa TipoPessoa,'
+      '   tel.ds_contato Telefone,'
+      '   email.ds_contato Email'
+      'FROM'
+      '   mensalidades m'
+      '      JOIN pessoas a ON'
+      '         (m.codigoaluno = a.cd_pessoa)'
+      '      JOIN pessoas p ON'
+      '         (m.cd_resp = p.cd_pessoa)'
+      '      LEFT JOIN contatos_pessoas tel ON'
+      '         (p.cd_pessoa = tel.cd_pessoa) AND'
+      '         (tel.cd_contato = 1)'
+      '      LEFT JOIN contatos_pessoas email ON'
+      '         (p.cd_pessoa = email.cd_pessoa) AND'
+      '         (email.cd_contato = 4)'
+      '      LEFT JOIN municipios n ON'
+      '         (p.cd_municipio = n.cd_municipio)'
+      '      LEFT JOIN logradouros l ON'
+      '         (p.cd_logradouro = l.cd_logradouro)'
+      '      LEFT JOIN fin_tipos_titulos tp ON'
+      '         (m.cd_tipo_titulo = tp.cd_tipo_titulo)'
+      '      LEFT JOIN cursos c ON'
+      '         (m.curso = c.codigo) AND'
+      '         (m.anosemestre = c.anosemestre)'
+      'WHERE'
+      '   (m.nr_nf IS NULL OR m.nr_nf = 0) AND'
+      '   ValorServicos > 0'
+      'GROUP BY'
+      '   m.cd_mensalidade')
+    Params = <>
+    Left = 24
+    Top = 272
+    object qryTituloscd_mensalidade: TIntegerField
+      FieldName = 'cd_mensalidade'
+    end
+    object qryTituloscodigoaluno: TIntegerField
+      FieldName = 'codigoaluno'
+    end
+    object qryTitulosturma: TStringField
+      FieldName = 'turma'
+      Size = 50
+    end
+    object qryTitulosparcela: TSmallintField
+      FieldName = 'parcela'
+    end
+    object qryTitulosdatavencimento: TDateTimeField
+      FieldName = 'datavencimento'
+    end
+    object qryTitulosdt_competencia: TDateTimeField
+      FieldName = 'dt_competencia'
+    end
+    object qryTitulosdataemissao: TDateTimeField
+      FieldName = 'dataemissao'
+    end
+    object qryTitulosnossonumero: TStringField
+      FieldName = 'nossonumero'
+      Size = 30
+    end
+    object qryTituloscd_tipo_titulo: TSmallintField
+      FieldName = 'cd_tipo_titulo'
+    end
+    object qryTitulosvalorbruto: TFloatField
+      FieldName = 'valorbruto'
+    end
+    object qryTitulosdescontoextra: TFloatField
+      FieldName = 'descontoextra'
+    end
+    object qryTitulosvalortotal: TFloatField
+      FieldName = 'valortotal'
+    end
+    object qryTitulosvalorjuros: TFloatField
+      FieldName = 'valorjuros'
+    end
+    object qryTitulosvalorjuros_fixo: TFloatField
+      FieldName = 'valorjuros_fixo'
+    end
+    object qryTitulosvalorpago: TFloatField
+      FieldName = 'valorpago'
+    end
+    object qryTitulosvl_faturamento: TFloatField
+      FieldName = 'vl_faturamento'
+    end
+    object qryTitulosdatapagamento: TDateTimeField
+      FieldName = 'datapagamento'
+    end
+    object qryTitulossituacao: TSmallintField
+      FieldName = 'situacao'
+    end
+    object qryTitulosanosemestre: TSmallintField
+      FieldName = 'anosemestre'
+    end
+    object qryTitulostipoparcela: TSmallintField
+      FieldName = 'tipoparcela'
+    end
+    object qryTituloscd_mensalidade_origem: TIntegerField
+      FieldName = 'cd_mensalidade_origem'
+    end
+    object qryTituloscd_coligada: TIntegerField
+      FieldName = 'cd_coligada'
+    end
+    object qryTituloscd_centro_custo: TLargeintField
+      FieldName = 'cd_centro_custo'
+    end
+    object qryTituloscd_plano_conta: TLargeintField
+      FieldName = 'cd_plano_conta'
+    end
+    object qryTituloscd_caixa: TIntegerField
+      FieldName = 'cd_caixa'
+    end
+    object qryTituloscd_resp: TIntegerField
+      FieldName = 'cd_resp'
+    end
+    object qryTitulosnr_nf: TLargeintField
+      FieldName = 'nr_nf'
+    end
+    object qryTituloscd_pessoa: TIntegerField
+      FieldName = 'cd_pessoa'
+    end
+    object qryTitulosnm_pessoa: TStringField
+      FieldName = 'nm_pessoa'
+      Size = 60
+    end
+    object qryTituloscurso: TStringField
+      FieldName = 'curso'
+      Size = 15
+    end
+    object qryTitulosDiscriminacao: TStringField
+      FieldName = 'Discriminacao'
+      Size = 150
+    end
+    object qryTitulosValorServicos: TFloatField
+      FieldName = 'ValorServicos'
+    end
+    object qryTitulosValorLiquidoNfse: TFloatField
+      FieldName = 'ValorLiquidoNfse'
+    end
+    object qryTitulosDescontoIncondicionado: TFloatField
+      FieldName = 'DescontoIncondicionado'
+    end
+    object qryTitulosDescontoCondicionado: TFloatField
+      FieldName = 'DescontoCondicionado'
+    end
+    object qryTitulosEndereco: TStringField
+      FieldName = 'Endereco'
+      ReadOnly = True
+      Size = 271
+    end
+    object qryTitulosNumero: TStringField
+      FieldName = 'Numero'
+      Size = 10
+    end
+    object qryTitulosComplemento: TStringField
+      FieldName = 'Complemento'
+      Size = 150
+    end
+    object qryTitulosBairro: TStringField
+      FieldName = 'Bairro'
+      Size = 50
+    end
+    object qryTitulosCodigoMunicipio: TLargeintField
+      FieldName = 'CodigoMunicipio'
+    end
+    object qryTitulosUf: TStringField
+      FieldName = 'Uf'
+      Size = 2
+    end
+    object qryTitulosCep: TStringField
+      FieldName = 'Cep'
+      Size = 8
+    end
+    object qryTitulosTelefone: TStringField
+      FieldName = 'Telefone'
+      Size = 100
+    end
+    object qryTitulosEmail: TStringField
+      FieldName = 'Email'
+      Size = 100
+    end
+    object qryTitulosCnpj: TStringField
+      FieldName = 'Cnpj'
+      Size = 14
+    end
+    object qryTitulosCpf: TStringField
+      FieldName = 'Cpf'
+      Size = 11
+    end
+    object qryTitulosTipoPessoa: TStringField
+      FieldName = 'TipoPessoa'
+      Size = 1
+    end
+  end
+  object qryVariaveis: TUMZQuery
+    Connection = DM.db
+    SQL.Strings = (
+      'SELECT'
+      '   nm_variavel variavel,'
+      '   ds_valor valor'
+      'FROM'
+      '   vwo_nfse_rps_variaveis')
+    Params = <>
+    Left = 88
+    Top = 272
+    object qryVariaveisvariavel: TStringField
+      FieldName = 'variavel'
+      Origin = 'WMESTRE12.vwo_nfse_rps_variaveis.nm_variavel'
+      Size = 50
+    end
+    object qryVariaveisvalor: TMemoField
+      FieldName = 'valor'
+      Origin = 'WMESTRE12.vwo_nfse_rps_variaveis.ds_valor'
+      BlobType = ftMemo
+      Size = 1
+    end
+  end
+  object sdlgXML: TSaveDialog
+    DefaultExt = 'xml'
+    Filter = 'XML Documents|*.xml'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
+    Left = 608
+    Top = 208
+  end
+  object qryTitulosNaoProcessados: TUMZQuery
+    Connection = DM.db
+    SQL.Strings = (
+      'SELECT'
+      '   m.cd_mensalidade,'
+      '   m.codigoaluno,'
+      '   m.turma,'
+      '   m.parcela,'
+      '   m.datavencimento,'
+      '   m.dt_competencia,'
+      '   m.dataemissao,'
+      '   m.nossonumero,'
+      '   m.cd_tipo_titulo,'
+      '   m.valorbruto,'
+      '   m.descontoextra,'
+      '   m.valortotal,'
+      '   m.valorjuros,'
+      '   m.valorjuros_fixo,'
+      '   m.valorpago,'
+      '   m.vl_faturamento,'
+      '   m.datapagamento,'
+      '   m.situacao,'
+      '   m.anosemestre,'
+      '   m.tipoparcela,'
+      '   m.cd_mensalidade_origem,'
+      '   m.cd_coligada,'
+      '   m.cd_centro_custo,'
+      '   m.cd_plano_conta,'
+      '   m.cd_caixa,'
+      '   m.cd_resp,'
+      '   m.nr_nf,'
+      '   a.cd_pessoa,'
+      '   a.nm_pessoa,'
+      '   m.curso,'
+      '   m.ds_historico Discriminacao,'
+      
+        '   IFNULL(m.valorbruto, 0) + IFNULL(m.valorextra, 0) ValorServic' +
+        'os,'
+      
+        '   IFNULL(m.valorbruto, 0) + IFNULL(m.valorextra, 0) - IFNULL(m.' +
+        'descontoextra, 0) ValorLiquidoNfse,'
+      '   IFNULL(m.descontoextra, 0) DescontoIncondicionado,'
+      '   IFNULL(m.valordesconto, 0) DescontoCondicionado,'
+      '   CONCAT(l.ds_logradouro, " ", p.ds_logradouro) Endereco,'
+      '   p.ds_logradouro_nro Numero,'
+      '   p.ds_complemento Complemento,'
+      '   p.ds_bairro Bairro,'
+      '   n.ch_municipio CodigoMunicipio,'
+      '   p.ds_estado Uf,'
+      '   p.ds_cep Cep,'
+      '   IF(p.tp_pessoa = "J", p.ds_cnpj, "") Cnpj,'
+      '   IF(p.tp_pessoa = "F", p.ds_cpf, "") Cpf,'
+      '   p.tp_pessoa TipoPessoa,'
+      '   tel.ds_contato Telefone,'
+      '   email.ds_contato Email'
+      'FROM'
+      '   mensalidades m'
+      '      JOIN pessoas a ON'
+      '         (m.codigoaluno = a.cd_pessoa)'
+      '      JOIN pessoas p ON'
+      '         (m.cd_resp = p.cd_pessoa)'
+      '      LEFT JOIN contatos_pessoas tel ON'
+      '         (p.cd_pessoa = tel.cd_pessoa) AND'
+      '         (tel.cd_contato = 1)'
+      '      LEFT JOIN contatos_pessoas email ON'
+      '         (p.cd_pessoa = email.cd_pessoa) AND'
+      '         (email.cd_contato = 4)'
+      '      LEFT JOIN municipios n ON'
+      '         (p.cd_municipio = n.cd_municipio)'
+      '      LEFT JOIN logradouros l ON'
+      '         (p.cd_logradouro = l.cd_logradouro)'
+      'WHERE'
+      '   m.nr_nf = :nr_nf'
+      'GROUP BY'
+      '   m.cd_mensalidade')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'nr_nf'
+        ParamType = ptUnknown
+      end>
+    Left = 56
+    Top = 272
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'nr_nf'
+        ParamType = ptUnknown
+      end>
+  end
+end

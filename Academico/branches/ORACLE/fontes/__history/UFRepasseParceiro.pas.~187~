@@ -1,0 +1,845 @@
+unit UFRepasseParceiro;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs,DB,uUsuario, StdCtrls, Buttons, ExtCtrls, Grids, DBGrids, UZSortedGrid,
+  ComCtrls, Mask, ZAbstractRODataset, ZAbstractDataset, UZDataset, ToolWin,
+  ImgList, DBCtrls;
+
+type
+  TfrmRepasseParceiro = class(TForm)
+    qyRepasseParceiro: TUMZQuery;
+    dsRepasseParceiro: TDataSource;
+    qyRepasseParceironm_aluno: TStringField;
+    qyRepasseParceirods_cidade: TStringField;
+    qyRepasseParceirods_curso: TStringField;
+    qyRepasseParceirods_turma: TStringField;
+    qyRepasseParceironm_vendedor: TStringField;
+    qyRepasseParceirovl_percentual: TSmallintField;
+    ImageList1: TImageList;
+    toolPessoa: TToolBar;
+    ToolButton1: TToolButton;
+    btnInserir: TToolButton;
+    btnExcluir: TToolButton;
+    btnSalvar: TToolButton;
+    ToolButton4: TToolButton;
+    btnCancelar: TToolButton;
+    ToolButton8: TToolButton;
+    btnSair: TToolButton;
+    ToolButton2: TToolButton;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    pnRemessaTit: TPanel;
+    grdRepasseParceiro: TZSortedGrid;
+    pnFiltro: TPanel;
+    lbAluno: TLabel;
+    lbTurma: TLabel;
+    btnFiltroTurma: TSpeedButton;
+    btnFiltroAluno: TSpeedButton;
+    lbAnosemestre: TLabel;
+    lbVendedor: TLabel;
+    btnFiltroVendedor: TSpeedButton;
+    lbPeriodo: TLabel;
+    lbCurso: TLabel;
+    btnFiltroCurso: TSpeedButton;
+    pnFiltroTitulo: TPanel;
+    edAluno: TEdit;
+    edTurma: TEdit;
+    btnFiltrar: TBitBtn;
+    btnLimpar: TBitBtn;
+    edAnosemestre: TMaskEdit;
+    udAnosemestre: TUpDown;
+    edPeriodoDe: TDateTimePicker;
+    edPeriodoAte: TDateTimePicker;
+    edVendedor: TEdit;
+    edCurso: TEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    qyRepasseParceiroid_matricula: TIntegerField;
+    qyRepasseParceirocd_curso: TStringField;
+    qyRepasseParceirocd_turma: TStringField;
+    qyRepasseParceironr_anosemestre: TIntegerField;
+    qyRepasseParceirocd_aluno: TIntegerField;
+    qyRepasseParceirocd_vendedor: TIntegerField;
+    qyRepasseParceirocd_repasse_parceiro: TIntegerField;
+    edCadComissao: TEdit;
+    lbCadComissao: TLabel;
+    edCadVendedor: TEdit;
+    lbCadVendedor: TLabel;
+    edCadAluno: TEdit;
+    lbCadAluno: TLabel;
+    edCadTurma: TEdit;
+    lbCadTurma: TLabel;
+    edCadCurso: TEdit;
+    lbCadCurso: TLabel;
+    edCadAnosemestre: TMaskEdit;
+    Label2: TLabel;
+    UpDown1: TUpDown;
+    btnBuscarCurso: TSpeedButton;
+    btnBuscarTurma: TSpeedButton;
+    btnBuscarAluno: TSpeedButton;
+    btnBuscarVendedor: TSpeedButton;
+    btnAlterar: TToolButton;
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
+    procedure btnBuscarVendedorClick(Sender: TObject);
+    procedure btnBuscarAlunoClick(Sender: TObject);
+    procedure btnBuscarTurmaClick(Sender: TObject);
+    procedure btnBuscarCursoClick(Sender: TObject);
+    procedure UpDown1Click(Sender: TObject; Button: TUDBtnType);
+    procedure btnInserirClick(Sender: TObject);
+    procedure grdRepasseParceiroKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure grdRepasseParceiroKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure grdRepasseParceiroCellClick(Column: TColumn);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
+    procedure btnFiltrarClick(Sender: TObject);
+    procedure btnLimparClick(Sender: TObject);
+    procedure btnFiltroTurmaClick(Sender: TObject);
+    procedure btnFiltroCursoClick(Sender: TObject);
+    procedure btnFiltroVendedorClick(Sender: TObject);
+    procedure btnFiltroAlunoClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure udAnosemestreClick(Sender: TObject; Button: TUDBtnType);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+    FPermissoes: TUMPermissoes;
+    FParams: TParams;
+    function getCadAnosemestre: Integer;
+    procedure setCadAnosemestre(const Value: Integer);
+
+    procedure SomenteNumeros(Sender: TObject; var Key: Char);
+    procedure setAnosemestre(const Value: Integer);
+    function getAnosemestre: Integer;
+    procedure setCamposCadastro();
+
+    procedure InputsEnable(value:boolean);
+    procedure limparCampos();
+
+    var inserindo : Boolean;
+    var editando : boolean;
+
+    {variaveis de fitlro}
+    var cd_curso : String;
+    var cd_turma : String;
+    var cd_aluno : Integer;
+    var ds_aluno : String;
+    var cd_vendedor : Integer;
+    var ds_vendedor : String;
+
+    {variaveis de cadastro}
+    var cad_cd_repasse_parceiro : integer;
+    var cad_id_matricula : integer;
+
+    var cad_cd_curso : String;
+    var cad_cd_turma : String;
+    var cad_cd_aluno : integer;
+    var cad_ds_aluno : String;
+    var cad_cd_vendedor : integer;
+    var cad_ds_vendedor : String;
+    var cad_vl_percentual : integer;
+
+    property nr_anosemestre: Integer read getAnosemestre write setAnosemestre;
+    property cad_nr_anosemestre: Integer read getCadAnosemestre write setCadAnosemestre;
+
+  public
+
+    { Public declarations }
+    procedure setCampos(
+      var_cd_repasse_parceiro : integer;
+      var_id_matricula:integer;
+      var_nr_anosemestre:integer;
+      var_cd_curso:string;
+      var_cd_turma:string;
+      var_cd_aluno:integer;
+      var_ds_aluno:string;
+      var_cd_vendedor : integer;
+      var_ds_vendedor : string;
+      var_vl_percentual : integer
+    );
+
+  end;
+
+var
+  frmRepasseParceiro: TfrmRepasseParceiro;
+
+implementation
+
+uses uDM, General, uFSelecionarTurma, uFSelecionarPessoa, uFSelecionarCurso;
+
+{$R *.dfm}
+
+function TfrmRepasseParceiro.getAnosemestre: Integer;
+begin
+   Result := -1;
+   try
+      if trim( edAnosemestre.Text ) <> '' then
+      begin
+         Result := StrToInt( edAnosemestre.Text );
+      end;
+   except
+   end;
+end;
+
+function TfrmRepasseParceiro.getCadAnosemestre: Integer;
+begin
+   Result := -1;
+   try
+      if trim( edCadAnosemestre.Text ) <> '' then
+      begin
+         Result := StrToInt( edCadAnosemestre.Text );
+      end;
+   except
+   end;
+end;
+
+procedure TfrmRepasseParceiro.grdRepasseParceiroCellClick(Column: TColumn);
+begin
+   InputsEnable(false);
+   limparCampos();
+   setCamposCadastro();
+   inserindo := false;
+end;
+
+procedure TfrmRepasseParceiro.grdRepasseParceiroKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+   InputsEnable(false);
+   limparCampos();
+   setCamposCadastro();
+   inserindo := false;
+end;
+
+procedure TfrmRepasseParceiro.grdRepasseParceiroKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+   InputsEnable(false);
+   limparCampos();
+   setCamposCadastro();
+   inserindo := false;
+end;
+
+procedure TfrmRepasseParceiro.setAnosemestre(const Value: Integer);
+begin
+   edAnosemestre.Text := IntToStr( Value );
+end;
+
+procedure TfrmRepasseParceiro.setCamposCadastro;
+begin
+   setCampos(
+      qyRepasseParceiro.FieldByName('cd_repasse_parceiro').AsInteger,
+      qyRepasseParceiro.FieldByName('id_matricula').AsInteger,
+      qyRepasseParceiro.FieldByName('nr_anosemestre').AsInteger,
+      qyRepasseParceiro.FieldByName('cd_curso').AsString,
+      qyRepasseParceiro.FieldByName('cd_turma').AsString,
+      qyRepasseParceiro.FieldByName('cd_aluno').AsInteger,
+      qyRepasseParceiro.FieldByName('ds_aluno').AsString,
+      qyRepasseParceiro.FieldByName('cd_vendedor').AsInteger,
+      qyRepasseParceiro.FieldByName('ds_vendedor').AsString,
+      qyRepasseParceiro.FieldByName('vl_percentual').AsInteger
+   );
+end;
+
+procedure TfrmRepasseParceiro.setCadAnosemestre(const Value: Integer);
+begin
+   edCadAnosemestre.Text := IntToStr( Value );
+end;
+
+procedure TfrmRepasseParceiro.setCampos(
+  var_cd_repasse_parceiro: integer;
+  var_id_matricula: integer;
+  var_nr_anosemestre: integer;
+  var_cd_curso : string;
+  var_cd_turma: string;
+  var_cd_aluno: integer;
+  var_ds_aluno: string;
+  var_cd_vendedor: integer;
+  var_ds_vendedor: string;
+  var_vl_percentual: integer);
+begin
+   cad_cd_repasse_parceiro := var_cd_repasse_parceiro;
+   cad_id_matricula := var_id_matricula;
+   cad_nr_anosemestre := var_nr_anosemestre;
+   cad_cd_curso := var_cd_curso;
+   cad_cd_turma := var_cd_turma;
+   cad_cd_aluno := var_cd_aluno;
+   cad_ds_aluno := var_ds_aluno;
+   cad_cd_vendedor := var_cd_vendedor;
+   cad_ds_vendedor := var_ds_vendedor;
+   cad_vl_percentual := var_vl_percentual;
+
+   edCadCurso.Text := '';
+   edCadTurma.text := '';
+   edCadAluno.Text := '';
+   edCadVendedor.Text := '';
+
+   edCadCurso.Text := cad_cd_curso;
+   edCadTurma.Text := cad_cd_turma;
+
+   if cad_cd_aluno <> 0 then
+   begin
+      edCadAluno.Text :=  IntToStr(cad_cd_aluno)+ ' - '+ cad_ds_aluno;
+   end;
+
+   if cad_cd_vendedor <> 0 then
+   begin
+      edCadVendedor.Text :=  IntToStr(cad_cd_vendedor)+ ' - '+ cad_ds_vendedor;
+   end;
+
+   edCadComissao.Text := IntToStr(cad_vl_percentual);
+end;
+
+procedure TfrmRepasseParceiro.BitBtn1Click(Sender: TObject);
+begin
+   cd_curso := '';
+   edCurso.Text := cd_curso;
+   edCurso.SetFocus;
+end;
+
+procedure TfrmRepasseParceiro.BitBtn2Click(Sender: TObject);
+begin
+   cd_turma := '';
+   edTurma.Text := cd_turma;
+   edTurma.SetFocus;
+end;
+
+procedure TfrmRepasseParceiro.BitBtn3Click(Sender: TObject);
+begin
+   cd_aluno := 0;
+   ds_aluno := '';
+   edAluno.Text := ds_aluno;
+   edAluno.SetFocus;
+end;
+
+procedure TfrmRepasseParceiro.BitBtn4Click(Sender: TObject);
+begin
+   cd_vendedor := 0;
+   ds_vendedor := '';
+   edVendedor.Text := ds_vendedor;
+   edVendedor.SetFocus;
+end;
+
+procedure TfrmRepasseParceiro.btnAlterarClick(Sender: TObject);
+begin
+   setCamposCadastro();
+   InputsEnable(true);
+end;
+
+procedure TfrmRepasseParceiro.btnCancelarClick(Sender: TObject);
+begin
+   setCamposCadastro();
+   InputsEnable(false);
+end;
+
+procedure TfrmRepasseParceiro.btnExcluirClick(Sender: TObject);
+Var
+   qyAux : TUMZQuery;
+begin
+   if not DM.UsuarioLogado.TemPermissao( 2006, npExcluir, True ) then Exit;
+
+   if Mensagem('Deseja excluir o registro selecionado?',
+       'Confirmação', MB_YESNO + MB_ICONQUESTION ) <> mrYes then Exit;
+
+   DM.CriarConsulta( qyAux );
+
+   qyAux.Close();
+   qyAux.SQL.Text :=
+     ' DELETE FROM fin_repasse_parceiro      ' +
+     ' WHERE cd_repasse_parceiro = ' + inttostr(cad_cd_repasse_parceiro);
+
+   qyAux.ExecSQL();
+
+   qyRepasseParceiro.Close();
+   qyRepasseParceiro.Open();
+
+end;
+
+procedure TfrmRepasseParceiro.btnSairClick(Sender: TObject);
+begin
+   Close;
+end;
+
+procedure TfrmRepasseParceiro.btnFiltrarClick(Sender: TObject);
+const
+   SSQL =
+      'SELECT ' +
+         'frp.cd_repasse_parceiro,' +
+         'alu.cd_pessoa cd_aluno,' +
+         'alu.nm_pessoa ds_aluno,' +
+         'alu.ds_cidade,' +
+         'cur.descricao ds_curso,' +
+         'tur.descricao ds_turma,' +
+         'vend.cd_pessoa cd_vendedor,' +
+         'vend.nm_pessoa ds_vendedor,' +
+         'frp.vl_percentual,' +
+         'mat.id_matricula,' +
+         'cur.codigo cd_curso,' +
+         'tur.codigo cd_turma,' +
+         'frp.nr_anosemestre' +
+      ' FROM ' +
+         'fin_repasse_parceiro frp ' +
+         'INNER JOIN pessoas alu ON (frp.cd_aluno = alu.cd_pessoa) ' +
+         'LEFT JOIN pessoas vend ON (frp.cd_vendedor = vend.cd_pessoa) ' +
+         'INNER JOIN cursos cur ON (frp.cd_curso = cur.cd_curso AND cur.ANOSEMESTRE = frp.nr_anosemestre) ' +
+         'INNER JOIN turmas tur ON (tur.codigo = frp.cd_turma AND tur.curso = frp.cd_curso AND tur.anosemestre = frp.nr_anosemestre) ' +
+         'INNER JOIN matriculas mat ON (mat.id_matricula = frp.id_matricula AND mat.anosemestre = frp.nr_anosemestre AND mat.turma = tur.codigo AND mat.curso = frp.cd_curso) ' +
+      ' WHERE ';
+var
+   SQL : string;
+   Parte : TStringList;
+   ds_dt_inicio : string;
+   ds_dt_fim : string;
+begin
+   SQL := SSQL;
+
+   try
+      SQL := SQL + 'frp.nr_anosemestre = '+ intToStr(nr_anosemestre);
+
+      if cd_curso <> '' then
+      begin
+         SQL := SQL + ' AND frp.cd_curso = '+Chr(39)+cd_curso+Chr(39);
+      end;
+
+      if cd_turma <> '' then
+      begin
+         SQL := SQL + ' AND frp.cd_turma = '+Chr(39)+cd_turma+Chr(39);
+      end;
+
+      if (edPeriodoDe.Checked = true) and (edPeriodoAte.Checked = true) then
+      begin
+         Parte := TStringList.Create;
+
+         Parte.Delimiter := '/';
+         Parte.DelimitedText := DateToStr(edPeriodoDe.DateTime);
+         ds_dt_inicio := Parte[2]+'-'+Parte[1]+'-'+Parte[0];
+         Parte.Clear;
+
+         Parte.Delimiter := '/';
+         Parte.DelimitedText := DateToStr(edPeriodoAte.DateTime);
+         ds_dt_fim := Parte[2]+'-'+Parte[1]+'-'+Parte[0];
+         Parte.Clear;
+
+         SQL := SQL + ' AND mat.dataemissao BETWEEN '+chr(34)+ds_dt_inicio+ chr(34)+' AND '+chr(34)+ds_dt_fim+ chr(34);
+
+         FreeAndNil(Parte);
+      end;
+
+      SQL := SQL + ' ORDER BY frp.cd_repasse_parceiro ';
+
+      qyRepasseParceiro.Close;
+      qyRepasseParceiro.SQL.Text := SQL;
+      qyRepasseParceiro.Open;
+   finally
+
+   end;
+
+end;
+
+procedure TfrmRepasseParceiro.btnFiltroAlunoClick(Sender: TObject);
+var
+   resultado_filtro : TResultadoFiltroPessoa;
+begin
+    { Abrir Janela de BUSCA de PESSOAS }
+    resultado_filtro := TfrmSelecionarPessoa.Filtrar([], afpEstudante, nr_anosemestre, cd_aluno);
+
+    if not resultado_filtro.filtrado then  Exit;
+
+    if (resultado_filtro.cd_pessoa <> cd_aluno) then
+    begin
+        cd_aluno := resultado_filtro.cd_pessoa;
+        ds_aluno := resultado_filtro.nm_pessoa;
+
+        edAluno.Text := IntToStr(cd_aluno) + ' - ' + ds_aluno;
+    end;
+end;
+
+
+procedure TfrmRepasseParceiro.btnFiltroCursoClick(Sender: TObject);
+var
+   resultado_filtro : TResultadoFiltroCurso;
+begin
+   { Pesquisar Cursos }
+   resultado_filtro := TfrmSelecionarCurso.Filtrar([],-1,-1,nr_anosemestre);
+
+   if not resultado_filtro.filtrado then  Exit;
+
+   if (resultado_filtro.cd_curso <> cd_curso) then
+   begin
+      cd_curso := resultado_filtro.cd_curso;
+
+      edCurso.Text := cd_curso;
+   end;
+end;
+
+procedure TfrmRepasseParceiro.btnFiltroTurmaClick(Sender: TObject);
+var
+   resultado_filtro : TResultadoFiltroTurma;
+begin
+   { Pesquisar Turmas }
+   resultado_filtro := TfrmSelecionarTurma.Filtrar([], nr_anosemestre, -1, -1, cd_curso);
+
+   if not resultado_filtro.filtrado then  Exit;
+
+   if (resultado_filtro.cd_turma <> cd_turma) then
+   begin
+      cd_turma := resultado_filtro.cd_turma;
+
+      edTurma.Text := cd_turma;
+   end;
+end;
+
+procedure TfrmRepasseParceiro.btnFiltroVendedorClick(Sender: TObject);
+var
+   resultado_filtro : TResultadoFiltroPessoa;
+begin
+   { Abrir Janela de BUSCA de PESSOAS }
+   resultado_filtro := TfrmSelecionarPessoa.Filtrar([], afpEstudante, nr_anosemestre, cd_vendedor);
+
+   if not resultado_filtro.filtrado then  Exit;
+
+   if resultado_filtro.cd_pessoa <> cd_vendedor then
+   Begin
+      cd_vendedor := resultado_filtro.cd_pessoa;
+      ds_vendedor := resultado_filtro.nm_pessoa;
+
+      edVendedor.Text := IntToStr(cd_vendedor) + ' - ' + ds_vendedor;
+   end;
+end;
+
+procedure TfrmRepasseParceiro.btnInserirClick(Sender: TObject);
+begin
+   limparCampos();
+   InputsEnable(true);
+end;
+
+procedure TfrmRepasseParceiro.btnLimparClick(Sender: TObject);
+begin
+   edCurso.Clear;
+   edTurma.Clear;
+   edAluno.Clear;
+   edVendedor.clear;
+   edPeriodoDe.date := Date;
+   edPeriodoAte.date := Date;
+   edPeriodoDe.Checked := false;
+   edPeriodoAte.Checked := false;
+
+   cd_curso := '';
+   cd_turma := '';
+   cd_aluno := 0;
+   cd_vendedor := 0;
+   ds_aluno := '';
+   ds_vendedor := '';
+
+   nr_anosemestre := DM.GetAnoSemestreAtual();
+end;
+
+procedure TfrmRepasseParceiro.btnSalvarClick(Sender: TObject);
+const
+   SQL_INSERT = ''
+         + ' INSERT INTO fin_repasse_parceiro ('
+         + '   id_matricula, '
+         + '   nr_anosemestre, '
+         + '   cd_curso, '
+         + '   cd_turma, '
+         + '   cd_aluno, '
+         + '   cd_vendedor, '
+         + '   vl_percentual, '
+         + '   dt_inclusao, '
+         + '   dt_alteracao '
+         + ' ) '
+         + ' VALUES ( '
+         + '   :id_matricula, '
+         + '   :nr_anosemestre, '
+         + '   :cd_curso, '
+         + '   :cd_turma, '
+         + '   :cd_aluno, '
+         + '   :cd_vendedor, '
+         + '   :vl_percentual, '
+         + '   :dt_inclusao, '
+         + '   :dt_alteracao '
+         + ' )';
+
+   SQL_UPDATE = '' +
+          ' UPDATE fin_repasse_parceiro SET '
+         + ' id_matricula = :id_matricula, '
+         + ' nr_anosemestre = :nr_anosemestre, '
+         + ' cd_curso = :cd_curso, '
+         + ' cd_turma = :cd_turma, '
+         + ' cd_aluno = :cd_aluno, '
+         + ' cd_vendedor = :cd_vendedor, '
+         + ' vl_percentual = :vl_percentual, '
+         + ' dt_alteracao = :dt_alteracao '
+         + ' WHERE cd_repasse_parceiro = :cd_repasse_parceiro ';
+Var
+   qyAux : TUMZQuery;
+begin
+   DM.CriarConsulta(qyAux);
+   qyAux.Close();
+
+   cad_vl_percentual := strtoint(edCadComissao.Text);
+
+   if cad_id_matricula = 0 then
+   begin
+      Mensagem('Por favor, informe a matrícula.'); exit;
+   end;
+
+   if cad_nr_anosemestre = 0 then
+   begin
+      Mensagem('Por favor, informe o anosemestre.'); exit;
+   end;
+
+   if cad_cd_curso = '' then
+   begin
+      Mensagem('Por favor, informe o curso.'); exit;
+   end;
+
+   if cad_cd_turma = '' then
+   begin
+      Mensagem('Por favor, informe a turma.'); exit;
+   end;
+
+   if cad_cd_aluno = 0 then
+   begin
+      Mensagem('Por favor, informe o aluno.'); exit;
+   end;
+
+   //inserir
+   if cad_cd_repasse_parceiro = 0 then
+   begin
+      qyAux.SQL.Clear();
+      qyAux.SQL.Add(SQL_INSERT);
+      qyAux.ParamByName('id_matricula').AsInteger := cad_id_matricula;
+      qyAux.ParamByName('nr_anosemestre').AsInteger := cad_nr_anosemestre;
+      qyAux.ParamByName('cd_curso').AsString := cad_cd_curso;
+      qyAux.ParamByName('cd_turma').AsString := cad_cd_turma;
+      qyAux.ParamByName('cd_aluno').AsInteger := cad_cd_aluno;
+      qyAux.ParamByName('cd_vendedor').AsInteger := cad_cd_vendedor;
+      qyAux.ParamByName('vl_percentual').AsInteger := cad_vl_percentual;
+      qyAux.ParamByName('dt_inclusao').AsDateTime := DM.DataAtual;
+      qyAux.ParamByName('dt_alteracao').AsDateTime := DM.DataAtual;
+      qyAux.ExecSQL;
+   end;
+
+   //alterar
+   if cad_cd_repasse_parceiro <> 0 then
+   begin
+      qyAux.SQL.Clear();
+      qyAux.SQL.Add(SQL_UPDATE);
+      qyAux.ParamByName('id_matricula').AsInteger := cad_id_matricula;
+      qyAux.ParamByName('nr_anosemestre').AsInteger := cad_nr_anosemestre;
+      qyAux.ParamByName('cd_curso').AsString := cad_cd_curso;
+      qyAux.ParamByName('cd_turma').AsString := cad_cd_turma;
+      qyAux.ParamByName('cd_aluno').AsInteger := cad_cd_aluno;
+      qyAux.ParamByName('cd_vendedor').AsInteger := cad_cd_vendedor;
+      qyAux.ParamByName('vl_percentual').AsInteger := cad_vl_percentual;
+      qyAux.ParamByName('dt_alteracao').AsDateTime := DM.DataAtual;
+      qyAux.ParamByName('cd_repasse_parceiro').AsInteger := cad_cd_repasse_parceiro;
+      qyAux.ExecSQL;
+   end;
+
+   qyAux.Free;
+   qyRepasseParceiro.Close;
+   qyRepasseParceiro.Open;
+
+   InputsEnable(false);
+end;
+
+procedure TfrmRepasseParceiro.InputsEnable(value:boolean);
+var
+   i:integer;
+begin
+   edCadAnosemestre.Enabled := value;
+   edCadCurso.Enabled := value;
+   edCadTurma.Enabled := value;
+   edCadAluno.Enabled := value;
+   edCadVendedor.Enabled := value;
+   edCadComissao.Enabled := value;
+
+   btnBuscarCurso.Enabled := value;
+   btnBuscarTurma.Enabled := value;
+   btnBuscarAluno.Enabled := value;
+   btnBuscarVendedor.Enabled := value;
+   UpDown1.Enabled := value;
+   btnCancelar.Enabled := value;
+   btnSalvar.Enabled := value;
+
+   btnInserir.Enabled := not value;
+   btnAlterar.Enabled := not value;
+   btnExcluir.Enabled := not value;
+end;
+
+procedure TfrmRepasseParceiro.limparCampos;
+begin
+   setCampos(0,0,DM.GetAnoSemestreAtual(),'','',0,'',0,'',0);
+end;
+
+procedure TfrmRepasseParceiro.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+   Action := caFree;
+   frmRepasseParceiro := nil;
+end;
+
+procedure TfrmRepasseParceiro.FormCreate(Sender: TObject);
+const
+   SChavePermissao = 'UMFinanceiro.RepasseParceiro';
+begin
+   FPermissoes := DM.UsuarioLogado.GetPermissoes(DM.UsuarioLogado.Pessoa.Codigo, SChavePermissao);
+   FParams := TParams.Create;
+end;
+
+procedure TfrmRepasseParceiro.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case Key of
+    VK_F2 : btnInserirClick( nil );
+    VK_F3 : btnAlterarClick( nil );
+    VK_F5 : btnSalvarClick( nil );
+    VK_F9 : btnExcluirClick( nil );
+    VK_F6 : btnCancelarClick( nil );
+    VK_F12 : btnSairClick( nil );
+  end;
+end;
+
+procedure TfrmRepasseParceiro.FormShow(Sender: TObject);
+begin
+   edAnosemestre.Visible := DM.UsaAnosemestre;
+   edAnosemestre.OnKeyPress := SomenteNumeros;
+   edCadAnosemestre.OnKeyPress := SomenteNumeros;
+   edCadComissao.OnKeyPress := SomenteNumeros;
+
+   nr_anosemestre  := DM.GetAnoSemestreAtual();
+
+   btnFiltrarClick(Sender);
+   inserindo := false;
+   editando := false;
+   InputsEnable(false);
+
+   qyRepasseParceiro.First;
+   setCamposCadastro();
+
+   edPeriodoDe.date := Date;
+   edPeriodoAte.date := Date;
+   edPeriodoDe.Checked := false;
+   edPeriodoAte.Checked := false;
+end;
+
+procedure TfrmRepasseParceiro.udAnosemestreClick(Sender: TObject; Button: TUDBtnType);
+begin
+   if Button = btNext then
+   begin
+      nr_anosemestre := StrToInt( DM.incrementar_ano_semestre( IntToStr( nr_anosemestre ) ) );
+   end else begin
+      nr_anosemestre := StrToInt( DM.decrementar_ano_semestre( IntToStr( nr_anosemestre ) ) );
+   end;
+end;
+
+procedure TfrmRepasseParceiro.UpDown1Click(Sender: TObject; Button: TUDBtnType);
+begin
+   if Button = btNext then
+   begin
+      cad_nr_anosemestre := StrToInt( DM.incrementar_ano_semestre( IntToStr( cad_nr_anosemestre ) ) );
+   end else begin
+      cad_nr_anosemestre := StrToInt( DM.decrementar_ano_semestre( IntToStr( cad_nr_anosemestre ) ) );
+   end;
+end;
+
+procedure TfrmRepasseParceiro.SomenteNumeros(Sender: TObject; var Key: Char);
+begin
+   if not ( Key IN ['0'..'9', Chr(8), Chr(9)] ) then Key := #0;
+end;
+procedure TfrmRepasseParceiro.btnBuscarAlunoClick(Sender: TObject);
+var
+   resultado_filtro : TResultadoFiltroPessoa;
+begin
+   { Abrir Janela de BUSCA de PESSOAS }
+   resultado_filtro := TfrmSelecionarPessoa.Filtrar([], afpEstudante, cad_nr_anosemestre, cad_cd_aluno);
+
+   if not resultado_filtro.filtrado then  Exit;
+
+   if resultado_filtro.cd_pessoa <> cad_cd_aluno then
+   Begin
+      cad_id_matricula := resultado_filtro.id_matricula;
+
+      cad_cd_aluno := resultado_filtro.cd_pessoa;
+      cad_ds_aluno := resultado_filtro.nm_pessoa;
+      edCadAluno.Text := IntToStr(cad_cd_aluno) + ' - ' + cad_ds_aluno;
+
+      cad_nr_anosemestre := resultado_filtro.nr_anosemestre;
+
+      cad_cd_curso :=  resultado_filtro.cd_curso;
+      edCadCurso.text := cad_cd_curso;
+
+      cad_cd_turma :=  resultado_filtro.cd_turma;
+      edCadTurma.text := cad_cd_turma;
+   end;
+end;
+
+procedure TfrmRepasseParceiro.btnBuscarCursoClick(Sender: TObject);
+var
+   resultado_filtro : TResultadoFiltroCurso;
+begin
+   { Pesquisar Cursos }
+   resultado_filtro := TfrmSelecionarCurso.Filtrar([],-1,-1,cad_nr_anosemestre);
+
+   if not resultado_filtro.filtrado then  Exit;
+
+   if (resultado_filtro.cd_curso <> cad_cd_curso) then
+   begin
+      cad_cd_curso := resultado_filtro.cd_curso;
+
+      edCadCurso.Text := cad_cd_curso;
+   end;
+end;
+
+procedure TfrmRepasseParceiro.btnBuscarTurmaClick(Sender: TObject);
+var
+   resultado_filtro : TResultadoFiltroTurma;
+begin
+   { Pesquisar Turmas }
+   resultado_filtro := TfrmSelecionarTurma.Filtrar([], cad_nr_anosemestre, -1, -1, cad_cd_curso);
+
+   if not resultado_filtro.filtrado then  Exit;
+
+   if (resultado_filtro.cd_turma <> cad_cd_turma) then
+   begin
+      cad_cd_turma := resultado_filtro.cd_turma;
+
+      edCadTurma.Text := cad_cd_turma;
+   end;
+
+end;
+
+procedure TfrmRepasseParceiro.btnBuscarVendedorClick(Sender: TObject);
+var
+   resultado_filtro : TResultadoFiltroPessoa;
+begin
+   { Abrir Janela de BUSCA de PESSOAS }
+   resultado_filtro := TfrmSelecionarPessoa.Filtrar([], afpEstudante, cad_nr_anosemestre, cad_cd_vendedor);
+
+   if not resultado_filtro.filtrado then  Exit;
+
+   if resultado_filtro.cd_pessoa <> cad_cd_vendedor then
+   Begin
+      cad_cd_vendedor := resultado_filtro.cd_pessoa;
+      cad_ds_vendedor := resultado_filtro.nm_pessoa;
+
+      edCadVendedor.Text := IntToStr(cad_cd_vendedor) + ' - ' + cad_ds_vendedor;
+   end;
+end;
+
+end.

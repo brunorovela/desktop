@@ -1,0 +1,334 @@
+unit uTesouraria_transfere;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, Buttons, DB, ZConnection, ComCtrls, General, ZAbstractRODataset, ZAbstractDataset, ZDataset, UZDataset;
+
+type
+  Tfrm_Tesouraria_Transfere = class(TForm)
+    pnTitulo: TPanel;
+    bv1: TBevel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    edContaDe: TEdit;
+    Label4: TLabel;
+    edValor: TEdit;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    Label6: TLabel;
+    Panel1: TPanel;
+    btnConfirmar: TBitBtn;
+    btnCancelar: TBitBtn;
+    cbContaPara: TComboBox;
+    Label5: TLabel;
+    edHistoricoDe: TEdit;
+    Label7: TLabel;
+    edHistoricoPara: TEdit;
+    SpeedButton1: TSpeedButton;
+    Label8: TLabel;
+    dtAjuste: TDateTimePicker;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure cbContaParaChange(Sender: TObject);
+    procedure edValorKeyPress(Sender: TObject; var Key: Char);
+    procedure edValorExit(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnConfirmarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+
+    ListaContas : Array of integer;
+    ListaColigadas : Array of Integer;
+  public
+    { Public declarations }
+
+    iContaDe   : Integer;
+    iColigada  : Integer;
+  end;
+
+var
+  frm_Tesouraria_Transfere: Tfrm_Tesouraria_Transfere;
+CONST
+       COD_ACAO_PADRAO = 7;
+
+
+implementation
+
+uses uDM, uClassMovimento;
+
+{$R *.dfm}
+
+procedure Tfrm_Tesouraria_Transfere.edValorKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+   if(Key in['.']) then
+   begin
+      Key :=  ',';
+   end;
+   if (key = #13) then
+   begin
+      SelectNext(Sender As TWinControl, True, True);
+      key := #0;
+   end
+   else
+   if (key = ',') then
+   begin
+      if Pos(',', TEdit(Sender).Text) > 0 then
+         key := #0;
+   end
+   else
+   if not (key in ['0'..'9',#8]) then
+      key := #0;
+
+end;
+
+procedure Tfrm_Tesouraria_Transfere.edValorExit(Sender: TObject);
+var
+  valor : Currency;
+  txt : String;
+begin
+       try
+          valor := StrToFloat(TEdit(Sender).Text);
+          txt := FloatToStrF(valor, ffFixed, 12, 2);
+       except
+             txt := '0,00';
+       end;
+
+       TEdit(Sender).Text := txt;
+
+end;
+
+procedure Tfrm_Tesouraria_Transfere.FormShow(Sender: TObject);
+var
+   qyAux : TUMZQuery;
+   n : word;
+begin
+   // A variável iContaDe deve estar setada
+
+   if iContaDe = 0 then
+   begin
+      Mensagem('Nenhuma conta foi selecionada para efetuar a transferencia.', 'Atenção', MB_OK + MB_ICONWARNING);
+      Close;
+      exit;
+   end;
+
+   Dm.CriarConsulta(qyAux);
+
+   // Resgatar nome da conta atual
+
+   qyAux.SQL.Clear;
+   qyAux.SQL.Add(
+   'SELECT                                 ' +
+   '  cd_caixa, ds_caixa                   ' +
+   'FROM                                   ' +
+   '  fin_cadastro_contas                  ' +
+   'WHERE                                  ' +
+   '  cd_caixa =  ' + IntToStr(iContaDe)   +
+   ' AND cd_coligada = ' + IntToStr(Self.iColigada) );
+
+   qyAux.Open;
+
+   edContaDe.Text := qyAux.FieldByName('ds_caixa').AsString;
+
+
+   // Montar o Combo das Contas para Transferencia
+   qyAux.SQL.Clear;
+   qyAux.SQL.Add(
+   'SELECT                                 ' +
+   '  f.cd_caixa, f.cd_coligada, CONCAT(f.ds_caixa, CONCAT('' - '', c.nm_coligada)) ds_caixa   ' +
+   'FROM                                   ' +
+   '  fin_cadastro_contas f INNER JOIN coligadas c ON (f.cd_coligada = c.cd_coligada)  ' +
+   '  LEFT JOIN fin_contas_usuarios u ON (f.cd_caixa = u.cd_caixa AND u.cd_usuario = ' + IntToStr(DM.iCdPessoaLogado) + ' ) ' +
+   'WHERE                                  ' +
+   '  f.sn_ativa = ''S''  AND                ' +
+   '  f.cd_caixa <> ' + IntToStr(iContaDe)     +
+   '  AND (f.sn_transf_aberta = 1 OR u.cd_usuario is not null ) ' +
+   ' ORDER BY                              ' +
+   '  c.nm_coligada, f.ds_caixa                      ');
+
+   qyAux.Open;
+
+   if qyAux.Eof then
+   begin
+      Mensagem('Nenhuma conta disponível para efetuar a transferencia.', 'Atenção', MB_OK + MB_ICONWARNING);
+      Close;
+      exit;
+   end;
+
+   qyAux.FetchAll;
+   SetLength(ListaContas, qyAux.RecordCount);
+   SetLength(ListaColigadas, qyAux.RecordCount);
+
+   cbContaPara.Items.Clear;
+
+   n := 0;
+
+   while not qyAux.EOF do begin
+
+       cbContaPara.Items.Add(qyAux.FieldByName('ds_caixa').AsString);
+
+       ListaContas[n] := qyAux.FieldByName('cd_caixa').AsInteger;
+       ListaColigadas[n] := qyAux.FieldByName('cd_coligada').AsInteger;
+       qyAux.Next;
+       INC(n);
+
+   end;
+
+   // Colocar a primeira conta como padrão
+   if cbContaPara.Items.Count > 1 then
+      cbContaPara.ItemIndex := -1
+   else
+      cbContaPara.ItemIndex := 0;
+
+   edHistoricoDe.Text := 'TRANSFERÊNCIA DA CONTA ' + edContaDe.Text;
+   edHistoricoPara.Text := 'TRANSFERÊNCIA PARA A CONTA ' + cbContaPara.Text;
+
+   dtAjuste.Date := DM.DataAtual;
+
+end;
+
+procedure Tfrm_Tesouraria_Transfere.btnConfirmarClick(Sender: TObject);
+Var
+   mvEntrada : TMovimento;
+   mvSaida : Tmovimento;
+
+   iTpconta : Word; iCdCaixaAbertura : Integer;
+   iSaida : Integer;
+begin
+
+   btnConfirmar.Enabled := false;
+   btnCancelar.Enabled := false;
+
+   if cbContaPara.ItemIndex < 0 then begin
+      Mensagem('Selecione uma conta para efetuar a Transferência.', 'Atenção', MB_OK + MB_ICONWARNING);
+      btnConfirmar.Enabled := true;
+      btnCancelar.Enabled := true;
+      exit;
+   end;
+
+   if DM.EstaBloqueado(dtAjuste.Date, false) then begin
+      // Mensagem('Não é possível efetuar Transferência com data inferior a ' + DateToStr(Dm.DataBloqueioFinanceiro(dtAjuste.Date) + '.' , 'Atenção', MB_OK + MB_ICONWARNING);
+      Mensagem('Não é possível efetuar a transferência com essa data. O período está bloqueado até: ' + DateToStr(Dm.DataBloqueioFinanceiro(dtAjuste.Date)) + '.' , 'Atenção', MB_OK + MB_ICONWARNING);
+      btnConfirmar.Enabled := true;
+      btnCancelar.Enabled := true;
+      exit;
+   end;
+
+
+   // Gerar um movimento de saida de uma conta
+
+   mvEntrada := TMovimento.Create;
+
+   mvEntrada.Coligada := Self.iColigada;
+
+   { Verificar se a conta está ativa }
+   if not mvEntrada.VerificaContaAtiva(iContaDe, iTpConta, iCdCaixaAbertura) then
+   begin
+      { A Conta não está ativa }
+      Mensagem('Não é possível efetuar lançamento em contas inativas.', 'Atenção', MB_OK + MB_ICONWARNING);
+      mvEntrada.Free;
+      btnConfirmar.Enabled := true;
+      btnCancelar.Enabled := true;
+      exit;
+   end;
+
+   if (iTpConta = 3) AND (iCdCaixaAbertura = 0) then
+   begin
+      { A conta caixa está fechada }
+      Mensagem('Não é possível efetuar lançamento com o caixa fechado.', 'Atenção', MB_OK + MB_ICONWARNING);
+      mvEntrada.Free;
+      btnConfirmar.Enabled := true;
+      btnCancelar.Enabled := true;
+      exit;
+   end;
+
+   mvSaida := TMovimento.Create;
+
+   { Verificar se a conta está ativa }
+   if not mvSaida.VerificaContaAtiva(ListaContas[cbContaPara.ItemIndex], iTpConta, iCdCaixaAbertura, ListaColigadas[cbContaPara.ItemIndex] ) then
+   begin
+      { A Conta não está ativa }
+      Mensagem('Não é possível efetuar lançamento em contas inativas.', 'Atenção', MB_OK + MB_ICONWARNING);
+      mvEntrada.Free;
+      mvSaida.Free;
+      btnConfirmar.Enabled := true;
+      btnCancelar.Enabled := true;
+      exit;
+   end;
+
+   if (iTpConta = 3) AND (iCdCaixaAbertura = 0) then
+   begin
+      { A conta caixa está fechada }
+      Mensagem('Não é possível efetuar lançamento com o caixa fechado.', 'Atenção', MB_OK + MB_ICONWARNING);
+      mvEntrada.Free;
+      mvSaida.Free;
+      btnConfirmar.Enabled := true;
+      btnCancelar.Enabled := true;
+      exit;
+   end;
+
+   mvEntrada.CodAcao := DM.BuscarCodigoAcaoPadrao(COD_ACAO_PADRAO);
+   mvEntrada.ValorMovimento := StrToCurr(edValor.Text);
+   mvEntrada.ValorEmCheque := 0;
+   mvEntrada.ValorEmDinheiro := StrToCurr(edValor.Text);
+   mvEntrada.Historico := edHistoricoPara.Text;
+
+   mvEntrada.DataLiberacao := Date;
+   mvEntrada.Origem := 3;  // Tesouraria
+   mvEntrada.EntradaSaida := 2; // Saida
+   mvEntrada.DataMovimento := dtAjuste.Date;
+
+   iSaida := mvEntrada.RegistrarMovimentacaoTe(iContaDe);
+
+   // Gerar um movimento de entrada de outra conta
+
+   mvSaida.CodAcao := DM.BuscarCodigoAcaoPadrao(COD_ACAO_PADRAO);
+   mvSaida.ValorMovimento := StrToCurr(edValor.Text);
+   mvSaida.ValorEmCheque := 0;
+   mvSaida.ValorEmDinheiro := StrToCurr(edValor.Text);
+   mvSaida.Historico := edHistoricoDe.Text;
+
+   mvSaida.DataLiberacao := Date;
+   mvSaida.Origem := 3;  // Tesouraria
+   mvSaida.EntradaSaida := 1; // Entrada
+   mvSaida.DataMovimento := dtAjuste.Date;
+   mvSaida.Coligada := ListaColigadas[cbContaPara.ItemIndex];
+   mvSaida.CodigoSaida := iSaida;
+   mvSaida.RegistrarMovimentacaoTe(ListaContas[cbContaPara.ItemIndex]);
+
+   Mensagem('Transferência Efetuada com sucesso.', 'UNI-MESTRE', MB_OK + MB_ICONEXCLAMATION);
+
+   mvEntrada.Free;
+   mvSaida.Free;
+
+   Close;
+
+end;
+
+procedure Tfrm_Tesouraria_Transfere.btnCancelarClick(Sender: TObject);
+begin
+   Close;
+end;
+
+procedure Tfrm_Tesouraria_Transfere.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+   Action := caFree;
+end;
+
+procedure Tfrm_Tesouraria_Transfere.cbContaParaChange(Sender: TObject);
+begin
+   edHistoricoPara.Text := 'TRANSFERÊNCIA PARA A CONTA ' + cbContaPara.Text; 
+end;
+
+procedure Tfrm_Tesouraria_Transfere.SpeedButton1Click(Sender: TObject);
+begin
+   edHistoricoPara.Text := edHistoricoDe.Text;
+end;
+
+end.
+

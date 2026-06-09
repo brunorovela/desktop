@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/04/22 10:11:37.132.bdsproj,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\Package1.bdsproj=D:\_PERON_\Pessoais\Documents\Borland Studio Projects\UMSvcPessoa.bdsproj</Transaction>
+    <Transaction>2008/04/22 10:11:54.368.pas,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\Unit1.pas=D:\_PERON_\Pessoais\Documents\Borland Studio Projects\uSvcPessoa.pas</Transaction>
+    <Transaction>2008/04/22 10:12:07.597.pas,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\Unit1.pas=D:\_PERON_\Pessoais\Documents\Borland Studio Projects\fSvcPessoa.pas</Transaction>
+    <Transaction>2008/04/22 10:12:07.597.dfm,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\Unit1.dfm=D:\_PERON_\Pessoais\Documents\Borland Studio Projects\fSvcPessoa.dfm</Transaction>
+    <Transaction>2008/04/22 10:12:13.186.pas,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\fSvcPessoa.pas=D:\_PERON_\Pessoais\Documents\Borland Studio Projects\fSvcPessoaConfig.pas</Transaction>
+    <Transaction>2008/04/22 10:12:13.186.dfm,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\fSvcPessoa.dfm=D:\_PERON_\Pessoais\Documents\Borland Studio Projects\fSvcPessoaConfig.dfm</Transaction>
+    <Transaction>2008/04/22 10:12:40.651.pas,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\uSvcPessoa.pas=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\uSvcPessoa.pas</Transaction>
+    <Transaction>2008/04/22 10:12:42.591.pas,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\fSvcPessoaConfig.pas=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\fSvcPessoaConfig.pas</Transaction>
+    <Transaction>2008/04/22 10:12:42.591.dfm,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\fSvcPessoaConfig.dfm=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\fSvcPessoaConfig.dfm</Transaction>
+    <Transaction>2008/04/22 10:12:45.472.bdsproj,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\UMSvcPessoa.bdsproj=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\UMSvcPessoa.bdsproj</Transaction>
+    <Transaction>2008/04/22 10:18:16.405.bdsproj,D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\UMSvcPessoa.bdsproj=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\UMSvcIntegraPessoa.bdsproj</Transaction>
+    <Transaction>2008/04/22 10:18:28.009.pas,D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\fSvcPessoaConfig.pas=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\fSvcIntegraPessoaConfig.pas</Transaction>
+    <Transaction>2008/04/22 10:18:28.009.dfm,D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\fSvcPessoaConfig.dfm=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\fSvcIntegraPessoaConfig.dfm</Transaction>
+    <Transaction>2008/04/22 10:18:32.767.pas,D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\uSvcPessoa.pas=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\uSvcIntegraPessoa.pas</Transaction>
+    <Transaction>2008/04/25 16:19:26.517.bdsproj,D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\UMSvcIntegraPessoa.bdsproj=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\UMSvcIntegraTasy.bdsproj</Transaction>
+    <Transaction>2008/04/25 16:21:19.922.pas,D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\uSvcIntegraPessoa.pas=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\uSvcIntegraTasy.pas</Transaction>
+    <Transaction>2008/04/25 16:21:26.866.pas,D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\fSvcIntegraPessoaConfig.pas=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\fSvcIntegraTasyConfig.pas</Transaction>
+    <Transaction>2008/04/25 16:21:26.866.dfm,D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\fSvcIntegraPessoaConfig.dfm=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\fSvcIntegraTasyConfig.dfm</Transaction>
+    <Transaction>2008/04/25 16:22:05.476.pas,D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\Unit1.pas=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\svcpessoa\uSvcIntegraTasyPessoa.pas</Transaction>
+    <Transaction>2008/04/29 16:16:39.140.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\uIServico.pas=</Transaction>
+    <Transaction>2008/04/29 18:31:56.609.bdsproj,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\biblioshop\UMSvcIntegraTasy.bdsproj=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\biblioshop\UMSvcIntegraBiblioShop.bdsproj</Transaction>
+    <Transaction>2008/04/29 18:32:23.875.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\biblioshop\uSvcIntegraTasy.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\biblioshop\uSvcIntegraBiblioshop.pas</Transaction>
+    <Transaction>2008/04/29 18:32:31.171.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\biblioshop\fSvcIntegraTasyConfig.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\biblioshop\fSvcIntegraBiblioshopConfig.pas</Transaction>
+    <Transaction>2008/04/29 18:32:31.171.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\biblioshop\fSvcIntegraTasyConfig.dfm=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\biblioshop\fSvcIntegraBiblioshopConfig.dfm</Transaction>
+    <Transaction>2008/04/29 18:32:42.906.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\biblioshop\uSvcIntegraTasyPessoa.pas=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\biblioshop\uSvcIntegraBiblioshopPessoa.pas</Transaction>
+    <Transaction>2010/04/14 16:17:31.593.pas,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\servicos\integrabiblioshop\fSvcIntegraBiblioshopConfig.pas=</Transaction>
+    <Transaction>2010/04/14 16:17:31.593.dfm,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\servicos\integrabiblioshop\fSvcIntegraBiblioshopConfig.dfm=</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2005/04/29 18:01:51.986.pas,D:\Programacao\Desenvolvimento\UNIMESTRE\Configuracao\fontes\uCabecalhos.pas=</Transaction>
+    <Transaction>2005/04/29 18:01:52.064.dfm,D:\Programacao\Desenvolvimento\UNIMESTRE\Configuracao\fontes\uCabecalhos.dfm=</Transaction>
+    <Transaction>2005/07/29 17:34:51.171.pas,D:\Programacao\Desenvolvimento\UNIMESTRE\Configuracao\fontes\Unit1.pas=D:\Programacao\Desenvolvimento\UNIMESTRE\Configuracao\fontes\uAgendarBackup.pas</Transaction>
+    <Transaction>2005/07/29 17:34:51.203.dfm,D:\Programacao\Desenvolvimento\UNIMESTRE\Configuracao\fontes\Unit1.dfm=D:\Programacao\Desenvolvimento\UNIMESTRE\Configuracao\fontes\uAgendarBackup.dfm</Transaction>
+    <Transaction>2005/08/01 09:59:17.968.pas,D:\Programacao\Desenvolvimento\UNIMESTRE\Configuracao\fontes\Unit1.pas=D:\Programacao\Desenvolvimento\UNIMESTRE\Configuracao\fontes\unBAckupAgendado.pas</Transaction>
+    <Transaction>2005/08/01 09:59:17.968.dfm,D:\Programacao\Desenvolvimento\UNIMESTRE\Configuracao\fontes\Unit1.dfm=D:\Programacao\Desenvolvimento\UNIMESTRE\Configuracao\fontes\unBAckupAgendado.dfm</Transaction>
+    <Transaction>2009/09/24 13:16:21.656.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\Unit1.pas=D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uMySQLBackup.pas</Transaction>
+    <Transaction>2009/09/25 08:53:22.718.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uMySQLBackup.pas=D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uMySQLBackup_.pas</Transaction>
+    <Transaction>2009/09/25 08:53:59.046.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\Unit1.pas=D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uMySQLBackup.pas</Transaction>
+    <Transaction>2009/09/25 14:50:19.593.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uMySQLBackup_.pas=</Transaction>
+    <Transaction>2009/09/30 08:25:07.859.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uFBackupProgresso.pas=</Transaction>
+    <Transaction>2009/09/30 08:25:07.859.dfm,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uFBackupProgresso.dfm=</Transaction>
+    <Transaction>2009/10/01 14:14:41.000.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uMySQLBackup.pas=</Transaction>
+    <Transaction>2009/10/01 14:26:14.781.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\Unit1.pas=D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uMySQLDump.pas</Transaction>
+    <Transaction>2009/10/01 16:20:16.406.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uMySQLDump.pas=</Transaction>
+    <Transaction>2009/10/01 16:20:50.859.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\Unit1.pas=D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uFSelObjetos.pas</Transaction>
+    <Transaction>2009/10/01 16:20:50.859.dfm,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\Unit1.dfm=D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uFSelObjetos.dfm</Transaction>
+    <Transaction>2009/10/16 09:20:11.093.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uFSelObjetos.pas=</Transaction>
+    <Transaction>2009/10/16 09:20:11.093.dfm,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uFSelObjetos.dfm=</Transaction>
+    <Transaction>2009/11/19 16:37:53.625.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\Unit1.pas=D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uBackupClasses.pas</Transaction>
+    <Transaction>2009/11/19 18:32:45.078.pas,D:\programacao\desenvolvimento\unimestre\configuracao\trunk\fontes\uBackupClasses.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

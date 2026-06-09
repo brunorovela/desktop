@@ -1,0 +1,43 @@
+object frmMensalidadeBaixaMsgCartao: TfrmMensalidadeBaixaMsgCartao
+  Left = 0
+  Top = 0
+  BorderIcons = []
+  Caption = 'Mensagem'
+  ClientHeight = 78
+  ClientWidth = 415
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lbMensagem: TLabel
+    AlignWithMargins = True
+    Left = 3
+    Top = 16
+    Width = 409
+    Height = 59
+    Align = alBottom
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '...'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -19
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
+    WordWrap = True
+  end
+  object tempo_fechar: TTimer
+    Enabled = False
+    OnTimer = tempo_fecharTimer
+    Left = 8
+    Top = 8
+  end
+end

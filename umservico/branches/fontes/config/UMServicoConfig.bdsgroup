@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{7DBB4D77-A866-4AD3-B571-67092DCB6B2B}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  <Projects>
+      <Projects Name="UMConexao.bpl">..\..\..\..\..\sistemas\UMConexao\fontes\UMConexao.bdsproj</Projects>
+      <Projects Name="UMFuncoes.bpl">..\..\..\..\..\sistemas\UMFuncoes\fontes\UMFuncoes.bdsproj</Projects>
+      <Projects Name="UMServicoConfig.exe">UMServicoConfig.bdsproj</Projects>
+      <Projects Name="Targets">UMConexao.bpl UMFuncoes.bpl UMServicoConfig.exe</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

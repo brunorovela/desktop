@@ -1,0 +1,4602 @@
+unit Main;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ComCtrls, Menus, ExtCtrls, General, ZAbstractRODataset, ZAbstractDataset,
+  ZDataset, UZDataset, IniFiles, StdCtrls, ImgList, Buttons, ToolWin, ZConnection,
+  UCrpe32, UCrpeClasses, Mask, DBCtrls, uRelutils, CropImage, UFPermRel, ufcadRepasses,
+  uFGerarRepasseMensal, md5, DateUtils, uCFuncClasses, ClassRegistros, StrUtils,
+  uUMCriptografia, uTrataExcecao, uTratamentoExcecaoAcademico, ActnList, uMensagem,
+  uCursosMoodle, uTiposAula;
+
+type
+   TExec = procedure of object;   
+
+  TPrincipalForm = class(TForm)
+    popConfiguracoes: TPopupMenu;
+    confTrocaUsuario: TMenuItem;
+    N2: TMenuItem;
+    ImageList2: TImageList;
+    toolEscolar: TToolBar;
+    ToolButton20: TToolButton;                                                             
+    btnAcademico: TToolButton;
+    ToolButton22: TToolButton;
+    btnAcademicoCadastros: TToolButton;
+    ToolButton24: TToolButton;
+    btnAcademicoPessoas: TToolButton;
+    ToolButton26: TToolButton;
+    btnAcademicoMatriculas: TToolButton;
+    ToolButton28: TToolButton;
+    btnAcademicoSecretaria: TToolButton;
+    ToolButton30: TToolButton;
+    btnAcademicoRelatorios: TToolButton;
+    ToolButton36: TToolButton;
+    btnAcademicoSair: TToolButton;
+    ToolButton38: TToolButton;
+    toolFinanceiro: TToolBar;
+    ToolButton19: TToolButton;
+    btnFinanceiro: TToolButton;
+    ToolButton2: TToolButton;
+    btnFinanceiroCadastro: TToolButton;
+    ToolButton3: TToolButton;
+    btnFinanceiroPessoas: TToolButton;
+    ToolButton5: TToolButton;
+    btnFinanceiroMensalidades: TToolButton;
+    ToolButton7: TToolButton;
+    btnFinanceiroCaixa: TToolButton;
+    ToolButton9: TToolButton;
+    btnFinanceiroRelatorios: TToolButton;
+    ToolButton13: TToolButton;
+    btnFinanceiroSair: TToolButton;
+    ToolButton18: TToolButton;
+    popAcademicoCadastros: TPopupMenu;
+    cadDepartamento: TMenuItem;
+    cadDisciplinaMestra: TMenuItem;
+    cadInstituicaoEnsino: TMenuItem;
+    popAcademicosPessoas: TPopupMenu;
+    pesCadastro: TMenuItem;
+    pesAluno: TMenuItem;
+    pesProfessor: TMenuItem;
+    popFinanceiroMensalidades: TPopupMenu;
+    recFinPlanilhaMensalidade: TMenuItem;
+    N6: TMenuItem;
+    recFinRetornoBanco: TMenuItem;
+    popFinanceiroCadastros: TPopupMenu;
+    cadFinPlanoBolsa: TMenuItem;
+    N7: TMenuItem;
+    cadFinIndicePoupanca: TMenuItem;
+    popAcademicoMatriculas: TPopupMenu;
+    maPlanilhaMatricula: TMenuItem;
+    N8: TMenuItem;
+    maReservaVaga: TMenuItem;
+    N9: TMenuItem;
+    maEquivalencia: TMenuItem;
+    popFinanceiroCaixa: TPopupMenu;
+    tesFinPlanilhaCaixa: TMenuItem;
+    popAcademicoSecretaria: TPopupMenu;
+    secDiarioClasse: TMenuItem;
+    N10: TMenuItem;
+    secFichaIndividual: TMenuItem;
+    secDigitacaoMediaFalta: TMenuItem;
+    N11: TMenuItem;
+    secDigitacaoProvaInstitucional: TMenuItem;
+    N12: TMenuItem;
+    secObservacaoDiploma: TMenuItem;
+    secIndividual: TMenuItem;
+    secCursoAnoSemestre: TMenuItem;
+    N13: TMenuItem;
+    popFinanceiroRelatorios: TPopupMenu;
+    popAcademicoRelatorios: TPopupMenu;
+    secVisualizarDiario: TMenuItem;
+    ToolButton11: TToolButton;
+    btnFinanceiroConfiguracoes: TToolButton;
+    ToolButton14: TToolButton;
+    btnAcademicoConfiguracoes: TToolButton;
+    MenuFinanceiro: TMainMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    miCadastroFinan: TMenuItem;
+    miPessoasFinan: TMenuItem;
+    miRecebimentosFinan: TMenuItem;
+    miTesourariaFinan: TMenuItem;
+    miRelatoriosFinan: TMenuItem;
+    miConfiguracoesFinan: TMenuItem;
+    MenuAcademico: TMainMenu;
+    MenuItem13: TMenuItem;
+    MenuItem14: TMenuItem;
+    MenuItem15: TMenuItem;
+    MenuItem16: TMenuItem;
+    MenuItem18: TMenuItem;
+    miCadastroAcad: TMenuItem;
+    miPessoasAcad: TMenuItem;
+    miMatriculaAcad: TMenuItem;
+    miSecretaAcad: TMenuItem;
+    miRelatorioAcad: TMenuItem;
+    miConfiguraAcad: TMenuItem;
+    BarraDeStatus: TToolBar;
+    traco1: TToolButton;
+    btnUsuario: TToolButton;
+    btnTrocaUnidadeEnsino: TToolButton;
+    traco2: TToolButton;
+    traco3: TToolButton;
+    btnDatas: TToolButton;
+    ImagensMenu: TImageList;
+    pnlMsg: TPanel;
+    cadDisciplinaTurmaProfessor: TMenuItem;
+    relRelatorioAcademico: TMenuItem;
+    confModuloRelatorio: TMenuItem;
+    N25: TMenuItem;
+    relFinRelatorioContasReceber: TMenuItem;
+    cadFinProgramacaoDesconto: TMenuItem;
+    N45: TMenuItem;
+    pesPesquisar: TMenuItem;
+    N19: TMenuItem;
+    cadParmetroAvaliacao: TMenuItem;
+    cadEmpresa: TMenuItem;
+    recFinArquivoRemessa: TMenuItem;
+    secHistorico: TMenuItem;
+    secHistoricoAnteriorEstudante: TMenuItem;
+    secDigitacaoAulasDadas: TMenuItem;
+    cadFinPlanoConta: TMenuItem;
+    cadFinDespesaTurma: TMenuItem;
+    N26: TMenuItem;
+    N37: TMenuItem;
+    cadFinCalendario: TMenuItem;
+    cadCalendario: TMenuItem;
+    N39: TMenuItem;
+    relRelatorioImpresso: TMenuItem;
+    N41: TMenuItem;
+    relFinRelatorioImpressos: TMenuItem;
+    N46: TMenuItem;
+    cadDocumento: TMenuItem;
+    cadFormaIngresso: TMenuItem;
+    N48: TMenuItem;
+    secPrazoDiarioClasse: TMenuItem;
+    N49: TMenuItem;
+    cadHorario: TMenuItem;
+    cadHorarioTurma: TMenuItem;
+    secDigitacaoFrequenciaFalta: TMenuItem;
+    N55: TMenuItem;
+    secListaFreqeunciaFalta: TMenuItem;
+    confTrocaSenha: TMenuItem;
+    N56: TMenuItem;
+    cadAulaProva: TMenuItem;
+    cadCoordenador: TMenuItem;
+    ToolButton1: TToolButton;
+    ToolButton4: TToolButton;
+    N17: TMenuItem;
+    N36: TMenuItem;
+    cadFinConta: TMenuItem;
+    cadFinCentroCusto: TMenuItem;
+    cadFinCriterioApropriao: TMenuItem;
+    cadFinTipoTitulo: TMenuItem;
+    cadFinAcaoMovimento: TMenuItem;
+    popFinanceiroContasPagar: TPopupMenu;
+    comFinPlanilhaCompromisso: TMenuItem;
+    MenuItem11: TMenuItem;
+    comFinPagamentoPreparado: TMenuItem;
+    relFinRelatorioContaPagar: TMenuItem;
+    relFinGerencial: TMenuItem;
+    N16: TMenuItem;
+    pesFornecedor: TMenuItem;
+    cadFinAreaAtuacao: TMenuItem;
+    tesFinControleCheque: TMenuItem;
+    cadCampus: TMenuItem;
+    N62: TMenuItem;
+    pesPlanilhaContato: TMenuItem;
+    confInformacaoSobreInstituicao: TMenuItem;
+    N63: TMenuItem;
+    secBloquearDesbloquearEtapa: TMenuItem;
+    N65: TMenuItem;
+    confSelecionaUnidadeEnsino: TMenuItem;
+    Report: TCrpe;
+    N3: TMenuItem;
+    pesImportarFoto: TMenuItem;
+    miCompromissoFinan: TMenuItem;
+    secGradeExtra: TMenuItem;
+    N42: TMenuItem;
+    cadAtualizarDocumentacao: TMenuItem;
+    cadFinPlanoMulta: TMenuItem;
+    cadFinCambioMoeda: TMenuItem;
+    maEquivalenciaInterna: TMenuItem;
+    recFinBloqueioFinanceiro: TMenuItem;
+    N54: TMenuItem;
+    recFinPlanilhaCobranca: TMenuItem;
+    N66: TMenuItem;
+    recFinNotaFiscal: TMenuItem;
+    cadComplementoMedia: TMenuItem;
+    cadPaisEstadoMunicipio: TMenuItem;
+    N67: TMenuItem;
+    tesFinReclassificarConta: TMenuItem;
+    secMonografia: TMenuItem;
+    secRegistroDiploma: TMenuItem;
+    N68: TMenuItem;
+    confSobre: TMenuItem;
+    N69: TMenuItem;
+    relImpressaoCarta: TMenuItem;
+    secRegistroCertificadoEvento: TMenuItem;
+    pesFinanciamentoEstudantil: TMenuItem;
+    N47: TMenuItem;
+    cadAtividadeComplementar: TMenuItem;
+    N71: TMenuItem;
+    N70: TMenuItem;
+    comFinGeraoNFSe: TMenuItem;
+    cadCampoAdicionalCursoTurma: TMenuItem;
+    N72: TMenuItem;
+    comFinRemessaCompromisso: TMenuItem;
+    confGerenciaRelatorio: TMenuItem;
+    cadCampoAdicionalPessoa: TMenuItem;
+    comFinRetornoCompromisso: TMenuItem;
+    cadUnidadeEnsino: TMenuItem;
+    cadAulaProvaCronograma: TMenuItem;
+    N73: TMenuItem;
+    confDefineTelaPadrao: TMenuItem;
+    cadAulaProvaAula: TMenuItem;
+    cadAulaProvaProva: TMenuItem;
+    cadAulaProvaAprovacao: TMenuItem;
+    cadAulaProvaComplementoMedia: TMenuItem;
+    cadFinPlanoPagamento: TMenuItem;
+    N74: TMenuItem;
+    cadFinControleProduto: TMenuItem;
+    cadFinCategoria: TMenuItem;
+    cadFinProduto: TMenuItem;
+    N75: TMenuItem;
+    cadFinRegistrarEntrada: TMenuItem;
+    cadFinRegistrarSaida: TMenuItem;
+    N76: TMenuItem;
+    cadFinControleEstoque: TMenuItem;
+    cadFinGerarTtulo: TMenuItem;
+    recFinVendaProduto: TMenuItem;
+    cadFinPlanoNegociacao: TMenuItem;
+    cadHorarioAgrupado: TMenuItem;
+    cadAgrupamentoDisciplina: TMenuItem;
+    tesFinAprovaoPrestaoConta: TMenuItem;
+    N58: TMenuItem;
+    confAprovacaoPrestacaoConta: TMenuItem;
+    cadTipoAvaliacao: TMenuItem;
+    N1: TMenuItem;
+    ExportaodeDados1: TMenuItem;
+    FichadeSade1: TMenuItem;
+    N4: TMenuItem;
+    cadFinContratos: TMenuItem;
+    Cadastro1: TMenuItem;
+    IndicaoparaRepasse1: TMenuItem;
+    RELATRIODEREPASSEMENSAL1: TMenuItem;
+    tbtnSeparadorPortalOnline: TToolButton;
+    tbtnAcessoPortalOnline: TToolButton;
+    tmRelogio: TTimer;
+    N5: TMenuItem;
+    cadFinConvenioPgto: TMenuItem;
+    recFinFacturas: TMenuItem;
+    N14: TMenuItem;
+    traco4: TToolButton;
+    N15: TMenuItem;
+    N18: TMenuItem;
+    Excluirreservasdevaga1: TMenuItem;
+    N20: TMenuItem;
+    maAtividadesDomiciliar: TMenuItem;
+    N21: TMenuItem;
+    ReclassificarContas1: TMenuItem;
+    Salas: TMenuItem;
+    cadFinKit: TMenuItem;
+    cadGruposAtividadesPraticas: TMenuItem;
+    eadeatuao1: TMenuItem;
+    tmRelogio2: TTimer;
+    Exportaoparaocenso1: TMenuItem;
+    pesTipoPessoa: TMenuItem;
+    N22: TMenuItem;
+    cadFinAdminCartao: TMenuItem;
+    tesFinControleCartao: TMenuItem;
+    FormasdePagamento1: TMenuItem;
+    bkp_realizado: TMenuItem;
+    cadCursosMoodle: TMenuItem;
+    cadTipoAula: TMenuItem;
+    RegistroVisualizao1: TMenuItem;
+    MotivosdeAtendimento1: TMenuItem;
+    miLGTCDespesasTipo: TMenuItem;
+    miDespesasAulas: TMenuItem;
+    miVouchers: TMenuItem;
+    miRelatorios: TMenuItem;
+    procedure miRelatoriosClick(Sender: TObject);
+    procedure miVouchersClick(Sender: TObject);
+    procedure miDespesasAulasClick(Sender: TObject);
+    procedure miLGTCDespesasTipoClick(Sender: TObject);
+    procedure MotivosdeAtendimento1Click(Sender: TObject);
+    procedure RegistroVisualizao1Click(Sender: TObject);
+    procedure btnFinanceiroMensalidadesClick(Sender: TObject);
+    procedure btnAcademicoSecretariaClick(Sender: TObject);
+    procedure cadTipoAulaClick(Sender: TObject);
+    procedure cadCursosMoodleClick(Sender: TObject);
+    procedure bkp_realizadoClick(Sender: TObject);
+    procedure FormasdePagamento1Click(Sender: TObject);
+    procedure tesFinControleCartaoClick(Sender: TObject);
+    procedure cadFinAdminCartaoClick(Sender: TObject);
+    procedure pesTipoPessoaClick(Sender: TObject);
+    procedure Exportaoparaocenso1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure tmRelogio2Timer(Sender: TObject);
+    procedure eadeatuao1Click(Sender: TObject);
+    procedure cadFinKitClick(Sender: TObject);
+    procedure cadGruposAtividadesPraticasClick(Sender: TObject);
+    procedure cadSalasClick(Sender: TObject);
+    procedure ReclassificarContas1Click(Sender: TObject);
+    procedure maAtividadesDomiciliarClick(Sender: TObject);
+    procedure Excluirreservasdevaga1Click(Sender: TObject);
+    procedure ExcluirReservadeVagas1Click(Sender: TObject);
+    procedure N15Click(Sender: TObject);
+    procedure btnTrocaUnidadeEnsinoClick(Sender: TObject);
+    procedure recFinFacturasClick(Sender: TObject);
+    procedure cadFinConvenioPgtoClick(Sender: TObject);
+    procedure tmRelogioTimer(Sender: TObject);
+    procedure tbtnAcessoPortalOnlineClick(Sender: TObject);
+    procedure RELATRIODEREPASSEMENSAL1Click(Sender: TObject);
+    procedure IndicaoparaRepasse1Click(Sender: TObject);
+    procedure Cadastro1Click(Sender: TObject);
+    procedure ExportaodeDados1Click(Sender: TObject);
+    procedure iposdeTtulos1Click(Sender: TObject);
+    procedure confParametroClick(Sender: TObject);
+    procedure confSelecionaUnidadeEnsinoClick(Sender: TObject);
+    procedure secMonografiaClick(Sender: TObject);
+    procedure recFinArquivoRemessaClick(Sender: TObject);
+    procedure pesFornecedorClick(Sender: TObject);
+    procedure cadParmetroAvaliacaoClick(Sender: TObject);
+    procedure cadFinAcaoMovimentoClick(Sender: TObject);
+    procedure cadFinTipoTituloClick(Sender: TObject);
+    procedure cadFinCriterioApropriaoClick(Sender: TObject);
+    procedure cadFinCentroCustoClick(Sender: TObject);
+    procedure cadFinContaClick(Sender: TObject);
+    procedure cadTipoAvaliacaoClick(Sender: TObject);
+    procedure confAprovacaoPrestacaoContaClick(Sender: TObject);
+    procedure tesFinAprovaoPrestaoContaClick(Sender: TObject);
+    procedure cadAgrupamentoDisciplinaClick(Sender: TObject);
+    procedure cadHorarioAgrupadoClick(Sender: TObject);
+    procedure cadFinPlanoNegociacaoClick(Sender: TObject);
+    procedure recFinVendaProdutoClick(Sender: TObject);
+    procedure cadFinGerarTtuloClick(Sender: TObject);
+    procedure cadFinControleEstoqueClick(Sender: TObject);
+    procedure cadFinRegistrarSaidaClick(Sender: TObject);
+    procedure cadFinRegistrarEntradaClick(Sender: TObject);
+    procedure cadFinProdutoClick(Sender: TObject);
+    procedure cadFinCategoriaClick(Sender: TObject);
+    procedure cadFinPlanoPagamentoClick(Sender: TObject);
+    procedure cadAulaProvaAulaClick(Sender: TObject);
+    procedure cadAulaProvaProvaClick(Sender: TObject);
+    procedure cadAulaProvaAprovacaoClick(Sender: TObject);
+    procedure cadAulaProvaComplementoMediaClick(Sender: TObject);
+    procedure confDefineTelaPadraoClick(Sender: TObject);
+    procedure cadAulaProvaCronogramaClick(Sender: TObject);
+    procedure cadUnidadeEnsinoClick(Sender: TObject);
+    procedure comFinRetornoCompromissoClick(Sender: TObject);
+    procedure cadCampoAdicionalPessoaClick(Sender: TObject);
+    procedure confGerenciaRelatorioClick(Sender: TObject);
+    procedure comFinRemessaCompromissoClick(Sender: TObject);
+    procedure cadCampoAdicionalCursoTurmaClick(Sender: TObject);
+    procedure comFinGeraoNFSeClick(Sender: TObject);
+    procedure cadAtividadeComplementarClick(Sender: TObject);
+    procedure pesFinanciamentoEstudantilClick(Sender: TObject);
+    procedure secRegistroCertificadoEventoClick(Sender: TObject);
+    procedure relImpressaoCartaClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure confSobreClick(Sender: TObject);
+    procedure secRegistroDiplomaClick(Sender: TObject);
+    procedure tesFinReclassificarContaClick(Sender: TObject);
+    procedure cadPaisEstadoMunicipioClick(Sender: TObject);
+    procedure cadComplementoMediaClick(Sender: TObject);
+    procedure recFinNotaFiscalClick(Sender: TObject);
+    procedure recFinPlanilhaCobrancaClick(Sender: TObject);
+    procedure recFinBloqueioFinanceiroClick(Sender: TObject);
+    procedure maEquivalenciaInternaClick(Sender: TObject);
+    procedure cadFinCambioMoedaClick(Sender: TObject);
+    procedure cadFinPlanoMultaClick(Sender: TObject);
+    procedure secGradeExtraClick(Sender: TObject);
+    procedure pesImportarFotoClick(Sender: TObject);
+    procedure secBloquearDesbloquearEtapaClick(Sender: TObject);
+    procedure confInformacaoSobreInstituicaoClick(Sender: TObject);
+    procedure pesPlanilhaContatoClick(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem15Click(Sender: TObject);
+    procedure MenuItem14Click(Sender: TObject);
+    procedure ProcessosSeletivos2Click(Sender: TObject);
+    procedure reasdeconcentrao1Click(Sender: TObject);
+    procedure OpesdeIngresso1Click(Sender: TObject);
+    procedure DocumentosparaInscries1Click(Sender: TObject);
+    procedure cadCampusClick(Sender: TObject);
+    procedure tesFinControleChequeClick(Sender: TObject);
+    procedure cadFinAreaAtuacaoClick(Sender: TObject);
+    procedure relFinGerencialClick(Sender: TObject);
+    procedure relFinRelatorioContaPagarClick(Sender: TObject);
+    procedure relFinRelatorioContasReceberClick(Sender: TObject);
+    procedure comFinPagamentoPreparadoClick(Sender: TObject);
+    procedure comFinPlanilhaCompromissoClick(Sender: TObject);
+    procedure Celendrio1Click(Sender: TObject);
+    procedure cadCoordenadorClick(Sender: TObject);
+    procedure cadAulaProvaClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure Mensalidades1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure confTrocaUsuarioClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
+    procedure cadDisciplinaMestraClick(Sender: TObject);
+    procedure cadDepartamentoClick(Sender: TObject);
+    procedure cadInstituicaoEnsinoClick(Sender: TObject);
+    procedure btnFinanceiroClick(Sender: TObject);
+    procedure btnAcademicoClick(Sender: TObject);
+    procedure pesCadastroClick(Sender: TObject);
+    procedure pesProfessorClick(Sender: TObject);
+    procedure pesAlunoClick(Sender: TObject);
+    procedure recFinPlanilhaMensalidadeClick(Sender: TObject);
+    procedure recFinRetornoBancoClick(Sender: TObject);
+    procedure cadFinIndicePoupancaClick(Sender: TObject);
+    procedure cadFinPlanoBolsaClick(Sender: TObject);
+    procedure maPlanilhaMatriculaClick(Sender: TObject);
+    procedure maReservaVagaClick(Sender: TObject);
+    procedure maEquivalenciaClick(Sender: TObject);
+    procedure tesFinPlanilhaCaixaClick(Sender: TObject);
+    procedure secFichaIndividualClick(Sender: TObject);
+    procedure secDigitacaoMediaFaltaClick(Sender: TObject);
+    procedure secDigitacaoProvaInstitucionalClick(Sender: TObject);
+    procedure ObservaesparaHistrico1Click(Sender: TObject);
+    procedure secCursoAnoSemestreClick(Sender: TObject);
+    procedure secIndividualClick(Sender: TObject);
+    procedure secVisualizarDiarioClick(Sender: TObject);
+    procedure cadDisciplinaTurmaProfessorClick(Sender: TObject);
+    procedure relRelatorioAcademicoClick(Sender: TObject);
+    procedure confModuloRelatorioClick(Sender: TObject);
+    procedure cadFinProgramacaoDescontoClick(Sender: TObject);
+    procedure cadAtualizarDocumentacaoClick(Sender: TObject);
+    procedure pesPesquisarClick(Sender: TObject);
+    procedure cadEmpresaClick(Sender: TObject);
+    procedure secHistoricoAnteriorEstudanteClick(Sender: TObject);
+    procedure secDigitacaoAulasDadasClick(Sender: TObject);
+    procedure cadFinPlanoContaClick(Sender: TObject);
+    procedure cadFinDespesaTurmaClick(Sender: TObject);
+    procedure DespesadeTurma1Click(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+    procedure cadFinCalendarioClick(Sender: TObject);
+    procedure cadCalendarioClick(Sender: TObject);
+    procedure relFinRelatorioImpressosClick(Sender: TObject);
+    procedure relRelatorioImpressoClick(Sender: TObject);
+    procedure cadDocumentoClick(Sender: TObject);
+    procedure Prazosdosdirios1Click(Sender: TObject);
+    procedure PrazosdoResultadoFinal1Click(Sender: TObject);
+    procedure secPrazoDiarioClasseClick(Sender: TObject);
+    procedure cadFormaIngressoClick(Sender: TObject);
+    procedure cadHorarioClick(Sender: TObject);
+    procedure cadHorarioTurmaClick(Sender: TObject);
+    procedure secDigitacaoFrequenciaFaltaClick(Sender: TObject);
+    procedure secListaFreqeunciaFaltaClick(Sender: TObject);
+    procedure confTrocaSenhaClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure tratarErroBanco(Sender: TObject);
+
+
+  strict private
+    { Private declarations }
+    FForcarFechamentoRel: Boolean;
+    FStopWatch: TStopWatch;
+    FRelogio: TDateTime;
+    FecharForcado, FCarregarMenus: Boolean;
+
+    FMsgPosImpressao: string;
+    FSQLPosImpressao: string;
+
+    lstODBC : TStringList;
+
+    endereco_online_local: String;
+  private
+    function GetMsgPosImpressao: string;
+    function GetSQLPosImpressao: string;
+    procedure SetMsgPosImpressao(const Value: string);
+    procedure SetSQLPosImpressao(const Value: string);
+
+    Procedure AtualizarMenu(Lite: Boolean);
+    Procedure AtualizaODBC;
+    Procedure PegaDadosODBC;
+
+    procedure CarregarParametrosGerais();
+    procedure CarregarObjetoRelatorio();
+    procedure CarregarInformacoesPorMatriz();
+
+    procedure ResizeBarraStatus();
+
+    procedure FecharFormularios();
+    
+  public
+    { Public declarations }
+    procedure SetRelatorio(Value: TCrpe);
+    function GetRelatorio(): TCrpe;
+    procedure LimpaRelObj();
+    procedure ReinstanciaRelatorio();
+
+    property Rel: TCrpe read GetRelatorio write SetRelatorio;
+    property MsgPosImpressao: string read GetMsgPosImpressao write SetMsgPosImpressao;
+    property SQLPosImpressao: string read GetSQLPosImpressao write SetSQLPosImpressao;
+    function ProcuraForm(frmForm : TForm):Boolean;
+
+    { # Função:     ProcuraForm
+      # Descrição:  Verifica se o formulário está carregado na tela
+      # Retorno:    Boolean (True quando está carregado)
+      #
+      # Parametros: frmForm: Nome do formulário
+
+
+    Function PrintRpt(AReport:String;ACabecalho:String;ASelectionFormula:String; AGroupFormula : String; ATitulo:String; AFiltro:String; const AFields: Array of String;
+	     const AValues: Array of String;const ASortFields: Array of String;ADialog: Boolean):Boolean;
+    }
+   function ImprimeRpt(
+         Sender: TForm;
+         sRelatorio: string;
+         iCodCabecalho: Integer = -1;
+         sFormulaSelecao: string = '';
+         sFormulaGrupo: string = '';
+         slFormulas: TStringList = nil;
+         slOrdem: TStringList = nil;
+         slParamVariaveis: TStringList = nil;
+         slSQLExp : TStringList = nil;
+         bDialogo: Boolean = False;
+         bForcaConexao: Boolean = False;
+         SLParametros: TStringList = nil;
+         PodeExportar: Boolean = True;
+         Reiniciar: Boolean = True
+   ): Boolean;
+
+   { # Função:     GetNomeRpt
+     # Descrição:  Busca os dados do relatório da tabela RELATORIOS
+     # Retorno:    ClasseRegistros
+     #
+     # Parametro:  sChaveRelatorio: Chave única do relatório a ser buscado
+   }
+   function GetInfoRpt(sChaveRelatorio: String): ClasseRegistros;
+
+
+    { # Função:     PrintRpt
+      # Descrição:  Imprime o relatório do Crystal report
+      # Retorno:    Boolean (True quando o relatório foi impresso corretamente)
+      #
+      # Parametros: AReport: Nome do relatório
+		    ASelectionFormula : Fórmula do Crystal para filtro do relatório
+		    AFields : Lista de nomes dos campos de fórmulas
+		    AValues : Valores dos campos de fórmulas
+		    ASortFields : Lista de campos para ordenação
+		    ADialog : True se precisa apresentar a pergunta para visualizar
+    }
+
+    Procedure MostraHint(Sender: TObject);
+
+    { # Procedure   MostraHint
+      # Descrição:  Redireciona o Hint da Aplicação para o painel no formulário principal
+      #
+      # Parametros: Sender : Usado pela própria aplicação
+    }
+
+      procedure MostraHint2(Sender: TObject);
+      {  # Procedure   MostraHint
+         # Descrição:  Redireciona o Hint do objeto para o painel no formulário principal
+         #
+         # Parametros: Sender : Nome do objeto que dispara o Hint
+      }
+
+      procedure OnWindowPrintClose(WindowHandle: HWND; var Cancel: Boolean);
+
+      procedure CarregarInformacoesIniciais();
+
+  end;
+
+var
+   PrincipalForm: TPrincipalForm;
+   DataHoje : TDateTime;
+   strReports : String;
+   ano_semestre : Integer;
+   ano_semestre_incremento : Byte;
+   tentativas_conexao : integer;
+
+Const                                                  
+  SenhaBD = 'B251EA051EB116C178EF73A1579339FC2A';
+  UsuarioBD = '1FD96898B024A247E664';
+
+
+implementation
+
+uses
+   uSplash, uDM, uUsuarios, uMatriculas, uCertificados,
+   uManutMens, uTransferir, uNovaMens, uMensalidades, uPlanos, uPoupanca,
+   uReserva, uResumo, uRetornoCEF, uRetornoBanco, uPlanosDesconto, uDisciplinas, uCursos,
+   uImpNegociacoes, uImpVencidos, uFichaIndividual, uDigFichaIndividual,
+   uEscolas, ObsDipAluno, ObsDipCurso, uEquivalencias, uDigProvaInstitucional,
+   uDiarioView, uPlanosDescontoCAd, uPessoas, uAluno, uProfessor, uRelatorios,
+   uProcessando, uProfessores, HistAluno, uPessoas_Descontos, 
+   uAvaliacoes_Parametros, uCadEmpresas, urelatorios_financeiros,
+   uRemessa, uRemessaBancaria, uHistorico_anterior, uDigAulaDadas, uContas_lcto,
+   uTurmas_Provisoes, uDespesasTurmas, uCadCalendario, uRelatorios_impressos,
+   uCadDocumentos, uDiario_Prazos_Novo,
+   uCadDocumentosOnLine, uCadFormasIngresso, uCadHorarios,
+   Masks, uCadPresencas, uCadPresencasLista, uTrocarSenha, uCaixas_Planilhas,
+   uCadPlanosContas, uContAulasProvas, uCursosCoordenadores, uExportarDoc,
+   ucentro_provisoes, uFornecedores, uCadContas, uCadCentros, uCadCriterios,
+   uCadTituloTipos, uCadAcoesMovto, uFluxoCaixa, urelatorios_cp,
+   uContasPagar_Planilha, uCompromisso_Preparados, uDMDIario, uCadAreasAtuacao,
+   uFSelecionarTurma, uControleCheques, uCadCampus, uCadOpcoesIngresso,
+   uCadProcSelAreas, uCadProcSel, uPessoasInformacoes, uParametros,
+   uBloqueioNotasEtapa, uPessoasFotos, uGradesExtras, uBolsasTipos,
+   uBolsasPessoas, uAlunoAfrica, uProfessorAfrica, uPessoasAfrica,
+   uPlanosDisciplinas, uPlanoMultas, uMoedas, uEquivalenciaInterna,
+   uBloquearFinanceiro, uCobranca, uNF, uContComplMedias, uEstados,
+   uReclassificar, uMonografias, uSobre, uRelatorios_cartas, uCertificados_eventos,
+   uFinanciamentoEstudantil, UAtivComplementares, uFNFSe , uCadCursoTurmaAdicionais,
+   uRemessaCP, uFcontrolePerm, UFNFSeWS, uCadCamposPessoas, uRetornoCP ,
+   uUnidadesEnsino, uFDefinirTelaPadrao, uPlanosNova, uFComprasCadastroCategorias,
+   uFComprasCadastroProdutos, uFComprasRegistroEntradas, uFComprasRegistroSaidas,
+   uFComprasControleEstoque, uFComprasGerarTitulo, uFPlanosNegociacao,
+   uAgrupamentoHorarios, uAgrupamentoDisciplinas, uGruposPrestacaoContas,
+   uAprovacaoPrestacaoContas, uFCadastroTiposProvas,
+   uFFichaSaudeCompleta, uFExportacaoDados, uExportacaoCenso, uFCadContratos, uCadConvenioPgto,
+   uFacturas, DB, uLoginManager, uUsuario, uRepBloquetos, uGeneral, uUMNucleo,
+   uFSelecionarPessoa, uCampoObrigatorio, uAtividadeDomiciliar,
+   uFCadastroHorariosTurma, uFLancamentosContabeis, UFCadastroSalas, ufcomprasCadastroKits, uGruposAtividades,
+   uAreasAtuacao, uTiposPessoas, uAdministradoraCartao, uControleCartao, uFormasPagamentos, UfrmBackup,
+   uFAtendimento, UFLGTCDespesasTipos, UFLGTCDespesas, UFVouchers, UFFinRepasse,
+   UFFinRepasseGerar, UFReportUI;
+
+{$R *.DFM}
+
+procedure TPrincipalForm.FormShow(Sender: TObject);
+   procedure CarregarTelaPadrao(OnObject: TObject; NomeMetodo: String);
+   var
+      Rotina: TMethod;
+      Exec: TExec;
+   begin
+      Rotina.Data := Pointer(OnObject);
+      Rotina.Code := OnObject.MethodAddress(NomeMetodo);
+
+      if not Assigned(Rotina.Code) then Exit;
+
+      Exec := TExec(Rotina);
+      Exec;
+   end;
+var
+  dtDataServidor: TDateTime;
+  lite: Boolean;
+  cnpjCliente: String;
+  qryBackupAnterior: TUMZQuery;
+begin
+   CarregarInformacoesPorMatriz();
+
+   TfrmCursos.atualizaTurmas();
+
+   FRelogio := DM.DataAtual;
+   btnDatas.Caption := Format('Data/hora servidor: %s', [FormatDateTime('dd/mm/yyyy hh:nn', FRelogio)]);
+   tmRelogio.Enabled := True;
+
+   btnTrocaUnidadeEnsino.Visible := ( DM.UsuarioLogado.ListaColigadasPai.Count > 1 );
+   traco2.Visible := btnTrocaUnidadeEnsino.Visible;
+   
+   // Habilitar botão de acesso ao portal on-line da instituição.
+   endereco_online_local := trim( DM.variavel_parametro('online_endereco_local') );
+   tbtnSeparadorPortalOnline.Visible := endereco_online_local <> '';
+   tbtnAcessoPortalOnline.Visible := endereco_online_local <> '';
+
+
+   if(DM.variavel_parametro('habilitar_negociacao_online_config') ='S') then
+   begin
+      cadFinPlanoNegociacao.Visible := true;
+   end;
+   // TRADUZ CAMPOS
+   // Tradutor.doTraduzir(PrincipalForm);
+   // Verificar se a base de dados está conectada
+   if(DM.variavel_parametro('habilitar_negociacao_online_config') ='S') then
+   begin
+      cadFinPlanoNegociacao.Visible := true;
+   end;
+
+   if(DM.variavel_parametro('sn_atividades_domiciliar') ='S') then
+   begin
+      maAtividadesDomiciliar.Visible := true;
+      N20.Visible := true;
+   end;
+
+   FichadeSade1.Visible := ( DM.variavel_parametro('ficha_saude_completa') = 'S' );
+
+   if not DM.db.Connected then Exit;
+
+   dtDataServidor := DM.DataAtual();
+
+   DataHoje :=  dtDataServidor;
+
+   // Ficou acordado que RETIRARIAMOS o pedido de data na entrada no sistema, por questões de seguranca
+   // e confiabilidade dos logs
+   {
+   if DM.UsuarioLogado.TemPermissao(1026, npAcesso, False) and (not fLogin.Logged) then
+   begin
+      Application.CreateForm(TfrmDataHoje, frmDataHoje);
+      frmDataHoje.ShowModal;
+   end;
+   } 
+
+   CarregarInformacoesIniciais();
+   // btnDatas.Caption := ' DATA: ' + FormatDateTime( 'dd/mm/yyyy', DataHoje ) + ' - ' + FormatDateTime( 'dddd', DataHoje );
+
+   { Pegar AnoSemestre Atual }
+
+//   ArquivoMorto1.Visible := DM.UsuarioLogado.TemPermissao( 7777, npAcesso, False );
+
+ // Como estamos pegando somente a data/hora do servidor, essa funcao deve ser desabilitada
+ {
+ if (Copy(FormatDateTime('yyyymmddhhnn', dtDataServidor), 1, 11) <> Copy(FormatDateTime('yyyymmddhhnn', Now()), 1, 11) ) then begin
+      sDtMsg := 'A data da máquina está diferente da do servidor ('+FormatDateTime('dd/mm/yyyy hh:nn', dtDataServidor)+').' + #13#13;
+      sDtMsg := sDtMsg + 'Deseja corrigir a data?';
+
+      if (Mensagem(sDtMsg, 'ATENÇÃO!!!!', MB_YESNO + MB_ICONQUESTION, Handle) = IDYES) then begin
+         SetSystemDate(dtDataServidor);
+      end;
+   end;
+  }
+
+
+   // Carregar Tela padrão
+   if DM.Get_Parametro_usuario_valor('TelaPadrao.IsFinanceiro', 'SISTEMA') = 'S' then
+   begin
+      btnAcademicoClick(nil);
+   end;   
+   CarregarTelaPadrao( Self, DM.Get_Parametro_usuario_valor('TelaPadrao', 'SISTEMA') );
+
+   recFinNotaFiscal.Visible := DM.variavel_parametro('nota_fiscal_geracao_local') = 'S';
+   recFinFacturas.Visible   := DM.variavel_parametro('facturas_acesso_local') = 'S';
+
+   if DM.lite then
+   begin
+      cadUnidadeEnsino.Visible := DM.GetChavePermissaoLite('CadUnidadeEnsino', 'Academico');
+      cadCampoAdicionalCursoTurma.Visible := DM.GetChavePermissaoLite('1147', 'Academico');
+      cadCampoAdicionalPessoa.Visible := DM.GetChavePermissaoLite('CadCamposPessoa', 'Academico');
+      cadDisciplinaMestra.Visible := DM.GetChavePermissaoLite('1112', 'Academico');
+      cadAgrupamentoDisciplina.Visible := DM.GetChavePermissaoLite('1626', 'Academico');
+      cadEmpresa.Visible := DM.GetChavePermissaoLite('1004', 'Academico');
+//      cadInstituicaoEnsino.Visible := DM.GetChavePermissaoLite('CadInstituicaoEnsino', 'Academico');
+      cadCampus.Visible := DM.GetChavePermissaoLite('1114', 'Academico');
+//      cadHorario.Visible := DM.GetChavePermissaoLite('1025', 'Academico');
+      cadHorarioAgrupado.Visible := DM.GetChavePermissaoLite('30003', 'Academico');
+//      cadHorarioTurma.Visible := DM.GetChavePermissaoLite('CadHoraTurma', 'Academico');
+      cadAulaProvaCronograma.Visible := DM.GetChavePermissaoLite('1070', 'Academico');
+      cadComplementoMedia.Visible := DM.GetChavePermissaoLite('1115', 'Academico');
+      cadAtividadeComplementar.Visible := DM.GetChavePermissaoLite('1059', 'Academico');
+//      cadCoordenador.Visible := DM.GetChavePermissaoLite('1116', 'Academico');
+//      cadDisciplinaTurmaProfessor.Visible := DM.GetChavePermissaoLite('1117', 'Academico');
+      cadTipoAvaliacao.Visible := DM.GetChavePermissaoLite('2071', 'Academico');
+//      cadCalendario.Visible := DM.GetChavePermissaoLite('1022', 'Academico');
+//      cadPaisEstadoMunicipio.Visible := DM.GetChavePermissaoLite('1054', 'Academico');
+      cadAtualizarDocumentacao.Visible := DM.GetChavePermissaoLite('1110', 'Academico');
+//      pesCadastro.Visible := DM.GetChavePermissaoLite('1001', 'Academico');
+//      pesAluno.Visible := DM.GetChavePermissaoLite('1003', 'Academico');
+//      pesProfessor.Visible := DM.GetChavePermissaoLite('1002', 'Academico');
+      pesFinanciamentoEstudantil.Visible := DM.GetChavePermissaoLite('1058', 'Academico');
+      pesPlanilhaContato.Visible := DM.GetChavePermissaoLite('1035', 'Academico');
+      pesImportarFoto.Visible := DM.GetChavePermissaoLite('1051', 'Academico');
+//      pesPesquisar.Visible := DM.GetChavePermissaoLite('PesPesquisar', 'Academico');
+//      maPlanilhaMatricula.Visible := DM.GetChavePermissaoLite('1009', 'Academico');
+//      maReservaVaga.Visible := DM.GetChavePermissaoLite('1011', 'Academico');
+      maEquivalencia.Visible := DM.GetChavePermissaoLite('1010', 'Academico');
+      maEquivalenciaInterna.Visible := DM.GetChavePermissaoLite('MaqEquiInterna', 'Academico');
+      ExportaodeDados1.Visible := DM.GetChavePermissaoLite('12005', 'Academico');
+//      secPrazoDiarioClasse.Visible := DM.GetChavePermissaoLite('1024', 'Academico');
+//      secVisualizarDiario.Visible := DM.GetChavePermissaoLite('1007', 'Academico');
+//      secFichaIndividual.Visible := DM.GetChavePermissaoLite('1014', 'Academico');
+//      secBloquearDesbloquearEtapa.Visible := DM.GetChavePermissaoLite('1050', 'Academico');
+      secDigitacaoMediaFalta.Visible := DM.GetChavePermissaoLite('1012', 'Academico');
+      secDigitacaoProvaInstitucional.Visible := DM.GetChavePermissaoLite('1013', 'Academico');
+//      secDigitacaoAulasDadas.Visible := DM.GetChavePermissaoLite('SecDigiAulasDadas', 'Academico');
+      secMonografia.Visible := DM.GetChavePermissaoLite('1152', 'Academico');
+      secDigitacaoFrequenciaFalta.Visible := DM.GetChavePermissaoLite('1052', 'Academico');
+      secListaFreqeunciaFalta.Visible := DM.GetChavePermissaoLite('SecListaFreqFaltas', 'Academico');
+//      secHistoricoAnteriorEstudante.Visible := DM.GetChavePermissaoLite('1015', 'Academico');
+      secGradeExtra.Visible := DM.GetChavePermissaoLite('1053', 'Academico');
+      secIndividual.Visible := DM.GetChavePermissaoLite('SecObsDiplomaIndividual', 'Academico');
+      secCursoAnoSemestre.Visible := DM.GetChavePermissaoLite('SecObsDiplomaCursoAnoSem', 'Academico');
+      secRegistroDiploma.Visible := DM.GetChavePermissaoLite('1106', 'Academico');
+      secRegistroCertificadoEvento.Visible := DM.GetChavePermissaoLite('1109', 'Academico');
+//      relRelatorioAcademico.Visible := DM.GetChavePermissaoLite('1016', 'Academico');
+      relRelatorioImpresso.Visible := DM.GetChavePermissaoLite('RelRelImpressos', 'Academico');
+      relImpressaoCarta.Visible := DM.GetChavePermissaoLite('RelRelCartas', 'Academico');
+//      confModuloRelatorio.Visible := DM.GetChavePermissaoLite('3001', 'ControleAcesso');
+//      confInformacaoSobreInstituicao.Visible := DM.GetChavePermissaoLite('1040', 'Academico');
+      confAprovacaoPrestacaoConta.Visible := DM.GetChavePermissaoLite('1061', 'Academico');
+      confSelecionaUnidadeEnsino.Visible := DM.GetChavePermissaoLite('confSelUnidadeEnsino', 'Academico');
+      confGerenciaRelatorio.Visible := DM.GetChavePermissaoLite('Controle.Permissao.Relatorio', 'Academico');
+      cadFormaIngresso.Visible := DM.GetChavePermissaoLite('1119', 'Academico');
+      confDefineTelaPadrao.Visible := DM.GetChavePermissaoLite('confDefinirPadrao', 'UMFinanceiro');
+      secObservacaoDiploma.Visible := secIndividual.Visible and secCursoAnoSemestre.Visible;
+
+      // FINANCEIRO
+
+//      cadFinPlanoPagamento.Visible := DM.GetChavePermissaoLite('2006', 'UMFinanceiro');
+      cadFinPlanoBolsa.Visible := DM.GetChavePermissaoLite('2007', 'UMFinanceiro');
+      cadFinPlanoMulta.Visible := DM.GetChavePermissaoLite('CadPlanoMultas', 'UMFinanceiro');
+      cadFinPlanoNegociacao.Visible := DM.GetChavePermissaoLite('2080', 'UMFinanceiro');
+      cadFinIndicePoupanca.Visible := DM.GetChavePermissaoLite('2005', 'UMFinanceiro');
+      cadFinCambioMoeda.Visible := DM.GetChavePermissaoLite('CadCambioMoedas', 'UMFinanceiro');
+      cadFinProgramacaoDesconto.Visible := DM.GetChavePermissaoLite('2021', 'UMFinanceiro');
+      cadFinDespesaTurma.Visible := DM.GetChavePermissaoLite('2023', 'UMFinanceiro');
+//      cadFinConta.Visible := DM.GetChavePermissaoLite('2028', 'UMFinanceiro');
+      cadFinPlanoConta.Visible := DM.GetChavePermissaoLite('2022', 'UMFinanceiro');
+      cadFinCentroCusto.Visible := DM.GetChavePermissaoLite('2029', 'UMFinanceiro');
+      cadFinCriterioApropriao.Visible := DM.GetChavePermissaoLite('2030', 'UMFinanceiro');
+      cadFinTipoTitulo.Visible := DM.GetChavePermissaoLite('2032', 'UMFinanceiro');
+//      cadFinAcaoMovimento.Visible := DM.GetChavePermissaoLite('2031','UMFinanceiro');
+      cadFinAreaAtuacao.Visible := DM.GetChavePermissaoLite('2061', 'UMFinanceiro');
+
+       ToolButton1.Visible := false;
+
+      //Setado manualmente False, pois não possui permissão.
+      ToolButton9.Visible := false;
+      cadFinContratos.Visible := false;
+      cadFinControleProduto.Visible := false;
+      //Setado manualmente False, pois não possui permissão.
+
+//      cadFinCalendario.Visible := DM.GetChavePermissaoLite('2026', 'UMFinanceiro');
+      cadFinConvenioPgto.Visible := DM.GetChavePermissaoLite('ConvenioPgto', 'UMFinanceiro');
+//      recFinPlanilhaMensalidade.Visible := DM.GetChavePermissaoLite('2001', 'UMFinanceiro');
+//      recFinRetornoBanco.Visible := DM.GetChavePermissaoLite('2004', 'UMFinanceiro');
+//      recFinArquivoRemessa.Visible := DM.GetChavePermissaoLite('2062', 'UMFinanceiro');
+//      recFinBloqueioFinanceiro.Visible := DM.GetChavePermissaoLite('2054', 'UMFinanceiro');
+      recFinPlanilhaCobranca.Visible := DM.GetChavePermissaoLite('2053', 'UMFinanceiro');
+      recFinVendaProduto.Visible := DM.GetChavePermissaoLite('RecVendasProdutos', 'UMFinanceiro');
+      recFinFacturas.Visible := DM.GetChavePermissaoLite('9999', 'UMFinanceiro');
+//      tesFinPlanilhaCaixa.Visible := DM.GetChavePermissaoLite('2009', 'UMFinanceiro');
+//      tesFinControleCheque.Visible := DM.GetChavePermissaoLite('2050', 'UMFinanceiro');
+      tesFinReclassificarConta.Visible := DM.GetChavePermissaoLite('2060', 'UMFinanceiro');
+      tesFinAprovaoPrestaoConta.Visible := DM.GetChavePermissaoLite('1060', 'UMFinanceiro');
+      comFinPlanilhaCompromisso.Visible := DM.GetChavePermissaoLite('2033', 'UMFinanceiro');
+      comFinPagamentoPreparado.Visible := DM.GetChavePermissaoLite('2034', 'UMFinanceiro');
+      comFinGeraoNFSe.Visible := DM.GetChavePermissaoLite('2068', 'UMFinanceiro');
+      comFinRemessaCompromisso.Visible := DM.GetChavePermissaoLite('2069', 'UMFinanceiro');
+      comFinRetornoCompromisso.Visible := DM.GetChavePermissaoLite('CompRetCompromisso', 'UMFinanceiro'); 
+//      relFinRelatorioContasReceber.Visible := DM.GetChavePermissaoLite('2011', 'UMFinanceiro');
+      relFinRelatorioContaPagar.Visible := DM.GetChavePermissaoLite('2048', 'UMFinanceiro');
+      relFinGerencial.Visible := DM.GetChavePermissaoLite('2025', 'UMFinanceiro');
+      relFinRelatorioImpressos.Visible := relRelatorioImpresso.Visible;
+      FichadeSade1.Visible := false;
+
+   end;
+
+   FCarregarMenus := True;
+
+   FStopWatch.Start();
+   tmRelogio2.Enabled := True;
+
+   DM.paramTempoInatividade := StrToInt(DM.variavel_parametro('academico_tempo_inatividade'));
+
+   DM.TTempoOcioso.Interval := (DM.paramTempoInatividade * 60) * 1000;
+   DM.TTempoOcioso.Enabled := false;
+   DM.TTempoOcioso.Enabled := True;
+
+
+   DM.CriarConsulta(qryBackupAnterior);
+
+   qryBackupAnterior.SQL.Text := ''+
+   'SELECT                                   '+
+   '  DATEDIFF(                              '+
+   '     now(),                              '+
+   '     (                                   '+
+   '        SELECT                           '+
+   '  		   (max(dt_data_inicio))         '+
+   '        FROM                             '+
+   '           backup_historico              '+
+   '     )                                   '+
+   '  ) > ds_valor AS exibe_mensagem,        '+
+   '  (                                      '+
+   '     SELECT                              '+
+   '        (max(dt_data_inicio))            '+
+   '     FROM                                '+
+   '        backup_historico                 '+
+   '  ) AS data_bkp_historico                '+
+   'FROM                                     '+
+   '  parametros                             '+
+   'WHERE                                    '+
+   '  ds_variavel = "numero_de_dias_sem_backup_aviso"';
+
+   qryBackupAnterior.Open;
+
+   if (qryBackupAnterior.FieldByName('exibe_mensagem').AsInteger = 1) then
+   begin
+      Mensagem(
+         'Não é realizado um backup desde ' +
+         FormatDateTime('dd/mm/yyyy', qryBackupAnterior.FieldByName('data_bkp_historico').AsDateTime) +
+         '.' + #13 + #13 +
+         'Favor comunicar a equipe de TI de sua Instituição.'
+      );
+   end;
+
+end;
+
+procedure TPrincipalForm.N15Click(Sender: TObject);
+begin
+  
+   if DM.UsuarioLogado.TemPermissao( DM.UsuarioLogado.Pessoa.Codigo, 'Academico.camposObrigatorios', npAcesso, True ) then
+   begin
+
+      if not ProcuraForm( TForm(uCamposObrigatorios) ) then
+      begin
+         Application.CreateForm(TuCamposObrigatorios, uCamposObrigatorios)
+      end
+      else
+      begin
+         uCamposObrigatorios.Show;
+      end;
+      
+   end;
+   
+end;
+
+{ FormShow }
+
+
+procedure TPrincipalForm.FecharFormularios;
+var
+   I : Integer;
+begin
+   if MDIChildCount > 0 then
+      for I := 0 to Pred(MDIChildCount) do
+         MDIChildren[I].Close();
+end;
+
+procedure TPrincipalForm.FormasdePagamento1Click(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.FormaPgto', npAcesso, True )then
+   begin
+      Exit;
+   end;
+
+   if not ProcuraForm( TForm(frmFormasPagamento) ) then
+   begin
+      Application.CreateForm(TfrmFormasPagamento, frmFormasPagamento);
+   end
+   else
+   begin
+      frmFormasPagamento.Show;
+   end;
+end;
+
+procedure TPrincipalForm.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+const
+   SRemessaExecutando = ''
+      + 'Este computador está executando a geração automática de arquivos da '
+      + 'remessa. Deseja realmente fechar o sistema que cancelar todas as '
+      + 'operações?';
+   SCaptionQuestion = 'Confirmação';
+var
+   I, UserChoice: Integer;
+begin
+   if FecharForcado then
+   begin
+      CanClose := True;
+
+      if Relatorio <> nil then
+      begin
+         Relatorio.CloseEngine;
+         Relatorio.Free();
+      end;
+
+      Exit;
+   end;
+
+   if ( DM.UsuarioLogado = nil ) OR
+      ( Mensagem('Deseja realmente sair do sistema ?', '', MB_YESNO + MB_ICONQUESTION, Handle) = IDYES ) then
+   begin
+
+      CanClose := True;
+
+      if DM.tiRemessa.Visible then
+      begin
+         UserChoice := MessageBox(0, SRemessaExecutando, SCaptionQuestion,
+            MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
+
+         CanClose := UserChoice = ID_YES;
+      end;
+
+      FecharFormularios();
+
+      if Relatorio <> nil then
+      begin
+         Relatorio.CloseEngine;
+        // FreeAndNil(Relatorio);
+      end;
+  end else begin
+    CanClose := False;
+  end;
+
+end; { FormCloseQuery }
+
+
+procedure TPrincipalForm.Mensalidades1Click(Sender: TObject);
+{ Planilha de Mensalidades }
+begin
+
+   if not DM.UsuarioLogado.TemPermissao(2001, npAcesso, True) then
+      Exit;
+
+  Application.CreateForm( TfrmTransferir, frmTransferir );
+  Application.CreateForm( Tfrm_mensa_alterar, frm_mensa_alterar );
+
+  if not ProcuraForm( TForm(frmMensalidades) ) then
+     Application.CreateForm( TfrmMensalidades, frmMensalidades )
+  else
+     frmMensalidades.Show;
+
+end; { Mensalidades1Click }
+
+procedure TPrincipalForm.FormCreate(Sender: TObject);
+var
+   RotinaTratarErroBancoP: Pointer;
+   RotinaTratarErroBancoM: Pointer;
+   LIniFile: TIniFile;
+begin
+   FStopWatch := TStopWatch.Create(False);
+   FCarregarMenus := False;
+
+   PegaDadosODBC();
+
+   FecharForcado := False;
+
+   RotinaTratarErroBancoP := Pointer(self);
+   RotinaTratarErroBancoM := self.MethodAddress('tratarErroBanco');
+
+   LIniFile := TIniFile.Create(ExtractFilePath(ParamStr(0)) + 'unimestre.ini');
+   try
+      FForcarFechamentoRel := LIniFile.ReadBool('Configuracoes', 'ForcarFechamentoRelatorio', False);
+   finally
+      FreeAndNil(LIniFile);
+   end;
+
+   // Application.OnException := TTrataExcecao.Create(TTratamentoExcecaoAcademico.Create).TrataExcecao;
+   Application.OnException := TTrataExcecao.Create(TTratamentoExcecaoAcademico.Create, RotinaTratarErroBancoP, RotinaTratarErroBancoM ).TrataExcecao;
+
+   { Carregar Parâmetros gerais da aplicação }
+   CarregarParametrosGerais();
+
+   { Redirecionamento dos Hints }
+   Application.OnHint := MostraHint;
+
+   { Carregar o Objeto de relatório usado no sistema }
+   CarregarObjetoRelatorio();
+
+   miRelatorios.Visible := EnableNewReportMenu;
+end;  { FormCreate }
+
+
+procedure TPrincipalForm.confTrocaUsuarioClick(Sender: TObject);
+begin
+   TLoginManager.GetInstancia().RealizarLogin(False);
+   if DM.UsuarioLogado = nil then
+   begin
+      FecharForcado := True;
+      btnSairClick(nil);
+   end else begin
+      CarregarInformacoesIniciais();
+   end;
+end;
+
+procedure TPrincipalForm.cadUnidadeEnsinoClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.CadUnidadeEnsino', npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmUnidadesEnsino) ) then
+      Application.CreateForm( TfrmUnidadesEnsino, frmUnidadesEnsino )
+  else
+      frmUnidadesEnsino.Show;
+end;
+
+{ TrocarUsurio1Click }
+
+
+procedure TPrincipalForm.btnSairClick(Sender: TObject);
+begin
+   try
+      Close();
+   except
+      
+   end;
+end;
+
+function TPrincipalForm.ProcuraForm(frmForm : TForm):Boolean;
+var
+   n: Integer;
+begin
+   Result := False;
+
+   for n := 0 to MDIChildCount - 1 do
+   begin
+      if MDIChildren[n] = frmForm then
+      begin
+	      Result := True;
+	      Break;
+      end;
+   end;
+end;
+
+procedure TPrincipalForm.cadFinProdutoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.Compras.Produtos', npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm( frmComprasCadastroProdutos ) ) then
+   begin
+      Application.CreateForm( TfrmComprasCadastroProdutos, frmComprasCadastroProdutos )
+   end
+   else
+   begin
+      frmComprasCadastroProdutos.Show();
+   end;
+end;
+
+{ProcuraForm }
+                 
+procedure TPrincipalForm.cadAgrupamentoDisciplinaClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(1626, npAcesso, true) then
+   begin
+//    if not PasswordDlg.Autorizar( 1626, taAcessar, True ) then Exit;
+
+      if not ProcuraForm( TForm(frmAgrupamentoDisciplinas) ) then
+      begin
+         Application.CreateForm( TfrmAgrupamentoDisciplinas, frmAgrupamentoDisciplinas );
+      end
+      else
+      begin
+         frmAgrupamentoDisciplinas.Show;
+      end;
+
+   end;
+end;
+
+procedure TPrincipalForm.Cadastro1Click(Sender: TObject);
+const
+   ChaveAcao = 'UMFinanceiro.Contratos.Cadastro';
+begin
+   if DM.UsuarioLogado.TemPermissao(0, ChaveAcao, npAcesso, True) then
+   begin
+      if frmFinRepasse = nil then
+         Application.CreateForm(TfrmFinRepasse, frmFinRepasse);
+      frmFinRepasse.Show;
+   end;
+end;
+
+procedure TPrincipalForm.cadDisciplinaMestraClick(Sender: TObject);
+{ Cadastro de Disciplinas }
+begin
+   if DM.UsuarioLogado.TemPermissao(1112, npAcesso, true) then
+   begin
+      Application.CreateForm(TfrmDisciplinas, frmDisciplinas);
+   end;
+end; { Disciplinas2Click }
+
+procedure TPrincipalForm.confDefineTelaPadraoClick(Sender: TObject);
+begin
+   if not ProcuraForm( TForm( fDefinirTelaPadrao ) ) then
+      Application.CreateForm( TfDefinirTelaPadrao, fDefinirTelaPadrao );
+
+   fDefinirTelaPadrao.ShowModal;
+end;
+
+procedure TPrincipalForm.cadDepartamentoClick(Sender: TObject);
+{ Cadastro de Departamentos e Cursos }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 1006, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmCursos) ) then
+      Application.CreateForm( TfrmCursos, frmCursos )
+  else
+      frmCursos.Show;
+
+end;  { Departamentos1Click }
+
+procedure TPrincipalForm.cadInstituicaoEnsinoClick(Sender: TObject);
+{ Cadastro de Instituições de Ensino }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( DM.iCdPessoaLogado, 'Academico.CadInstituicaoEnsino', npAcesso, True ) then Exit;
+
+  Application.CreateForm( TfrmEscolas, frmEscolas );
+
+end; { InstituiesdeEnsino1Click }
+
+procedure TPrincipalForm.btnFinanceiroClick(Sender: TObject);
+{ Alterar para Menu Acadêmico  }
+begin
+   Application.ProcessMessages;
+
+   toolFinanceiro.Visible := False;
+   toolEscolar.Visible := True;
+   PrincipalForm.Menu := MenuAcademico;
+end;
+
+procedure TPrincipalForm.btnFinanceiroMensalidadesClick(Sender: TObject);
+begin
+
+end;
+
+{ btnFinanceiroClick }
+
+procedure TPrincipalForm.bkp_realizadoClick(Sender: TObject);
+begin
+
+   if not DM.UsuarioLogado.TemPermissao( 0, 'Academico.BackupsRealizados', npAcesso, True )then
+   begin
+      Exit;
+   end;
+
+   if not ProcuraForm( TForm(TfrmBackup) ) then
+   begin
+      Application.CreateForm(TfrmBackup, frmBackup);
+   end
+   else
+   begin
+      frmBackup.Show;
+   end;
+   
+end;
+
+procedure TPrincipalForm.btnAcademicoClick(Sender: TObject);
+{ Alterar para Menu Financeiro  }
+begin
+   Application.ProcessMessages;
+
+   toolEscolar.Visible := False;
+   toolFinanceiro.Visible := True;
+   PrincipalForm.Menu := MenuFinanceiro;
+end;
+
+procedure TPrincipalForm.btnAcademicoSecretariaClick(Sender: TObject);
+begin
+
+end;
+
+{ btnAcademicoClick }
+
+
+procedure TPrincipalForm.cadCampoAdicionalCursoTurmaClick(
+  Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1147, npAcesso, True ) then Exit;
+  if not ProcuraForm( TForm(frmCadCursoTurmaAdicionais) ) then
+     Application.CreateForm(TfrmCadCursoTurmaAdicionais , frmCadCursoTurmaAdicionais)
+  else
+     frmCadCursoTurmaAdicionais.Show;
+
+end;
+
+procedure TPrincipalForm.cadAulaProvaCronogramaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1070, npAcesso, True ) then Exit;
+
+   Application.CreateForm(TfrmContAulasProvas, frmContAulasProvas);
+   frmContAulasProvas.pgcAulasNotas.ActivePage := frmContAulasProvas.tsCronogramas;
+   frmContAulasProvas.pgcAulasNotasChange(frmContAulasProvas.pgcAulasNotas);
+   frmContAulasProvas.Show();
+end;
+
+procedure TPrincipalForm.pesCadastroClick(Sender: TObject);
+{ Cadastro de Pessoas }
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1001, npAcesso, True ) then Exit;
+
+   if (DM.variavel_parametro('sn_africa') = 'S') then begin
+      if not ProcuraForm( TForm(fPessoasAfrica) ) then
+         Application.CreateForm( TfPessoasAfrica, fPessoasAfrica )
+      else
+         fPessoasAfrica.Show;
+   end
+   else begin
+      if not ProcuraForm( TForm(frm_Pessoas) ) then
+         Application.CreateForm( Tfrm_Pessoas, frm_Pessoas )
+      else
+         frm_Pessoas.Show;
+   end;
+   pnlMsg.Caption := '';
+
+end; { CadastroPessoa1Click }
+
+
+procedure TPrincipalForm.pesProfessorClick(Sender: TObject);
+{ Cadastro de Professores }
+begin
+
+   if not DM.UsuarioLogado.TemPermissao( 1002, npAcesso, True ) then Exit;
+   if (DM.variavel_parametro('sn_africa') = 'S') then begin
+      if not ProcuraForm( TForm(fProfessoresAfrica) ) then
+         Application.CreateForm( TfProfessoresAfrica, fProfessoresAfrica )
+      else
+         fProfessoresAfrica.Show;
+   end
+   else begin
+      if not ProcuraForm( TForm(frm_Professores) ) then
+         Application.CreateForm( Tfrm_Professores, frm_Professores )
+      else
+         frm_Professores.Show;
+   end;
+
+   pnlMsg.Caption := '';
+
+end; procedure TPrincipalForm.pesTipoPessoaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( DM.UsuarioLogado.Pessoa.Codigo, 'Academico.CadastroTiposPessoas', npAcesso, True ) then
+   begin
+      Exit;
+   end;
+
+   if not ProcuraForm( TForm(frmTiposPessoas) ) then
+   begin
+      Application.CreateForm( TfrmTiposPessoas, frmTiposPessoas )
+   end
+   else
+   begin
+      frmTiposPessoas.Show;
+   end;
+end;
+
+{ Professor1Click }
+
+
+procedure TPrincipalForm.pesAlunoClick(Sender: TObject);
+{ Cadastro de Alunos }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 1003, npAcesso, True ) then Exit;
+
+   if (DM.variavel_parametro('sn_africa') = 'S') then begin
+      if not ProcuraForm( TForm(fAlunosAfrica) ) then
+         Application.CreateForm( TfAlunosAfrica, fAlunosAfrica )
+      else
+         fAlunosAfrica.Show;
+   end
+   else begin
+      if not ProcuraForm( TForm(frm_Alunos) ) then
+         Application.CreateForm( Tfrm_Alunos, frm_Alunos )
+      else
+         frm_Alunos.Show;
+   end;
+
+end;
+
+procedure TPrincipalForm.tbtnAcessoPortalOnlineClick(Sender: TObject);
+var
+   link: String;
+   razao_social: String;
+   usuario_senha: String;
+begin
+   razao_social := trim(DM.variavel_parametro('cliente_razao_social'));
+   razao_social := TUMCriptografia.UMCrypt( razao_social, ctEncode, 'YUQL23KL23DF90WI5E1JAS467NMCXXL6JAOAUWWMCL0AOMM4A4VZYW9KHJUI2347EJHJKDF3424SKLK3LAKDJSL9RTIKJ' );
+   usuario_senha := TUMCriptografia.UMCrypt( DM.sLogin, ctEncode, 'YUQL23KL23DF90WI5E1JAS467NMCXXL6JAOAUWWMCL0AOMM4A4VZYW9KHJUI2347EJHJKDF3424SKLK3LAKDJSL9RTIKJ' ) + DM.UsuarioLogado.Pessoa.Senha;
+
+   link := endereco_online_local + 'projetos/nucleo/uteis/login_automatico.php?modo=GET';
+   link := link + '&cal=' + razao_social + '&usu=' + usuario_senha;
+
+   OpenURL( link );
+end;
+
+procedure TPrincipalForm.tesFinAprovaoPrestaoContaClick(Sender: TObject);
+var
+   qyGrupoPessoa  : TUMZReadOnlyQuery;
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1060, npAcesso, True ) then Exit;
+
+   if DM.iCdPessoaLogado <> 0 then
+   begin
+      //verifica se a pessoa está configurada para mais de um grupo e se mais
+      //de um desses grupos estão configurados na prestação de contas.
+      DM.CriarConsulta( qyGrupoPessoa );
+      qyGrupoPessoa.SQL.Clear;
+      qyGrupoPessoa.SQL.Add('SELECT ngp.cd_grupo');
+      qyGrupoPessoa.SQL.Add('FROM nu_grupos_pessoas ngp ');
+      qyGrupoPessoa.SQL.add('     INNER JOIN fin_grupo_prestacao_contas gpc ON (gpc.cd_grupo = ngp.cd_grupo)');
+      qyGrupoPessoa.SQL.Add(Format('WHERE cd_pessoa = :cd_pessoa AND ngp.cd_coligada IN (%s)', [DM.UsuarioLogado.GetColigadasFilhaSelecionada()]));
+      qyGrupoPessoa.SQL.Add('ORDER BY gpc.nr_nivel DESC LIMIT 1');
+      qyGrupoPessoa.ParamByName('cd_pessoa').AsInteger := DM.GetUsuarioLogado.Pessoa.Codigo;
+      qyGrupoPessoa.Open;
+
+      //se houver mais de um grupo configurado seleciona o maior
+      if qyGrupoPessoa.RecordCount = 1 then
+      begin
+         if qyGrupoPessoa.FieldByName('cd_grupo').AsInteger > 0 then
+         begin
+            
+            if not ProcuraForm( TForm(TfrmAprovacaoPrestacaoContas) ) then
+               Application.CreateForm(TfrmAprovacaoPrestacaoContas, frmAprovacaoPrestacaoContas)
+            else
+                frmAprovacaoPrestacaoContas.Show;
+
+            frmAprovacaoPrestacaoContas.setDataAtual( DM.DataAtual() );
+            frmAprovacaoPrestacaoContas.setCdPessoaLogada( DM.iCdPessoaLogado );
+            frmAprovacaoPrestacaoContas.setCdGrupoPessoaLogada( qyGrupoPessoa.FieldByName('cd_grupo').AsInteger );
+            frmAprovacaoPrestacaoContas.carregaInfoGrupoLogado();
+            frmAprovacaoPrestacaoContas.carregaColigadas();
+
+         end;
+      end else begin
+         Mensagem('Seu usuário não está configurado.', 'Aviso');
+      end;
+
+      FreeAndNil( qyGrupoPessoa );
+   end else begin
+      Mensagem('Seu usuário não está configurado.', 'Aviso');
+   end;
+end;
+
+{ Aluno1Click }
+
+procedure TPrincipalForm.recFinPlanilhaMensalidadeClick(Sender: TObject);
+{ Planilha de Mensalidades }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2001, npAcesso, True ) then Exit;
+
+  Application.CreateForm( TfrmTransferir, frmTransferir );
+
+  Application.CreateForm( Tfrm_mensa_alterar, frm_mensa_alterar );
+
+  if not ProcuraForm( TForm(frmMensalidades) ) then
+     Application.CreateForm( TfrmMensalidades, frmMensalidades )
+  else
+     frmMensalidades.Show;
+
+end;  {PlanilhadeMensalidades1Click}
+
+procedure TPrincipalForm.comFinRetornoCompromissoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( DM.iCdPessoaLogado, 'UMFinanceiro.CompRetCompromisso' ,npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(fRetornoCP) ) then
+    Application.CreateForm( TfRetornoCP, fRetornoCP )
+  else
+    fRetornoCP.Show;
+end;
+
+procedure TPrincipalForm.recFinRetornoBancoClick(Sender: TObject);
+{ Retorno do Banco }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2004, npAcesso, True ) then Exit;
+
+  if DM.variavel_parametro('NovaTelaRetornoBancario') = 'S' then begin
+  
+      if not ProcuraForm(Tform(frmRetornoBanco)) then begin
+         Application.CreateForm( TfrmRetornoBanco, frmRetornoBanco );
+      end else begin
+         frmRetornoBanco.Show;
+      end;
+      
+  end else begin
+
+      if not ProcuraForm(Tform(frm_retorno_banco)) then begin
+         Application.CreateForm( Tfrm_retorno_banco, frm_retorno_banco );
+      end else begin
+         frm_retorno_banco.Show;
+      end;
+  end;
+
+
+end; { RetornodoBanco1Click }
+
+procedure TPrincipalForm.cadFinIndicePoupancaClick(Sender: TObject);
+{ Cadastro de Índice de Poupança }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2005, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmPoupanca) ) then
+      Application.CreateForm( TfrmPoupanca, frmPoupanca )
+  else
+      frmPoupanca.Show;
+
+ end;
+
+procedure TPrincipalForm.cadFinKitClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.Compras.Kits', npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(formCadKits) ) then
+    Application.CreateForm(tformCadKits, formCadKits)
+  else
+    formCadKits.Show;
+end;
+
+procedure TPrincipalForm.recFinNotaFiscalClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 2055, npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm(frmNF) ) then
+       Application.CreateForm(TfrmNF, frmNF)
+   else
+      frmNF.Show;
+end;
+
+{ ndicedaPoupana1Click }
+
+
+procedure TPrincipalForm.cadFinPlanoPagamentoClick(Sender: TObject);
+{ Cadastro de Planos de Pagamento Nova }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2006, npAcesso, True ) then Exit;
+
+  if DM.variavel_parametro('africa_bolsas') <> 'S' then begin
+
+      if not ProcuraForm( TForm(frmPlanosNova) ) then
+         Application.CreateForm( TfrmPlanosNova, frmPlanosNova )
+      else
+         frmPlanosNova.Show;
+ end else begin
+
+      if not ProcuraForm( TForm(fPlanosDisciplinas) ) then
+          Application.CreateForm(TfPlanosDisciplinas, fPlanosDisciplinas)
+      else
+         fPlanosDisciplinas.Show;
+
+  end;
+end;
+
+procedure TPrincipalForm.cadFinPlanoNegociacaoClick(Sender: TObject);
+begin
+   //
+   if not DM.UsuarioLogado.TemPermissao( 2080, npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm(frmPlanoNegociacao)) then
+   begin
+      Application.CreateForm(TfrmPlanoNegociacao , frmPlanoNegociacao);
+   end
+   else
+      frmPlanoNegociacao.Show;
+end;
+
+{ PlanodePagamento1Click }
+
+procedure TPrincipalForm.cadFinPlanoBolsaClick(Sender: TObject);
+{ Planos de Descontos }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2007, npAcesso, True ) then Exit;
+
+  if DM.variavel_parametro('africa_bolsas') <> 'S' then begin
+
+      if not ProcuraForm( TForm(frmPlanosDescontoCad) ) then
+         Application.CreateForm( TfrmPlanosDescontoCad, frmPlanosDescontoCad )
+      else
+         frmPlanosDescontoCad.Show;
+
+  end else begin
+
+      if not ProcuraForm( TForm(FrmBolsasTipos) ) then
+         Application.CreateForm( TFrmBolsasTipos, FrmBolsasTipos )
+      else
+         FrmBolsasTipos.Show;
+
+  end;
+
+end;
+
+procedure TPrincipalForm.cadFinPlanoMultaClick(Sender: TObject);
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( DM.iCdPessoaLogado, 'UMFinanceiro.CadPlanoMultas', npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(fPlanoMultas) ) then
+     Application.CreateForm(TfPlanoMultas, fPlanoMultas)
+  else
+     fPlanoMultas.Show;
+
+end;
+
+{ PlanodeDescontos1Click }
+
+
+procedure TPrincipalForm.maPlanilhaMatriculaClick(Sender: TObject);
+{ Planilha de Matrículas }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 1009, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmMatriculas) ) then
+    Application.CreateForm( TfrmMatriculas, frmMatriculas )
+  else
+    frmMatriculas.Show;
+
+end; { PlanilhadeMatrculas1Click }
+
+procedure TPrincipalForm.maReservaVagaClick(Sender: TObject);
+{ Reserva de Vagas }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 1011, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmReserva) ) then begin
+      Application.CreateForm(TfrmReserva, frmReserva);
+  end else begin
+    frmReserva.Show;
+  end;
+  frmReserva.PrepararTelaReserva(false);
+
+end; { ReservadeVagas1Click }
+
+
+procedure TPrincipalForm.maAtividadesDomiciliarClick(Sender: TObject);
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( DM.iCdPessoaLogado, 'Academico.GerenciamentoAtividadesDomiciliar', npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmAtividadeDomiciliar) ) then begin
+      Application.CreateForm(TfrmAtividadeDomiciliar, frmAtividadeDomiciliar);
+      frmAtividadeDomiciliar.Show;
+  end else begin
+    frmAtividadeDomiciliar.Show;
+  end;
+
+end;
+
+procedure TPrincipalForm.maEquivalenciaClick(Sender: TObject);
+{ Equivalencia de Disciplinas }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 1010, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmEquivalencias) ) then
+      Application.CreateForm( TfrmEquivalencias, frmEquivalencias )
+  else
+      frmEquivalencias.Show;
+          
+end;
+
+procedure TPrincipalForm.maEquivalenciaInternaClick(Sender: TObject);
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.MatEquiInterna', npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(fEquivalenciaInterna) ) then
+      Application.CreateForm( TfEquivalenciaInterna, fEquivalenciaInterna )
+  else
+      fEquivalenciaInterna.Show;
+
+end;
+
+{ Equivalencia1Click }
+
+
+procedure TPrincipalForm.tesFinPlanilhaCaixaClick(Sender: TObject);
+{ Planilha de Caixa }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2009, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_Caixas_Planilha) ) then
+    Application.CreateForm( Tfrm_Caixas_Planilha, frm_Caixas_Planilha )
+  else
+    frm_Caixas_Planilha.Show;
+
+
+end; { PlanilhadeCaixa1Click }
+
+
+procedure TPrincipalForm.secFichaIndividualClick(Sender: TObject);
+{ Planilha de Ficha Individual }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 1014, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmFichaIndividual) ) then
+    Application.CreateForm( TfrmFichaIndividual, frmFichaIndividual )
+  else
+    frmFichaIndividual.Show;
+
+end;
+
+{ FinanciamentoEstudantil1 }
+procedure TPrincipalForm.pesFinanciamentoEstudantilClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1058, npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm(frmFinanciamentoEstudantil) ) then
+      Application.CreateForm( TfrmFinanciamentoEstudantil, frmFinanciamentoEstudantil )
+   else
+      frmFinanciamentoEstudantil.ShowModal;
+end;
+
+procedure TPrincipalForm.pesFornecedorClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 2027, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_Fornecedores) ) then
+     Application.CreateForm( Tfrm_Fornecedores, frm_Fornecedores )
+  else
+     frm_Fornecedores.Show;
+end;
+
+{ FichaIndividual3Click }
+
+procedure TPrincipalForm.secDigitacaoMediaFaltaClick(Sender: TObject);
+{ Digitação de Notas e Faltas }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 1012, npAcesso, True ) then Exit;
+
+  Application.CreateForm( TfrmDigFichaIndividual, frmDigFichaIndividual );
+end;{ DigitaodeNotaseFaltas1Click }
+
+
+procedure TPrincipalForm.secDigitacaoProvaInstitucionalClick(
+  Sender: TObject);
+{ Digitação da Prova Institucional }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 1013, npAcesso, True ) then Exit;
+
+  Application.CreateForm( TfrmDigProvaInstitucional, frmDigProvaInstitucional );
+  frmDigProvaInstitucional.ShowModal;
+
+end; { DigitaodaProvaInstitucional1Click }
+
+
+procedure TPrincipalForm.ObservaesparaHistrico1Click(Sender: TObject);
+{ Observações para o Histórico }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 1015, npAcesso, True ) then Exit;
+
+  try
+
+    if fmObsHistorico = nil then
+       Application.CreateForm( TfmObsHistorico, fmObsHistorico );
+
+    fmObsHistorico.showmodal;
+
+  finally
+
+    fmObsHistorico.free;
+    fmObsHistorico := nil;
+
+  end;
+
+end;
+
+procedure TPrincipalForm.OnWindowPrintClose(WindowHandle: HWND;
+   var Cancel: Boolean);
+begin
+   Cancel := False;
+   if FSQLPosImpressao <> '' then
+   begin
+      if (FMsgPosImpressao = '') or
+         (MessageDlg(FMsgPosImpressao, mtConfirmation, [mbYes, mbNo], -1) = mrYes) then
+      begin
+         if StartsText('CALL', FSQLPosImpressao) then
+         begin
+            DM.callProcedure(FSQLPosImpressao, False);
+         end
+         else
+            DM.db.ExecuteDirect(FSQLPosImpressao);
+         MessageDlg('Procedimento executado com sucesso.', mtInformation, [mbOK], -1);
+         FSQLPosImpressao := '';
+         FMsgPosImpressao := '';
+      end;
+   end;
+end;
+
+{ ObservaesparaHistrico1Click }
+
+procedure TPrincipalForm.secCursoAnoSemestreClick(Sender: TObject);
+{ Observações para Diploma por Curso }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.SecObsDiplomaCursoAnoSem',
+    npAcesso, True ) then Exit;
+
+  try
+
+    if fmObsDipCurso = nil then
+       Application.CreateForm( TfmObsDipCurso, fmObsDipCurso);
+
+    fmObsDipCurso.showmodal;
+
+  finally
+
+    fmObsDipCurso.free;
+    fmObsDipCurso:=nil;
+
+  end;
+
+end; { Curso1Click }
+
+
+procedure TPrincipalForm.secIndividualClick(Sender: TObject);
+{ Observações para Diploma Individual }
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.SecObsDiplomaIndividual', npAcesso, True ) then Exit;
+
+  try
+    if fmObsDipAluno = nil then
+
+       Application.CreateForm( TfmObsDipAluno, fmObsDipAluno);
+
+    fmObsDipAluno.showmodal;
+
+  finally
+
+    fmObsDipAluno.free;
+    fmObsDipAluno:=nil;
+
+  end;
+
+end; { Individual1Click }
+
+procedure TPrincipalForm.recFinVendaProdutoClick(Sender: TObject);
+begin
+   cadFinRegistrarSaidaClick(Sender);
+end;
+
+procedure TPrincipalForm.ReclassificarContas1Click(Sender: TObject);
+begin
+
+   if not(DM.GetUsuarioLogado.TemPermissao(DM.iCdPessoaLogado, 'UMFinanceiro.Gerenciar.Lancamento.Contabil', npAcesso, True)) then
+   begin
+      Exit;
+   end;
+
+   if not ProcuraForm( TForm(frmLancamentosContabeis) ) then
+   begin
+      Application.CreateForm(TfrmLancamentosContabeis, frmLancamentosContabeis);
+   end
+   else
+   begin
+      frmLancamentosContabeis.Show;
+   end;
+end;
+
+procedure TPrincipalForm.RegistroVisualizao1Click(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 0, 'Academico.FichaSaude.Prontuario', npAcesso, False ) then
+   begin
+      DM.UsuarioLogado.TemPermissao( 0, 'Academico.FichaSaude', npAcesso, True );
+      DM.UsuarioLogado.TemPermissao( 0, 'Academico.FichaSaude.Prontuario', npAcesso, True );
+      Exit;
+   end;
+
+   if not PrincipalForm.ProcuraForm(frmFichaSaudeCompleta) then
+      Application.CreateForm(TfrmFichaSaudeCompleta, frmFichaSaudeCompleta);
+
+   frmFichaSaudeCompleta.ShowModal();
+end;
+
+procedure TPrincipalForm.ReinstanciaRelatorio;
+{ Reinstancia o relatório mantendo a impressora selecionada para evitar erros }
+var
+   nomeImp: String;
+   portaImp: String;
+   driverImp: String;
+   orientacaoImp: TCrOrientation;
+   modeImp: Cardinal;
+begin
+   nomeImp := Relatorio.Printer.Name;
+   portaImp := Relatorio.Printer.Port;
+   driverImp := Relatorio.Printer.Driver;
+   orientacaoImp := Relatorio.Printer.Orientation;
+   modeImp := Relatorio.Printer.Mode;
+
+   {if Relatorio <> nil then
+   begin
+      Relatorio.CloseEngine;
+      Relatorio.Free();
+   end;}
+   CarregarObjetoRelatorio;
+
+   Relatorio.Printer.Name := nomeImp;
+   Relatorio.Printer.Port := portaImp;
+   Relatorio.Printer.Driver := driverImp;
+   Relatorio.Printer.Orientation := orientacaoImp;
+   Relatorio.Printer.Mode := modeImp;
+end;
+
+procedure TPrincipalForm.RELATRIODEREPASSEMENSAL1Click(Sender: TObject);
+const
+   Chave = 'UMFinanceiro.Contratos.RelatorioRepasse';
+begin
+
+   if DM.UsuarioLogado.TemPermissao(0, Chave, npAcesso, True) then
+   begin
+
+      if frmFinRepasseGerar = nil then
+         Application.CreateForm(TfrmFinRepasseGerar, frmFinRepasseGerar);
+
+      frmFinRepasseGerar.Show;
+   end;
+   
+end;
+
+procedure TPrincipalForm.secVisualizarDiarioClick(Sender: TObject);
+{ Visualizar Diários de Classe }
+begin
+
+   if not DM.UsuarioLogado.TemPermissao( 1007, npAcesso, True ) then Exit;
+
+   Application.CreateForm(TDiarioView, DiarioView);
+
+end; { VisualizarDirios1Click }
+
+
+procedure TPrincipalForm.MostraHint(Sender: TObject);
+begin
+
+   pnlMsg.Caption := GetLongHint(Application.Hint);
+
+end; { MostraHint }
+
+
+procedure TPrincipalForm.MostraHint2(Sender: TObject);
+begin
+
+   pnlMsg.Caption := GetLongHint(TWinControl(Sender).Hint);
+
+end;
+
+procedure TPrincipalForm.MotivosdeAtendimento1Click(Sender: TObject);
+begin
+
+   if not DM.UsuarioLogado.TemPermissao( DM.UsuarioLogado.Pessoa.Codigo, 'Academico.FichaSaude.Atendimento', npAcesso, true) then
+   begin
+      Exit;
+   end;
+
+   if not PrincipalForm.ProcuraForm(formAtendimento) then
+      Application.CreateForm(TformAtendimento, formAtendimento);
+
+   formAtendimento.Show;
+end;
+
+procedure TPrincipalForm.cadDisciplinaTurmaProfessorClick(
+   Sender: TObject);
+{ Turmas do Professor }
+begin
+
+   if DM.UsuarioLogado.TemPermissao(1117, npAcesso, true) then
+   begin
+      Application.CreateForm(TfrmProfessores, frmProfessores);
+      frmProfessores.Show;
+   end;
+end; { DisciplinaseTurmasdoProfessor1Click }
+
+
+procedure TPrincipalForm.relRelatorioAcademicoClick(Sender: TObject);
+{ Todos os Relatórios }
+begin
+
+   if not DM.UsuarioLogado.TemPermissao( 1016, npAcesso, True ) then Exit;
+
+   Application.CreateForm(Tfrm_Relatorios, frm_Relatorios);
+
+//   frm_Relatorios.Modulo := 1 ;
+   frm_Relatorios.ShowModal ;
+
+end;
+
+{ Todos1Click }
+
+
+procedure TPrincipalForm.confModuloRelatorioClick(Sender: TObject);
+{ Módulos e Usuários }
+begin
+
+   if (DM.UsuarioLogado.TemPermissao( 3001, npAcesso, False ) or
+      DM.UsuarioLogado.TemPermissao( DM.UsuarioLogado.Pessoa.Codigo,
+         'ControleAcesso.Gerenciar.Usuarios.Grupos', npAcesso, True)) then
+   begin
+      Application.CreateForm( TFControlePerm, fControlePerm );
+      fControlePerm.Show;
+   end
+   else
+   begin
+      Mensagem('Você não possui permissão para acessar esta tela');
+   end;
+   
+end;
+
+procedure TPrincipalForm.confParametroClick(Sender: TObject);
+begin
+   if toolEscolar.Visible then begin
+    if not DM.UsuarioLogado.TemPermissao( 1041, npAcesso, True ) then Exit;
+
+    if not ProcuraForm( TForm(frmParametros) ) then
+      Application.CreateForm(TfrmParametros, frmParametros)
+    else
+      frmParametros.Show;
+     frmParametros.Filtra(Academico, DM.UsuarioLogado.TemPermissao( 1041, npAlterar, False ));
+  end
+  else if toolFinanceiro.Visible then begin
+    if not DM.UsuarioLogado.TemPermissao( 2041, npAcesso, True ) then Exit;
+
+    if not ProcuraForm( TForm(frmParametros) ) then
+      Application.CreateForm(TfrmParametros, frmParametros)
+    else
+      frmParametros.Show;
+     frmParametros.Filtra(Financeiro, DM.UsuarioLogado.TemPermissao( 2041, npAlterar, False ));
+  end;
+end;
+
+{ MduloseUsurios1Click }
+
+
+procedure TPrincipalForm.cadFinProgramacaoDescontoClick(Sender: TObject);
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2021, npAcesso, True ) then Exit;
+
+  if DM.variavel_parametro('africa_bolsas') <> 'S' then
+  begin
+
+     Application.CreateForm(Tfrm_Pessoas_Descontos, frm_Pessoas_Descontos);
+     frm_Pessoas_Descontos.Show;
+  end
+  else
+  begin
+
+     Application.CreateForm(TFrmBolsasPessoas, FrmBolsasPessoas);
+     
+  end;
+
+end;
+
+procedure TPrincipalForm.cadAtividadeComplementarClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1059, npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm(frmAtivComplementares) ) then
+      Application.CreateForm( TfrmAtivComplementares, frmAtivComplementares )
+   else
+      frmAtivComplementares.Show;
+end;
+
+procedure TPrincipalForm.AtualizaODBC;
+begin
+   //configura o ODBC
+
+   setODBCInfo('unimestre', lstODBC);
+
+end;
+
+procedure TPrincipalForm.cadAtualizarDocumentacaoClick(Sender: TObject);
+var
+   qyInsereLog, qyInserirLog, qyAtualizarDocumentacao : TUMZQuery;
+   i: integer;
+   sn_virgula: String;
+begin
+   if DM.UsuarioLogado.TemPermissao(1110, npAlterar, true) then
+   begin
+      if Mensagem('Esse procedimento irá atualizar os documentos necessários para os alunos já matriculados. Deseja continuar?',
+                  'Confirmação', MB_YESNO + MB_ICONQUESTION, Handle) <> mrYes then
+         Exit;
+
+      DM.CriarConsulta(qyAtualizarDocumentacao);
+      DM.CriarConsulta(qyInsereLog);
+      DM.CriarConsulta(qyInserirLog);
+      {qyInsereLog serve apenas executar o SELECT da query qyAtualizarDocumentacao
+      para inserir log da operação dos registros alterados.}
+
+
+
+      qyInsereLog.SQL.Text :=
+         '  SELECT MA.CODIGOALUNO, DN.COD_DOCUMENTO, ''N'' FROM MATRICULAS MA ' +
+         '  INNER JOIN TURMAS T ON ( T.CODIGO = MA.TURMA AND T.ANOSEMESTRE = MA.ANOSEMESTRE ) ' +
+         '  INNER JOIN PESSOAS PE ON (PE.CD_PESSOA = MA.CODIGOALUNO) ' +
+         '  INNER JOIN DOCUMENTOS_NECESSARIOS DN ON (DN.CURSO = MA.CURSO) ' +
+         '  INNER JOIN DOCUMENTOS D ON (D.codigo = DN.cod_documento AND (D.DS_SEXO = ''A'' OR D.DS_SEXO = PE.DS_SEXO) AND (D.CD_TIPO_PESSOA IN (1,2))) ' +
+         '   LEFT JOIN DOCUMENTOS_ALUNOS DA ON (DA.CODIGOALUNO = MA.CODIGOALUNO AND DA.COD_DOCUMENTO = DN.COD_DOCUMENTO) ' +
+         '  WHERE DA.codigoaluno IS NULL AND t.cd_coligada IN ( %s ) ' +
+         '  GROUP BY MA.CODIGOALUNO, DN.COD_DOCUMENTO ';
+
+      qyInsereLog.SQL.Text := Format(qyInsereLog.SQL.Text, [DM.UsuarioLogado.GetColigadasFilhaSelecionada()]);
+      qyInsereLog.Open;
+
+      i:=0;
+      qyInserirLog.SQL.Text := ' INSERT INTO log_geral ' +
+               ' (cd_usuario, cd_modulo, cd_chave, ds_observacoes, dt_log) VALUES ';
+      //Percorre a query e insere um log para cada registro
+      while not(qyInsereLog.Eof) do
+      begin
+
+         if (i = 10) then
+         begin
+            qyInserirLog.ExecSQL;
+
+            qyInserirLog.Close;
+            qyInserirLog.SQL.Text := ' INSERT INTO log_geral ' +
+               ' (cd_usuario, cd_modulo, cd_chave, ds_observacoes, dt_log) VALUES ';
+
+            i:=0;
+         end;
+
+         if (i = 0) then
+         begin
+            sn_virgula := '';
+         end
+         else
+         begin
+            sn_virgula := ',';
+         end;
+
+         qyInserirLog.SQL.Text := qyInserirLog.SQL.Text + sn_virgula + ' ( ' +
+            IntToStr(DM.iCdPessoaLogado) + ', ' + IntToStr(1110) + ', ' +
+            '"'+qyInsereLog.FieldByName('CODIGOALUNO').asString + ';' +
+            qyInsereLog.FieldByName('COD_DOCUMENTO').asString + '", ' +
+            '"Documento inserido via Atualização da Documentação"' +
+            ', now()'  + ' ) ';
+
+         qyInsereLog.Next;
+         i := i + 1;
+
+      end;
+      Try
+         qyInserirLog.ExecSQL;
+      Except
+         i := i + 1;
+      End;
+
+      qyAtualizarDocumentacao.SQL.Text :=
+         ' INSERT INTO documentos_alunos (codigoaluno, cod_documento, apresentou) ' +
+         ' SELECT MA.CODIGOALUNO, DN.COD_DOCUMENTO, ''N'' FROM MATRICULAS MA ' +
+         '  INNER JOIN TURMAS T ON ( T.CODIGO = MA.TURMA AND T.ANOSEMESTRE = MA.ANOSEMESTRE ) ' +
+         '  INNER JOIN PESSOAS PE ON (PE.CD_PESSOA = MA.CODIGOALUNO) ' +
+         '  INNER JOIN DOCUMENTOS_NECESSARIOS DN ON (DN.CURSO = MA.CURSO) ' +
+         '  INNER JOIN DOCUMENTOS D ON (D.codigo = DN.cod_documento AND (D.DS_SEXO = ''A'' OR D.DS_SEXO = PE.DS_SEXO) AND (D.CD_TIPO_PESSOA IN (1,2))) ' +
+         '   LEFT JOIN DOCUMENTOS_ALUNOS DA ON (DA.CODIGOALUNO = MA.CODIGOALUNO AND DA.COD_DOCUMENTO = DN.COD_DOCUMENTO) ' +
+         '  WHERE DA.codigoaluno IS NULL AND t.cd_coligada IN ( %s ) ' +
+         '  GROUP BY MA.CODIGOALUNO, DN.COD_DOCUMENTO ';
+
+      qyAtualizarDocumentacao.SQL.Text := Format(qyAtualizarDocumentacao.SQL.Text, [DM.UsuarioLogado.GetColigadasFilhaSelecionada()]);
+
+      qyAtualizarDocumentacao.ExecSQL();
+      Mensagem('Documentos atualizados com sucesso!', 'UNIMESTRE', MB_OK + MB_ICONEXCLAMATION, Handle);
+
+   end;
+end;
+
+procedure TPrincipalForm.AtualizarMenu(Lite: Boolean);
+   procedure AdicionarSubMenus(var NewMenuItem,
+     OldMenuItem: TMenuItem);
+   var
+      I: Integer;
+      lmi, lmio: TMenuItem;
+   begin
+      for I := 0 to OldMenuItem.Count - 1 do
+      begin
+         if not ( OldMenuItem.Items[I].Visible ) then Continue;
+
+         lmio := OldMenuItem.Items[I];
+         lmi := TMenuItem.Create( Self );
+
+         lmi.Caption := lmio.Caption;
+         lmi.OnClick := lmio.OnClick;
+
+         AdicionarSubMenus( lmi, lmio );
+
+         NewMenuItem.Add(lmi);
+      end;
+   end;
+Var
+   mi, mio : TMenuItem;
+   n : Integer;
+begin
+   miCadastroAcad.Clear;
+   for n := 0 to popAcademicoCadastros.Items.Count - 1 do
+   begin
+      mio := popAcademicoCadastros.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miCadastroAcad.Add(mi);
+
+   end;
+
+   miPessoasAcad.Clear;
+   for n := 0 to popAcademicosPessoas.Items.Count - 1 do
+   begin
+      mio := popAcademicosPessoas.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miPessoasAcad.Add(mi);
+
+   end;
+
+   miMatriculaAcad.Clear;
+   for n := 0 to popAcademicoMatriculas.Items.Count - 1 do
+   begin
+      mio := popAcademicoMatriculas.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miMatriculaAcad.Add(mi);
+
+   end;
+
+   miSecretaAcad.Clear;
+   for n := 0 to popAcademicoSecretaria.Items.Count - 1 do
+   begin
+      mio := popAcademicoSecretaria.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miSecretaAcad.Add(mi);
+
+   end;
+
+   miRelatorioAcad.Clear;
+   for n := 0 to popAcademicoRelatorios.Items.Count - 1 do
+   begin
+      mio := popAcademicoRelatorios.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miRelatorioAcad.Add(mi);
+
+   end;
+
+   miConfiguraAcad.Clear;
+   for n := 0 to popConfiguracoes.Items.Count - 1 do
+   begin
+      mio := popConfiguracoes.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miConfiguraAcad.Add(mi);
+
+   end;
+
+   // FINANCEIRO
+
+   miCadastroFinan.Clear;
+   for n := 0 to popFinanceiroCadastros.Items.Count - 1 do
+   begin
+      mio := popFinanceiroCadastros.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miCadastroFinan.Add(mi);
+
+   end;
+
+   miPessoasFinan.Clear;
+   for n := 0 to popAcademicosPessoas.Items.Count - 1 do
+   begin
+      mio := popAcademicosPessoas.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miPessoasFinan.Add(mi);
+
+   end;
+
+   miRecebimentosFinan.Clear;
+   for n := 0 to popFinanceiroMensalidades.Items.Count - 1 do
+   begin
+      mio := popFinanceiroMensalidades.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miRecebimentosFinan.Add(mi);
+
+   end;
+
+   miTesourariaFinan.Clear;
+   for n := 0 to popFinanceiroCaixa.Items.Count - 1 do
+   begin
+      mio := popFinanceiroCaixa.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miTesourariaFinan.Add(mi);
+
+   end;
+
+   miCompromissoFinan.Clear;
+   for n := 0 to popFinanceiroContasPagar.Items.Count - 1 do
+   begin
+      mio := popFinanceiroContasPagar.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miCompromissoFinan.Add(mi);
+
+   end;
+
+   if Lite then
+      miCompromissoFinan.Visible := false;
+
+   miRelatoriosFinan.Clear;
+   for n := 0 to popFinanceiroRelatorios.Items.Count - 1 do
+   begin
+      mio := popFinanceiroRelatorios.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miRelatoriosFinan.Add(mi);
+
+   end;
+  
+   miConfiguracoesFinan.Clear;
+   for n := 0 to popConfiguracoes.Items.Count - 1 do
+   begin
+      mio := popConfiguracoes.Items.Items[n];
+      if not ( mio.Visible ) then Continue;
+
+      mi := TMenuItem.Create(Self);
+      mi.Caption := mio.Caption;
+      mi.OnClick := mio.OnClick;
+
+      AdicionarSubMenus( mi, mio );
+
+      miConfiguracoesFinan.Add(mi);
+
+   end;
+end;
+
+procedure TPrincipalForm.PegaDadosODBC;
+begin
+   lstODBC := TStringList.Create;
+
+   lstODBC.Add('Servidor='+ODBCInfo('Server'));
+   lstODBC.Add('Banco='+ODBCInfo('Database'));
+   lstODBC.Add('Usuario='+ODBCInfo('User'));
+   lstODBC.Add('Senha='+ ODBCInfo('Password'));
+   lstODBC.Add('Porta='+ODBCInfo('Port'));
+
+end;
+
+procedure TPrincipalForm.confGerenciaRelatorioClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(
+      DM.iCdPessoaLogado,
+      'Academico.Controle.Permissao.Relatorio',
+      npAcesso, True) then
+   begin
+      if not ProcuraForm(fPermRel) then
+         Application.CreateForm(TfPermRel, fPermRel);
+      fPermRel.Show;
+   end;
+end;
+
+procedure TPrincipalForm.pesPesquisarClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.PesPesquisar',
+      npAcesso, true) then
+      Exit;
+
+   TfrmSelecionarPessoa.Filtrar([bapOrientadorAtivo]);
+end;
+
+procedure TPrincipalForm.cadPaisEstadoMunicipioClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1054, npAcesso, True ) then Exit;
+
+   Application.CreateForm(TfrmEstados, frmEstados);
+end;
+
+procedure TPrincipalForm.cadParmetroAvaliacaoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1034, npAcesso, True ) then Exit;
+
+   Application.CreateForm(Tfrm_Avaliacoes_parametros, frm_Avaliacoes_parametros);
+end;
+
+procedure TPrincipalForm.cadSalasClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( DM.UsuarioLogado.Pessoa.Codigo, 'Academico.Turmas.CadastroSalas', npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_CadastroSalas) ) then
+    Application.CreateForm(Tfrm_CadastroSalas, frm_CadastroSalas)
+  else
+    frm_CadastroSalas.Show;
+end;
+
+procedure TPrincipalForm.cadEmpresaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1004, npAcesso, True ) then Exit;
+
+   Application.CreateForm(Tfrm_Empresas, frm_Empresas);
+end;
+
+procedure TPrincipalForm.secHistoricoAnteriorEstudanteClick(
+  Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1015, npAcesso, True ) then Exit;
+
+   Application.CreateForm(Tfrm_historico_anterior, frm_historico_anterior);
+end;
+
+procedure TPrincipalForm.secDigitacaoAulasDadasClick(Sender: TObject);
+begin                        
+  if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.SecDigiAulasDadas', npAcesso, True ) then Exit;
+
+  Application.CreateForm( TfrmDigAulasDadas, frmDigAulasDadas );
+  frmDigAulasDadas.ShowModal;
+end;
+
+procedure TPrincipalForm.cadFinPlanoContaClick(Sender: TObject);
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2022, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_CadPlanoContas) ) then
+    Application.CreateForm( Tfrm_CadPlanoContas, frm_CadPlanoContas )
+  else
+    frm_CadPlanoContas.Show;
+
+end;
+
+procedure TPrincipalForm.cadFinDespesaTurmaClick(Sender: TObject);
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2023, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_centro_Provisoes) ) then
+    Application.CreateForm( Tfrm_centro_Provisoes, frm_centro_Provisoes )
+  else
+    frm_centro_Provisoes.Show;
+
+end;
+
+
+procedure TPrincipalForm.DespesadeTurma1Click(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 2023, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_Turmas_Despesas) ) then
+     Application.CreateForm(Tfrm_Turmas_Despesas, frm_Turmas_Despesas)
+  else
+     frm_turmas_despesas.show;
+
+end;
+
+procedure TPrincipalForm.FormResize(Sender: TObject);
+begin
+   ResizeBarraStatus();
+end;
+
+procedure TPrincipalForm.cadFinCalendarioClick(Sender: TObject);
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2026, npAcesso, True ) then Exit;
+  Application.CreateForm(TfrmCadCalendario, frmCadCalendario);
+
+  frmCadCalendario.rgSecretaria.enabled := false;
+  frmCadCalendario.rgFinanceiro.enabled := true;
+
+end;
+
+procedure TPrincipalForm.cadCalendarioClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1022, npAcesso, True ) then Exit;
+  Application.CreateForm(TfrmCadCalendario, frmCadCalendario);
+
+  frmCadCalendario.rgSecretaria.enabled := true;
+  frmCadCalendario.rgFinanceiro.enabled := true;
+end;
+
+procedure TPrincipalForm.cadCampoAdicionalPessoaClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.CadCamposPessoa', npAcesso, True ) then Exit;
+  if not ProcuraForm( TForm(frmCadCamposPessoas) ) then
+     Application.CreateForm(TfrmCadCamposPessoas , frmCadCamposPessoas)
+  else
+     frmCadCamposPessoas.Show;
+end;
+
+procedure TPrincipalForm.cadFinCategoriaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.Compras.Categorias', npAcesso, True ) then Exit;    
+
+   if not ProcuraForm( TForm( frmComprasCadastroCategorias ) ) then
+      Application.CreateForm( TfrmComprasCadastroCategorias, frmComprasCadastroCategorias )
+   else
+      frmComprasCadastroCategorias.Show();
+end;
+
+procedure TPrincipalForm.cadFinCentroCustoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 2029, npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm(frm_CadCentros) ) then
+      Application.CreateForm( Tfrm_CadCentros, frm_CadCentros )
+   else
+      frm_CadCentros.Show;
+end;
+
+procedure TPrincipalForm.relFinRelatorioImpressosClick(Sender: TObject);
+begin
+   if (not DM.UsuarioLogado.TemPermissao( 2011, npEspecial, True ))
+      OR (not DM.UsuarioLogado.TemPermissao( 2048, npEspecial, True ))
+      OR (not DM.UsuarioLogado.TemPermissao( 2025, npEspecial, True )) then Exit;
+
+   Application.CreateForm(Tfrm_Relatorios_impressos, frm_Relatorios_impressos);
+
+   frm_Relatorios_impressos.Modulo := 2 ;
+   frm_Relatorios_impressos.ShowModal ;
+
+end;
+
+procedure TPrincipalForm.comFinRemessaCompromissoClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 2069, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(fRemessaCP) ) then
+    Application.CreateForm( TfRemessaCP, fRemessaCP )
+  else
+    fRemessaCP.Show;
+end;
+
+procedure TPrincipalForm.relRelatorioImpressoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.RelRelImpressos', npEspecial, True ) then Exit;
+
+   Application.CreateForm(Tfrm_Relatorios_impressos, frm_Relatorios_impressos);
+
+   frm_Relatorios_impressos.Modulo := 1 ;
+   frm_Relatorios_impressos.ShowModal ;
+
+end;
+
+procedure TPrincipalForm.ResizeBarraStatus;
+begin
+   pnlMsg.Width := traco1.Width + traco3.Width + traco4.Width + btnUsuario.Width + btnDatas.Width;
+
+   if btnTrocaUnidadeEnsino.Visible then
+      pnlMsg.Width := traco2.Width + pnlMsg.Width + btnTrocaUnidadeEnsino.Width;
+
+   pnlMsg.Width := BarraDeStatus.Width - pnlMsg.Width - 5;
+end;
+
+procedure TPrincipalForm.cadDocumentoClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(1113, npAcesso, true) then
+      Application.CreateForm(Tfrm_Documentos, frm_Documentos);
+end;
+
+procedure TPrincipalForm.Prazosdosdirios1Click(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1022, npAcesso, True ) then Exit;
+
+  Application.CreateForm(Tfrm_Documentos, frm_Documentos);
+end;
+
+procedure TPrincipalForm.PrazosdoResultadoFinal1Click(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1023, npAcesso, True ) then Exit;
+
+  Application.CreateForm(Tfrm_Documentos, frm_Documentos);
+end;
+
+procedure TPrincipalForm.secPrazoDiarioClasseClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1024, npAcesso, True ) then Exit;
+
+  Application.CreateForm(TfDiario_Prazos_Novo, fDiario_Prazos_Novo);
+end;
+
+procedure TPrincipalForm.cadFormaIngressoClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(1119, npAcesso, true) then
+      Application.CreateForm(Tfrm_FormasIngresso, frm_FormasIngresso);
+end;
+
+procedure TPrincipalForm.cadGruposAtividadesPraticasClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( DM.iCdPessoaLogado, 'Academico.GruposAtividadesPraticas', npAcesso, True ) then Exit;
+
+  if not ProcuraForm(TForm(frmGruposAtividades)) then
+     Application.CreateForm(TfrmGruposAtividades, frmGruposAtividades);
+  frmGruposAtividades.Show;
+end;
+
+procedure TPrincipalForm.cadHorarioClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1025, npAcesso, True ) then Exit;
+
+  if not ProcuraForm(TForm(frm_Horarios)) then
+     Application.CreateForm(Tfrm_Horarios, frm_Horarios);
+  frm_Horarios.Show;
+end;
+
+procedure TPrincipalForm.cadHorarioAgrupadoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 30003, npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm(frmAgrupamentoHorarios) ) then
+   begin
+      Application.CreateForm( TfrmAgrupamentoHorarios, frmAgrupamentoHorarios );
+   end
+   else
+   begin
+      frmAgrupamentoHorarios.Show;
+   end;
+
+end;
+
+procedure TPrincipalForm.cadHorarioTurmaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.CadHoraTurma', npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm(frmCadastroHorariosTurma) ) then
+   begin
+      Application.CreateForm(TfrmCadastroHorariosTurma, frmCadastroHorariosTurma);
+   end;
+
+   frmCadastroHorariosTurma.Show();
+end;
+
+procedure TPrincipalForm.secDigitacaoFrequenciaFaltaClick(Sender: TObject);
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 1052, npAcesso, True ) then Exit;
+
+ if not ProcuraForm( TForm(frm_Presencas) ) then
+    Application.CreateForm( Tfrm_Presencas, frm_Presencas )
+  else
+      frm_Presencas.Show;
+
+end;
+
+procedure TPrincipalForm.secListaFreqeunciaFaltaClick(Sender: TObject);
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.SecListaFreqFaltas', npAcesso, True ) then Exit;
+
+ if not ProcuraForm( TForm(frm_Presencas_Lista) ) then
+    Application.CreateForm( Tfrm_Presencas_Lista, frm_Presencas_Lista )
+  else
+      frm_Presencas_Lista.Show;
+
+end;
+
+procedure TPrincipalForm.secMonografiaClick(Sender: TObject);
+begin
+   //monografias
+  if not DM.UsuarioLogado.TemPermissao( 1152, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(formMonografias) ) then
+  begin
+      Application.CreateForm( TformMonografias, formMonografias );
+  end
+  else
+      formMonografias.Show;
+end;
+
+procedure TPrincipalForm.confTrocaSenhaClick(Sender: TObject);
+begin
+
+  Application.CreateForm(TfrmTrocarSenha, frmTrocarSenha);
+
+  frmTrocarSenha.edSenhaAtual.text := '';
+  frmTrocarSenha.edNovaSenha1.text := '';
+  frmTrocarSenha.edNovaSenha2.text := '';
+  frmTrocarSenha.ShowModal;
+
+  FreeAndNil(frmTrocarSenha);
+
+end;
+
+{------------------- RELATORIO -----------------------}
+
+procedure TPrincipalForm.pesImportarFotoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1051, npAcesso, True ) then Exit;
+
+   Application.CreateForm(TFrmPessoasFotos, FrmPessoasFotos);
+   FrmPessoasFotos.Showmodal;
+end;
+
+procedure TPrincipalForm.relImpressaoCartaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.RelRelCartas', npAcesso, True ) then Exit;
+
+   Application.CreateForm(Tfrm_Relatorios_cartas, frm_Relatorios_cartas);
+
+   frm_Relatorios_cartas.ShowModal;
+end;
+
+function TPrincipalForm.GetInfoRpt(sChaveRelatorio: String): ClasseRegistros;
+Const
+   sSQL = 'SELECT nm_arquivo, sn_pode_exportar FROM relatorios WHERE ds_chave = :sChaveRelatorio;';
+Var
+   qryBuscaRelatorio: TUMZQuery;
+begin
+  DM.CriarConsulta(qryBuscaRelatorio);
+
+  Result := ClasseRegistros.Create();
+
+  qryBuscaRelatorio.SQL.Text := sSQL;
+  qryBuscaRelatorio.ParamByName('sChaveRelatorio').AsString := sChaveRelatorio;
+
+  qryBuscaRelatorio.Open();
+
+  Result.CarregarQuery( qryBuscaRelatorio );
+  Result.Primeiro;
+                            
+  FreeAndNil( qryBuscaRelatorio );
+end;
+
+function TPrincipalForm.GetMsgPosImpressao: string;
+begin
+   Result := FMsgPosImpressao; 
+end;
+
+function TPrincipalForm.ImprimeRpt(
+      Sender: TForm;
+      sRelatorio: string;
+      iCodCabecalho: Integer = -1;
+      sFormulaSelecao: string = '';
+      sFormulaGrupo: string = '';
+      slFormulas: TStringList = nil;
+      slOrdem: TStringList = nil;
+      slParamVariaveis: TStringList = nil;
+      slSQLExp : TStringList = nil;
+      bDialogo: Boolean = False;
+      bForcaConexao: Boolean = False;
+      SLParametros: TStringList = nil;
+      PodeExportar: Boolean = True;
+      Reiniciar: Boolean = True
+   ): Boolean;
+var
+   S: string;
+   n, i : Integer;
+   iCopias: Word;
+begin
+   Result := false;
+   AtualizaODBC;
+   Relatorio.Printer.GetCurrent(true);
+
+   if Reiniciar then
+   begin
+      ReinstanciaRelatorio;
+   end;
+
+   if not FileExists(strReports + '\' + sRelatorio) then
+   begin
+      Mensagem('Não foi encontrado o arquivo de relatório: ' + sRelatorio, '', MB_OK + MB_ICONINFORMATION, Sender.Handle);
+      Exit;
+   end;
+
+   S := strReports + '\' + sRelatorio;
+
+   // UpdateReportConnection(S);
+
+   if PodeExportar then
+      Relatorio.WindowButtonBar.ExportBtn := True   // habilitar exportação
+   else
+      Relatorio.WindowButtonBar.ExportBtn := False; // desabilitar exportação
+
+
+   iCopias := Relatorio.PrintOptions.Copies;
+   Relatorio.ReportName := '';
+   Relatorio.ReportName := strReports + '\' + sRelatorio;
+   Relatorio.WindowState := wsMaximized;
+   if Relatorio.HasSavedData then
+      Relatorio.DiscardSavedData;
+   Relatorio.PrintOptions.Copies := iCopias;
+   Relatorio.Printer.PreserveRptSettings := [prOrientation, prPaperSize];
+
+   if DM.db.Protocol = DB_PROTOCOL_MYSQL then
+   begin
+      Relatorio.Connect.Clear;
+      Relatorio.Connect.ServerName := 'unimestre';
+      Relatorio.Connect.UserID := DM.db.User;
+      Relatorio.Connect.Password := DM.db.Password;
+      Relatorio.Connect.DatabaseName := ODBCInfo('DATABASE');
+//      Relatorio.Connect.Propagate := true;
+   end
+   else if DM.db.Protocol = DB_PROTOCOL_ORACLE then
+   begin
+      Relatorio.Connect.Clear;
+      Relatorio.Connect.ServerName := DM.db.Database;
+      Relatorio.Connect.UserID := DM.db.User;
+      Relatorio.Connect.Password := DM.db.Password;
+      Relatorio.Connect.DatabaseName := DM.db.Database;
+//      Relatorio.Connect.Propagate := True;
+   end;
+
+    //titulo da janela de relatorio
+    Relatorio.ReportTitle := Application.Title;
+
+    //define formula de selecao
+    Relatorio.Selection.Formula.Clear;
+    Relatorio.Selection.Formula.Add( sFormulaSelecao );
+
+   if (iCodCabecalho > -1) then begin
+      //carrega cabecalho
+      if (RelObj.FindObjetoItem(iCodCabecalho) = -1) then begin
+        DM.CabecalhoParamFixos();
+        RelObj.Add(iCodCabecalho);
+        RelObj.getObjetoItem(iCodCabecalho).ProcessaRelObjetos(DM.CabecalhoCampos(iCodCabecalho), slPFixos);
+      end;
+      slFormulas.Add('cd_cabecalho='+IntToStr(iCodCabecalho));
+      //carrega o cabecalho
+      RelObj.DefineCabecalho(Relatorio, 'Cabecalho', iCodCabecalho, slParamVariaveis);
+    end;
+
+    {
+    //Mostra a Janela de configuracao da impressora
+    if DM.variavel_parametro('relatorios_apresentar_impressora') = 'S' then
+    begin
+       Relatorio.Printer.Prompt;
+       Relatorio.Printer.SetCurrent;
+    end;
+    }
+
+    //define formula de grupo
+    Relatorio.GroupSelection.Formula.Clear;
+    if sFormulaGrupo <> '' then begin
+       Relatorio.GroupSelection.Formula.Add( sFormulaGrupo );
+    end;
+
+    //formulas
+    if slFormulas <> nil then begin
+       if slFormulas.Count > 0 then begin
+         for i := 0 to (slFormulas.Count -1) do begin
+           try
+
+            if (slFormulas.Names[i] = 'sn_filtrodatapgto') then
+            begin
+               Relatorio.Formulas.Items[0].Formula.Text := slFormulas.ValueFromIndex[i];
+            end;
+
+             n := Relatorio.Formulas.IndexOf(slFormulas.Names[i]);
+             if (n > -1) then
+             begin
+               Relatorio.Formulas.Items[n].Formula.Text := slFormulas.ValueFromIndex[i];
+             end;
+           except
+           end;
+         end;
+      end;
+    end;
+
+    //SQL Expression
+    if slSQLExp <> nil then begin
+       if slSQLExp.Count > 0 then begin
+         for i := 0 to (slSQLExp.Count -1) do begin
+           try
+             n := Relatorio.SQLExpressions.IndexOf(slSQLExp.Names[i]);
+             if (n > -1) then begin
+               Relatorio.SQLExpressions.Items[n].Expression.Text := slSQLExp.ValueFromIndex[i];
+             end;
+           except
+           end;
+         end;
+      end;
+    end;
+
+//    Relatorio.SQLExpressions.Items[0].Expression.Text:='GET_SALDO(22,1,''2008-07-01'',NULL)';
+
+    //Define Ordem
+    if slOrdem <> nil then begin
+       if slOrdem.Count > 0 then begin
+
+         Relatorio.SortFields.Clear();
+
+         for i := 0 to (slOrdem.Count -1) do begin
+           try
+             Relatorio.SortFields.Add(slOrdem.Names[i]);
+             if (Trim(slOrdem.ValueFromIndex[i]) = 'DESC') then
+               Relatorio.SortFields.Items[Relatorio.SortFields.ItemIndex].Direction := sdDescending
+             else
+               Relatorio.SortFields.Items[Relatorio.SortFields.ItemIndex].Direction := sdAscending;
+           except
+           end;
+         end;
+
+       end;
+    end;
+
+   // Processa os parâmetros dinâmicos do relatório
+
+   if SLParametros <> nil then
+   begin
+      for I := 0 to Relatorio.ParamFields.Count - 1 do
+      begin
+         S := Relatorio.ParamFields.Items[I].Name;
+         if SLParametros.IndexOfName(S) > -1 then
+         begin
+            Relatorio.ParamFields.Items[I].CurrentValue := SLParametros.Values[S];
+            Relatorio.ParamFields.Items[I].ShowDialog := False;
+         end;
+      end;
+   end;
+
+    //define saida padrao
+    Relatorio.Output := toPrinter;
+    Relatorio.WindowEvents := True;
+    Relatorio.wOnCloseWindow := OnWindowPrintClose;
+//    Relatorio.OnPrintEnded := OnWindowPrintClose;
+
+    if Dm.variavel_parametro('impressao_sempre_visualiza') = 'S' then
+       bDialogo := True;
+
+    //verifica dialogo
+    if (bDialogo) then begin
+      case Mensagem( 'Deseja visualizar antes de imprimir?', '', MB_YESNOCANCEL + MB_ICONQUESTION, Sender.Handle) of
+    	  mrNo  :  Relatorio.Output := toPrinter;
+	      mrYes :  Relatorio.Output := toWindow;
+	      mrCancel : begin
+          Screen.Cursor := crDefault;
+          Result := False;
+          Exit;
+	      end;
+      end;
+    end;
+    
+    //executa Relatorio
+
+    if not Relatorio.Execute() then
+    begin
+      	Screen.Cursor := crDefault;
+      	Result := False;
+     	  Exit;
+    end;
+
+    if FForcarFechamentoRel then
+    begin
+       Relatorio.Connect.Clear;
+       Relatorio.CloseEngine;
+    end;
+
+    // Devemos voltar para UMA cópia, APÓS executar a impressão.
+    Relatorio.PrintOptions.Copies := 1;
+
+    Result := True;
+end;
+
+procedure TPrincipalForm.IndicaoparaRepasse1Click(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.Contratos.IndicaoRepasse', npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm(frmCadRepasses) ) then
+   begin
+      Application.CreateForm( TfrmCadRepasses, frmCadRepasses );
+   end
+   else
+   begin
+      frmCadRepasses.Show;
+   end;
+end;
+
+procedure TPrincipalForm.iposdeTtulos1Click(Sender: TObject);
+begin
+
+end;
+
+{ PrintRpt }
+
+
+procedure TPrincipalForm.FormDestroy(Sender: TObject);
+begin
+//  Relatorio.Free();
+    RelObj.Clear();
+    RelObj.Free();
+end;
+
+procedure TPrincipalForm.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+   case key of
+      VK_F1 : Self.confSobreClick( nil );
+   end;
+end;
+
+procedure TPrincipalForm.cadAulaProvaClick(Sender: TObject);
+begin
+   Application.CreateForm(TfrmContAulasProvas, frmContAulasProvas);
+
+   { Vai até a aba que tem permissão }
+   if frmContAulasProvas.tsAulas.Visible then
+      frmContAulasProvas.pgcAulasNotas.ActivePage := frmContAulasProvas.tsAulas
+   else if (frmContAulasProvas.tsCronogramas.Visible) then
+      frmContAulasProvas.pgcAulasNotas.ActivePage := frmContAulasProvas.tsCronogramas
+   else
+      frmContAulasProvas.pgcAulasNotas.ActivePage := frmContAulasProvas.tsAprovacao;
+   
+
+   frmContAulasProvas.pgcAulasNotasChange(frmContAulasProvas.pgcAulasNotas);
+   frmContAulasProvas.Show();
+end;
+
+procedure TPrincipalForm.cadAulaProvaAprovacaoClick(Sender: TObject);
+begin
+   Application.CreateForm(TfrmContAulasProvas, frmContAulasProvas);
+   frmContAulasProvas.pgcAulasNotas.ActivePage := frmContAulasProvas.tsAprovacao;
+   frmContAulasProvas.pgcAulasNotasChange(frmContAulasProvas.pgcAulasNotas);
+   frmContAulasProvas.Show();
+end;
+
+procedure TPrincipalForm.cadAulaProvaAulaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1027, npAcesso, True ) then Exit;
+
+   Application.CreateForm(TfrmContAulasProvas, frmContAulasProvas);
+   frmContAulasProvas.pgcAulasNotas.ActivePage := frmContAulasProvas.tsAulas;
+   frmContAulasProvas.pgcAulasNotasChange(frmContAulasProvas.pgcAulasNotas);
+   frmContAulasProvas.Show();
+end;
+
+procedure TPrincipalForm.cadAulaProvaComplementoMediaClick(Sender: TObject);
+begin
+   Application.CreateForm(TfrmContAulasProvas, frmContAulasProvas);
+   frmContAulasProvas.pgcAulasNotas.ActivePage := frmContAulasProvas.tsComplemento;
+   frmContAulasProvas.pgcAulasNotasChange(frmContAulasProvas.pgcAulasNotas);
+   frmContAulasProvas.Show();
+end;
+
+procedure TPrincipalForm.cadAulaProvaProvaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1027, npAcesso, True ) then Exit;
+
+   Application.CreateForm(TfrmContAulasProvas, frmContAulasProvas);
+   frmContAulasProvas.pgcAulasNotas.ActivePage := frmContAulasProvas.tsProvas;
+   frmContAulasProvas.pgcAulasNotasChange(frmContAulasProvas.pgcAulasNotas);
+   frmContAulasProvas.Show();
+end;
+
+function TPrincipalForm.getRelatorio: TCrpe;
+begin
+  Result := Relatorio;
+end;
+
+function TPrincipalForm.GetSQLPosImpressao: string;
+begin
+   Result := FSQLPosImpressao;
+end;
+
+procedure TPrincipalForm.secGradeExtraClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1053, npAcesso, True ) then Exit;
+  Application.CreateForm(TFrmGradesExtras, FrmGradesExtras);
+end;
+
+procedure TPrincipalForm.confAprovacaoPrestacaoContaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1061, npAcesso, True ) then Exit;
+   Application.CreateForm(TfrmGrupoPrestacaoConta, frmGrupoPrestacaoConta);
+   frmGrupoPrestacaoConta.Show;
+end;
+
+procedure TPrincipalForm.SetMsgPosImpressao(const Value: string);
+begin
+   FMsgPosImpressao := Value;
+end;
+
+procedure TPrincipalForm.SetRelatorio(Value: TCrpe);
+begin
+   Relatorio := Value;
+end;
+
+procedure TPrincipalForm.SetSQLPosImpressao(const Value: string);
+begin
+   FSQLPosImpressao := Value;
+end;
+
+procedure TPrincipalForm.confSelecionaUnidadeEnsinoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( DM.iCdPessoaLogado, 'Academico.confSelUnidadeEnsino', npAcesso, True ) then Exit;
+   btnTrocaUnidadeEnsinoClick(nil);
+end;
+
+procedure TPrincipalForm.confSobreClick(Sender: TObject);
+begin
+   if not Assigned(frmSobre) then
+   begin
+      Application.CreateForm(TfrmSobre, frmSobre);
+   end;
+   frmSobre.ShowModal;
+end;
+
+procedure TPrincipalForm.cadCoordenadorClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(1116, npAcesso, true) then
+   begin
+      if not ProcuraForm(TForm(frm_CursosCoordenadores)) then
+         Application.CreateForm(Tfrm_CursosCoordenadores, frm_CursosCoordenadores)
+      else
+         frm_CursosCoordenadores.Show;
+   end;
+end;
+
+procedure TPrincipalForm.cadCursosMoodleClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao(DM.iCdPessoaLogado, 'Academico.CursosMoodle', npAcesso, True) then Exit;
+   Application.CreateForm(TfrmCursosMoodle, frmCursosMoodle);
+end;
+
+procedure TPrincipalForm.cadComplementoMediaClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(1115, npAcesso, true) then
+   begin
+      if not ProcuraForm(TForm(frmComplMedias)) then
+         Application.CreateForm(TfrmComplMedias, frmComplMedias)
+      else
+         frmComplMedias.Show;
+   end;
+end;
+
+
+
+procedure TPrincipalForm.cadTipoAulaClick(Sender: TObject);
+begin
+   if not ProcuraForm( TForm(frmTiposAula) ) then
+   begin
+      Application.CreateForm(TfrmTiposAula, frmTiposAula)
+   end
+   else
+   begin
+      frmTiposAula.Show;
+   end;
+end;
+
+procedure TPrincipalForm.cadTipoAvaliacaoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 2071, npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm(frmCadastroTiposAvaliacao) ) then
+      Application.CreateForm(TfrmCadastroTiposAvaliacao, frmCadastroTiposAvaliacao)
+   else
+      frmCadastroTiposAvaliacao.Show;   
+end;
+
+procedure TPrincipalForm.CarregarInformacoesIniciais;
+begin
+   btnUsuario.Caption := Format('USUÁRIO: %s', [DM.sLogin]);
+   btnTrocaUnidadeEnsino.Visible := ( DM.UsuarioLogado.ListaColigadasPai.Count > 1 );
+   traco2.Visible := btnTrocaUnidadeEnsino.Visible;
+
+   { Configurar posição da Data }
+   ResizeBarraStatus();
+
+   ano_semestre_incremento := TUMNucleo.GetAnoSemestreIncremento();
+   ano_semestre := TUMNucleo.GetAnosemestreInicial();
+   DM.UsaAnosemestre := TUMNucleo.GetParametroUsaAnosemestre();
+end;
+
+procedure TPrincipalForm.CarregarObjetoRelatorio;
+begin
+   //Relatorios
+   RelObj := TRelObjetos.Create();
+   Relatorio := TCrpe.Create(Application);
+
+   with Relatorio do
+   begin
+      About := 'Version and Credits...';
+      DesignControls := 'Design-Time Window Controls';
+      Version.Crpe.Major := 0;
+      Version.Crpe.Minor := 0;
+      Version.Crpe.Release := 0;
+      Version.Crpe.Build := 0;
+      Version.Report.Major := 0;
+      Version.Report.Minor := 0;
+      Version.Report.Letter := #0;
+      Version.Windows.Platform := 'NT';
+      Version.Windows.Major := 5;
+      Version.Windows.Minor := 1;
+      Version.Windows.Build := '2600';
+      TempPath := 'C:\DOCUME~1\CLAUDI~1\CONFIG~1\Temp\';
+      PrintDate.Day := 0;
+      PrintDate.Month := 0;
+      PrintDate.Year := 0;
+      Subreports.Number := 0;
+      Subreports.Item.Top := -1;
+      Subreports.Item.Left := -1;
+      Subreports.Item.Width := -1;
+      Subreports.Item.Height := -1;
+      Subreports.Item.Border.Left := lsNone;
+      Subreports.Item.Border.Right := lsNone;
+      Subreports.Item.Border.Top := lsNone;
+      Subreports.Item.Border.Bottom := lsNone;
+      Subreports.Item.Border.TightHorizontal := False;
+      Subreports.Item.Border.DropShadow := False;
+      Subreports.Item.Border.ForeColor := clNone;
+      Subreports.Item.Border.BackgroundColor := clNone;
+      Subreports.Item.NLinks := 0;
+      GroupSortFields.Number := -1;
+      Groups.Number := -1;
+      Groups.Item.CustomizeGroupName := False;
+      ParamFields.AllowDialog := True;
+      ParamFields.Item.Top := -1;
+      ParamFields.Item.Left := -1;
+      ParamFields.Item.Width := -1;
+      ParamFields.Item.Height := -1;
+      ParamFields.Item.Border.Left := lsNone;
+      ParamFields.Item.Border.Right := lsNone;
+      ParamFields.Item.Border.Top := lsNone;
+      ParamFields.Item.Border.Bottom := lsNone;
+      ParamFields.Item.Border.TightHorizontal := False;
+      ParamFields.Item.Border.DropShadow := False;
+      ParamFields.Item.Border.ForeColor := clNone;
+      ParamFields.Item.Border.BackgroundColor := clNone;
+      ParamFields.Item.Format.Alignment := haDefault;
+      ParamFields.Item.Format.SuppressIfDuplicated := False;
+      ParamFields.Item.Format.CanGrow := False;
+      ParamFields.Item.Format.MaxNLines := 0;
+      ParamFields.Item.Format.Field.Number.CurrencySymbol := '$';
+      ParamFields.Item.Format.Field.Number.ThousandSymbol := ',';
+      ParamFields.Item.Format.Field.Number.DecimalSymbol := '.';
+      ParamFields.Item.Format.Field.Number.ShowZeroValueAs := '0';
+      ParamFields.Item.Format.Field.Date.FirstSeparator := '/';
+      ParamFields.Item.Format.Field.Date.SecondSeparator := '/';
+      ParamFields.Item.Format.Field.Time.AMString := 'AM';
+      ParamFields.Item.Format.Field.Time.PMString := 'PM';
+      ParamFields.Item.Format.Field.Time.HourMinSeparator := ':';
+      ParamFields.Item.Format.Field.Time.MinSecSeparator := ':';
+      ParamFields.Item.Format.Field.Paragraph.LineSpacing := 1.000000000000000000;
+      ParamFields.Item.Font.Charset := DEFAULT_CHARSET;
+      ParamFields.Item.Font.Color := clWindowText;
+      ParamFields.Item.Font.Height := -11;
+      ParamFields.Item.Font.Name := 'MS Sans Serif';
+      ParamFields.Item.Font.Style := [];
+      ParamFields.Item.HiliteConditions.Item.FontColor := clNone;
+      ParamFields.Item.HiliteConditions.Item.Background := clNone;
+      ParamFields.Item.ParamType := pfNoValue;
+      ParamFields.Item.ParamSource := psReport;
+      ParamFields.Item.Info.AllowNull := True;
+      ParamFields.Item.Info.AllowEditing := True;
+      ParamFields.Item.Info.AllowMultipleValues := False;
+      ParamFields.Item.Info.ValueType := vtDiscrete;
+      ParamFields.Item.Info.PartOfGroup := False;
+      ParamFields.Item.Info.MutuallyExclusiveGroup := True;
+      ParamFields.Item.Info.GroupNum := -1;
+      ParamFields.Item.ValueLimit := False;
+      ParamFields.Item.Ranges.Item.Bounds := IncludeStartAndEnd;
+      ParamFields.Item.NeedsCurrentValue := False;
+      ParamFields.Item.IsLinked := False;
+      Formulas.Item.Top := -1;
+      Formulas.Item.Left := -1;
+      Formulas.Item.Width := -1;
+      Formulas.Item.Height := -1;
+      Formulas.Item.Border.Left := lsNone;
+      Formulas.Item.Border.Right := lsNone;
+      Formulas.Item.Border.Top := lsNone;
+      Formulas.Item.Border.Bottom := lsNone;
+      Formulas.Item.Border.TightHorizontal := False;
+      Formulas.Item.Border.DropShadow := False;
+      Formulas.Item.Border.ForeColor := clNone;
+      Formulas.Item.Border.BackgroundColor := clNone;
+      Formulas.Item.Format.Alignment := haDefault;
+      Formulas.Item.Format.SuppressIfDuplicated := False;
+      Formulas.Item.Format.CanGrow := False;
+      Formulas.Item.Format.MaxNLines := 0;
+      Formulas.Item.Format.Field.Number.CurrencySymbol := '$';
+      Formulas.Item.Format.Field.Number.ThousandSymbol := ',';
+      Formulas.Item.Format.Field.Number.DecimalSymbol := '.';
+      Formulas.Item.Format.Field.Number.ShowZeroValueAs := '0';
+      Formulas.Item.Format.Field.Date.FirstSeparator := '/';
+      Formulas.Item.Format.Field.Date.SecondSeparator := '/';
+      Formulas.Item.Format.Field.Time.AMString := 'AM';
+      Formulas.Item.Format.Field.Time.PMString := 'PM';
+      Formulas.Item.Format.Field.Time.HourMinSeparator := ':';
+      Formulas.Item.Format.Field.Time.MinSecSeparator := ':';
+      Formulas.Item.Format.Field.Paragraph.LineSpacing := 1.000000000000000000;
+      Formulas.Item.Font.Charset := DEFAULT_CHARSET;
+      Formulas.Item.Font.Color := clWindowText;
+      Formulas.Item.Font.Height := -11;
+      Formulas.Item.Font.Name := 'MS Sans Serif';
+      Formulas.Item.Font.Style := [];
+      Formulas.Item.HiliteConditions.Item.FontColor := clNone;
+      Formulas.Item.HiliteConditions.Item.Background := clNone;
+      AreaFormat.Item.NSections := 0;
+      SectionSize.Item.Height := -1;
+      SectionSize.Item.Width := -1;
+      SQLExpressions.Item.Top := -1;
+      SQLExpressions.Item.Left := -1;
+      SQLExpressions.Item.Width := -1;
+      SQLExpressions.Item.Height := -1;
+      SQLExpressions.Item.Border.Left := lsNone;
+      SQLExpressions.Item.Border.Right := lsNone;
+      SQLExpressions.Item.Border.Top := lsNone;
+      SQLExpressions.Item.Border.Bottom := lsNone;
+      SQLExpressions.Item.Border.TightHorizontal := False;
+      SQLExpressions.Item.Border.DropShadow := False;
+      SQLExpressions.Item.Border.ForeColor := clNone;
+      SQLExpressions.Item.Border.BackgroundColor := clNone;
+      SQLExpressions.Item.Format.Alignment := haDefault;
+      SQLExpressions.Item.Format.SuppressIfDuplicated := False;
+      SQLExpressions.Item.Format.CanGrow := False;
+      SQLExpressions.Item.Format.MaxNLines := 0;
+      SQLExpressions.Item.Format.Field.Number.CurrencySymbol := '$';
+      SQLExpressions.Item.Format.Field.Number.ThousandSymbol := ',';
+      SQLExpressions.Item.Format.Field.Number.DecimalSymbol := '.';
+      SQLExpressions.Item.Format.Field.Number.ShowZeroValueAs := '0';
+      SQLExpressions.Item.Format.Field.Date.FirstSeparator := '/';
+      SQLExpressions.Item.Format.Field.Date.SecondSeparator := '/';
+      SQLExpressions.Item.Format.Field.Time.AMString := 'AM';
+      SQLExpressions.Item.Format.Field.Time.PMString := 'PM';
+      SQLExpressions.Item.Format.Field.Time.HourMinSeparator := ':';
+      SQLExpressions.Item.Format.Field.Time.MinSecSeparator := ':';
+      SQLExpressions.Item.Format.Field.Paragraph.LineSpacing := 1.000000000000000000;
+      SQLExpressions.Item.Font.Charset := DEFAULT_CHARSET;
+      SQLExpressions.Item.Font.Color := clWindowText;
+      SQLExpressions.Item.Font.Height := -11;
+      SQLExpressions.Item.Font.Name := 'MS Sans Serif';
+      SQLExpressions.Item.Font.Style := [];
+      SQLExpressions.Item.HiliteConditions.Item.FontColor := clNone;
+      SQLExpressions.Item.HiliteConditions.Item.Background := clNone;
+      LogOnInfo.Item.Table := -1;
+      SessionInfo.Table := -1;
+      SessionInfo.Item.Propagate := True;
+      ExportOptions.Excel.Constant := 9.000000000000000000;
+      ExportOptions.Excel.Area := 'D';
+      ExportOptions.Excel.WorksheetFunctions := False;
+      ExportOptions.Excel.FirstPage := 1;
+      ExportOptions.Excel.LastPage := 1;
+      ExportOptions.HTML.PageNavigator := True;
+      ExportOptions.HTML.SeparatePages := True;
+      ExportOptions.HTML.FirstPage := 1;
+      ExportOptions.HTML.LastPage := 1;
+      ExportOptions.RTF.FirstPage := 1;
+      ExportOptions.RTF.LastPage := 1;
+      ExportOptions.Word.FirstPage := 1;
+      ExportOptions.Word.LastPage := 1;
+      ExportOptions.PDF.FirstPage := 1;
+      ExportOptions.PDF.LastPage := 1;
+      ExportOptions.Text.StringDelimiter := '"';
+      ExportOptions.Text.FieldSeparator := ',';
+      Printer.PreserveRptSettings := [prOrientation, prPaperSize];
+      PrintOptions.StartPage := 1;
+      PrintOptions.StopPage := 65535;
+      Lines.Item.LineStyle := lsNone;
+      Lines.Item.Left := -1;
+      Lines.Item.Right := -1;
+      Lines.Item.Width := -1;
+      Lines.Item.Top := -1;
+      Lines.Item.Bottom := -1;
+      Lines.Item.Color := clNone;
+      Lines.Item.Extend := False;
+      Lines.Item.Suppress := False;
+      Boxes.Number := -1;
+      Pictures.Item.Top := -1;
+      Pictures.Item.Left := -1;
+      Pictures.Item.Width := -1;
+      Pictures.Item.Height := -1;
+      Pictures.Item.Border.Left := lsNone;
+      Pictures.Item.Border.Right := lsNone;
+      Pictures.Item.Border.Top := lsNone;
+      Pictures.Item.Border.Bottom := lsNone;
+      Pictures.Item.Border.TightHorizontal := False;
+      Pictures.Item.Border.DropShadow := False;
+      Pictures.Item.Border.ForeColor := clNone;
+      Pictures.Item.Border.BackgroundColor := clNone;
+      Pictures.Item.CropLeft := -1;
+      Pictures.Item.CropRight := -1;
+      Pictures.Item.CropTop := -1;
+      Pictures.Item.CropBottom := -1;
+      TextObjects.Item.Top := -1;
+      TextObjects.Item.Left := -1;
+      TextObjects.Item.Width := -1;
+      TextObjects.Item.Height := -1;
+      TextObjects.Item.Border.Left := lsNone;
+      TextObjects.Item.Border.Right := lsNone;
+      TextObjects.Item.Border.Top := lsNone;
+      TextObjects.Item.Border.Bottom := lsNone;
+      TextObjects.Item.Border.TightHorizontal := False;
+      TextObjects.Item.Border.DropShadow := False;
+      TextObjects.Item.Border.ForeColor := clNone;
+      TextObjects.Item.Border.BackgroundColor := clNone;
+      TextObjects.Item.Format.Alignment := haDefault;
+      TextObjects.Item.Format.SuppressIfDuplicated := False;
+      TextObjects.Item.Format.CanGrow := False;
+      TextObjects.Item.Format.MaxNLines := 0;
+      TextObjects.Item.Format.Paragraph.LineSpacing := 1.000000000000000000;
+      TextObjects.Item.Font.Charset := DEFAULT_CHARSET;
+      TextObjects.Item.Font.Color := clWindowText;
+      TextObjects.Item.Font.Height := -11;
+      TextObjects.Item.Font.Name := 'MS Sans Serif';
+      TextObjects.Item.Font.Style := [];
+      TextObjects.Item.Paragraphs.Item.Alignment := haDefault;
+      TextObjects.Item.Paragraphs.Item.IndentFirstLine := 0;
+      TextObjects.Item.Paragraphs.Item.IndentLeft := 0;
+      TextObjects.Item.Paragraphs.Item.IndentRight := 0;
+      TextObjects.Item.Paragraphs.Item.TextStart := 0;
+      TextObjects.Item.Paragraphs.Item.TextEnd := 0;
+      TextObjects.Item.Paragraphs.Item.TabStops.Item.Alignment := haDefault;
+      TextObjects.Item.Paragraphs.Item.TabStops.Item.Offset := -1;
+      TextObjects.Item.EmbeddedFields.Item.FieldObjectType := oftNone;
+      TextObjects.Item.EmbeddedFields.Item.FieldType := fvUnknown;
+      TextObjects.Item.EmbeddedFields.Item.TextStart := 0;
+      TextObjects.Item.EmbeddedFields.Item.TextEnd := 0;
+      TextObjects.Item.EmbeddedFields.Item.Format.Alignment := haDefault;
+      TextObjects.Item.EmbeddedFields.Item.Format.SuppressIfDuplicated := False;
+      TextObjects.Item.EmbeddedFields.Item.Format.CanGrow := False;
+      TextObjects.Item.EmbeddedFields.Item.Format.MaxNLines := 0;
+      TextObjects.Item.EmbeddedFields.Item.Format.Field.Number.CurrencySymbol := '$';
+      TextObjects.Item.EmbeddedFields.Item.Format.Field.Number.ThousandSymbol := ',';
+      TextObjects.Item.EmbeddedFields.Item.Format.Field.Number.DecimalSymbol := '.';
+      TextObjects.Item.EmbeddedFields.Item.Format.Field.Number.ShowZeroValueAs := '0';
+      TextObjects.Item.EmbeddedFields.Item.Format.Field.Date.FirstSeparator := '/';
+      TextObjects.Item.EmbeddedFields.Item.Format.Field.Date.SecondSeparator := '/';
+      TextObjects.Item.EmbeddedFields.Item.Format.Field.Time.AMString := 'AM';
+      TextObjects.Item.EmbeddedFields.Item.Format.Field.Time.PMString := 'PM';
+      TextObjects.Item.EmbeddedFields.Item.Format.Field.Time.HourMinSeparator := ':';
+      TextObjects.Item.EmbeddedFields.Item.Format.Field.Time.MinSecSeparator := ':';
+      TextObjects.Item.EmbeddedFields.Item.Format.Field.Paragraph.LineSpacing := 1.000000000000000000;
+      TextObjects.Item.EmbeddedFields.Item.Border.Left := lsNone;
+      TextObjects.Item.EmbeddedFields.Item.Border.Right := lsNone;
+      TextObjects.Item.EmbeddedFields.Item.Border.Top := lsNone;
+      TextObjects.Item.EmbeddedFields.Item.Border.Bottom := lsNone;
+      TextObjects.Item.EmbeddedFields.Item.Border.TightHorizontal := False;
+      TextObjects.Item.EmbeddedFields.Item.Border.DropShadow := False;
+      TextObjects.Item.EmbeddedFields.Item.Border.ForeColor := clNone;
+      TextObjects.Item.EmbeddedFields.Item.Border.BackgroundColor := clNone;
+      TextObjects.Item.TextSize := -1;
+      TextObjects.Item.TextHeight := -1;
+      OleObjects.Item.Top := -1;
+      OleObjects.Item.Left := -1;
+      OleObjects.Item.Width := -1;
+      OleObjects.Item.Height := -1;
+      OleObjects.Item.Border.Left := lsNone;
+      OleObjects.Item.Border.Right := lsNone;
+      OleObjects.Item.Border.Top := lsNone;
+      OleObjects.Item.Border.Bottom := lsNone;
+      OleObjects.Item.Border.TightHorizontal := False;
+      OleObjects.Item.Border.DropShadow := False;
+      OleObjects.Item.Border.ForeColor := clNone;
+      OleObjects.Item.Border.BackgroundColor := clNone;
+      CrossTabs.Item.Top := -1;
+      CrossTabs.Item.Left := -1;
+      CrossTabs.Item.Width := -1;
+      CrossTabs.Item.Height := -1;
+      CrossTabs.Item.Border.Left := lsNone;
+      CrossTabs.Item.Border.Right := lsNone;
+      CrossTabs.Item.Border.Top := lsNone;
+      CrossTabs.Item.Border.Bottom := lsNone;
+      CrossTabs.Item.Border.TightHorizontal := False;
+      CrossTabs.Item.Border.DropShadow := False;
+      CrossTabs.Item.Border.ForeColor := clNone;
+      CrossTabs.Item.Border.BackgroundColor := clNone;
+      Maps.Item.Top := -1;
+      Maps.Item.Left := -1;
+      Maps.Item.Width := -1;
+      Maps.Item.Height := -1;
+      Maps.Item.Border.Left := lsNone;
+      Maps.Item.Border.Right := lsNone;
+      Maps.Item.Border.Top := lsNone;
+      Maps.Item.Border.Bottom := lsNone;
+      Maps.Item.Border.TightHorizontal := False;
+      Maps.Item.Border.DropShadow := False;
+      Maps.Item.Border.ForeColor := clNone;
+      Maps.Item.Border.BackgroundColor := clNone;
+      OLAPCubes.Item.Top := -1;
+      OLAPCubes.Item.Left := -1;
+      OLAPCubes.Item.Width := -1;
+      OLAPCubes.Item.Height := -1;
+      OLAPCubes.Item.Border.Left := lsNone;
+      OLAPCubes.Item.Border.Right := lsNone;
+      OLAPCubes.Item.Border.Top := lsNone;
+      OLAPCubes.Item.Border.Bottom := lsNone;
+      OLAPCubes.Item.Border.TightHorizontal := False;
+      OLAPCubes.Item.Border.DropShadow := False;
+      OLAPCubes.Item.Border.ForeColor := clNone;
+      OLAPCubes.Item.Border.BackgroundColor := clNone;
+      DatabaseFields.Item.Top := -1;
+      DatabaseFields.Item.Left := -1;
+      DatabaseFields.Item.Width := -1;
+      DatabaseFields.Item.Height := -1;
+      DatabaseFields.Item.Border.Left := lsNone;
+      DatabaseFields.Item.Border.Right := lsNone;
+      DatabaseFields.Item.Border.Top := lsNone;
+      DatabaseFields.Item.Border.Bottom := lsNone;
+      DatabaseFields.Item.Border.TightHorizontal := False;
+      DatabaseFields.Item.Border.DropShadow := False;
+      DatabaseFields.Item.Border.ForeColor := clNone;
+      DatabaseFields.Item.Border.BackgroundColor := clNone;
+      DatabaseFields.Item.Format.Alignment := haDefault;
+      DatabaseFields.Item.Format.SuppressIfDuplicated := False;
+      DatabaseFields.Item.Format.CanGrow := False;
+      DatabaseFields.Item.Format.MaxNLines := 0;
+      DatabaseFields.Item.Format.Field.Number.CurrencySymbol := '$';
+      DatabaseFields.Item.Format.Field.Number.ThousandSymbol := ',';
+      DatabaseFields.Item.Format.Field.Number.DecimalSymbol := '.';
+      DatabaseFields.Item.Format.Field.Number.ShowZeroValueAs := '0';
+      DatabaseFields.Item.Format.Field.Date.FirstSeparator := '/';
+      DatabaseFields.Item.Format.Field.Date.SecondSeparator := '/';
+      DatabaseFields.Item.Format.Field.Time.AMString := 'AM';
+      DatabaseFields.Item.Format.Field.Time.PMString := 'PM';
+      DatabaseFields.Item.Format.Field.Time.HourMinSeparator := ':';
+      DatabaseFields.Item.Format.Field.Time.MinSecSeparator := ':';
+      DatabaseFields.Item.Format.Field.Paragraph.LineSpacing := 1.000000000000000000;
+      DatabaseFields.Item.Font.Charset := DEFAULT_CHARSET;
+      DatabaseFields.Item.Font.Color := clWindowText;
+      DatabaseFields.Item.Font.Height := -11;
+      DatabaseFields.Item.Font.Name := 'MS Sans Serif';
+      DatabaseFields.Item.Font.Style := [];
+      DatabaseFields.Item.HiliteConditions.Item.FontColor := clNone;
+      DatabaseFields.Item.HiliteConditions.Item.Background := clNone;
+      SummaryFields.Item.Top := -1;
+      SummaryFields.Item.Left := -1;
+      SummaryFields.Item.Width := -1;
+      SummaryFields.Item.Height := -1;
+      SummaryFields.Item.Border.Left := lsNone;
+      SummaryFields.Item.Border.Right := lsNone;
+      SummaryFields.Item.Border.Top := lsNone;
+      SummaryFields.Item.Border.Bottom := lsNone;
+      SummaryFields.Item.Border.TightHorizontal := False;
+      SummaryFields.Item.Border.DropShadow := False;
+      SummaryFields.Item.Border.ForeColor := clNone;
+      SummaryFields.Item.Border.BackgroundColor := clNone;
+      SummaryFields.Item.Format.Alignment := haDefault;
+      SummaryFields.Item.Format.SuppressIfDuplicated := False;
+      SummaryFields.Item.Format.CanGrow := False;
+      SummaryFields.Item.Format.MaxNLines := 0;
+      SummaryFields.Item.Format.Field.Number.CurrencySymbol := '$';
+      SummaryFields.Item.Format.Field.Number.ThousandSymbol := ',';
+      SummaryFields.Item.Format.Field.Number.DecimalSymbol := '.';
+      SummaryFields.Item.Format.Field.Number.ShowZeroValueAs := '0';
+      SummaryFields.Item.Format.Field.Date.FirstSeparator := '/';
+      SummaryFields.Item.Format.Field.Date.SecondSeparator := '/';
+      SummaryFields.Item.Format.Field.Time.AMString := 'AM';
+      SummaryFields.Item.Format.Field.Time.PMString := 'PM';
+      SummaryFields.Item.Format.Field.Time.HourMinSeparator := ':';
+      SummaryFields.Item.Format.Field.Time.MinSecSeparator := ':';
+      SummaryFields.Item.Format.Field.Paragraph.LineSpacing := 1.000000000000000000;
+      SummaryFields.Item.Font.Charset := DEFAULT_CHARSET;
+      SummaryFields.Item.Font.Color := clWindowText;
+      SummaryFields.Item.Font.Height := -11;
+      SummaryFields.Item.Font.Name := 'MS Sans Serif';
+      SummaryFields.Item.Font.Style := [];
+      SummaryFields.Item.HiliteConditions.Item.FontColor := clNone;
+      SummaryFields.Item.HiliteConditions.Item.Background := clNone;
+      SpecialFields.Number := -1;
+      SpecialFields.Item.Top := -1;
+      SpecialFields.Item.Left := -1;
+      SpecialFields.Item.Width := -1;
+      SpecialFields.Item.Height := -1;
+      SpecialFields.Item.Border.Left := lsNone;
+      SpecialFields.Item.Border.Right := lsNone;
+      SpecialFields.Item.Border.Top := lsNone;
+      SpecialFields.Item.Border.Bottom := lsNone;
+      SpecialFields.Item.Border.TightHorizontal := False;
+      SpecialFields.Item.Border.DropShadow := False;
+      SpecialFields.Item.Border.ForeColor := clNone;
+      SpecialFields.Item.Border.BackgroundColor := clNone;
+      SpecialFields.Item.Format.Alignment := haDefault;
+      SpecialFields.Item.Format.SuppressIfDuplicated := False;
+      SpecialFields.Item.Format.CanGrow := False;
+      SpecialFields.Item.Format.MaxNLines := 0;
+      SpecialFields.Item.Format.Field.Number.CurrencySymbol := '$';
+      SpecialFields.Item.Format.Field.Number.ThousandSymbol := ',';
+      SpecialFields.Item.Format.Field.Number.DecimalSymbol := '.';
+      SpecialFields.Item.Format.Field.Number.ShowZeroValueAs := '0';
+      SpecialFields.Item.Format.Field.Date.FirstSeparator := '/';
+      SpecialFields.Item.Format.Field.Date.SecondSeparator := '/';
+      SpecialFields.Item.Format.Field.Time.AMString := 'AM';
+      SpecialFields.Item.Format.Field.Time.PMString := 'PM';
+      SpecialFields.Item.Format.Field.Time.HourMinSeparator := ':';
+      SpecialFields.Item.Format.Field.Time.MinSecSeparator := ':';
+      SpecialFields.Item.Format.Field.Paragraph.LineSpacing := 1.000000000000000000;
+      SpecialFields.Item.Font.Charset := DEFAULT_CHARSET;
+      SpecialFields.Item.Font.Color := clWindowText;
+      SpecialFields.Item.Font.Height := -11;
+      SpecialFields.Item.Font.Name := 'MS Sans Serif';
+      SpecialFields.Item.Font.Style := [];
+      SpecialFields.Item.HiliteConditions.Item.FontColor := clNone;
+      SpecialFields.Item.HiliteConditions.Item.Background := clNone;
+      GroupNameFields.Number := -1;
+      GroupNameFields.Item.Top := -1;
+      GroupNameFields.Item.Left := -1;
+      GroupNameFields.Item.Width := -1;
+      GroupNameFields.Item.Height := -1;
+      GroupNameFields.Item.Border.Left := lsNone;
+      GroupNameFields.Item.Border.Right := lsNone;
+      GroupNameFields.Item.Border.Top := lsNone;
+      GroupNameFields.Item.Border.Bottom := lsNone;
+      GroupNameFields.Item.Border.TightHorizontal := False;
+      GroupNameFields.Item.Border.DropShadow := False;
+      GroupNameFields.Item.Border.ForeColor := clNone;
+      GroupNameFields.Item.Border.BackgroundColor := clNone;
+      GroupNameFields.Item.Format.Alignment := haDefault;
+      GroupNameFields.Item.Format.SuppressIfDuplicated := False;
+      GroupNameFields.Item.Format.CanGrow := False;
+      GroupNameFields.Item.Format.MaxNLines := 0;
+      GroupNameFields.Item.Format.Field.Number.CurrencySymbol := '$';
+      GroupNameFields.Item.Format.Field.Number.ThousandSymbol := ',';
+      GroupNameFields.Item.Format.Field.Number.DecimalSymbol := '.';
+      GroupNameFields.Item.Format.Field.Number.ShowZeroValueAs := '0';
+      GroupNameFields.Item.Format.Field.Date.FirstSeparator := '/';
+      GroupNameFields.Item.Format.Field.Date.SecondSeparator := '/';
+      GroupNameFields.Item.Format.Field.Time.AMString := 'AM';
+      GroupNameFields.Item.Format.Field.Time.PMString := 'PM';
+      GroupNameFields.Item.Format.Field.Time.HourMinSeparator := ':';
+      GroupNameFields.Item.Format.Field.Time.MinSecSeparator := ':';
+      GroupNameFields.Item.Format.Field.Paragraph.LineSpacing := 1.000000000000000000;
+      GroupNameFields.Item.Font.Charset := DEFAULT_CHARSET;
+      GroupNameFields.Item.Font.Color := clWindowText;
+      GroupNameFields.Item.Font.Height := -11;
+      GroupNameFields.Item.Font.Name := 'MS Sans Serif';
+      GroupNameFields.Item.Font.Style := [];
+      GroupNameFields.Item.HiliteConditions.Item.FontColor := clNone;
+      GroupNameFields.Item.HiliteConditions.Item.Background := clNone;
+      RunningTotals.Number := -1;
+      RunningTotals.Item.Top := -1;
+      RunningTotals.Item.Left := -1;
+      RunningTotals.Item.Width := -1;
+      RunningTotals.Item.Height := -1;
+      RunningTotals.Item.Border.Left := lsNone;
+      RunningTotals.Item.Border.Right := lsNone;
+      RunningTotals.Item.Border.Top := lsNone;
+      RunningTotals.Item.Border.Bottom := lsNone;
+      RunningTotals.Item.Border.TightHorizontal := False;
+      RunningTotals.Item.Border.DropShadow := False;
+      RunningTotals.Item.Border.ForeColor := clNone;
+      RunningTotals.Item.Border.BackgroundColor := clNone;
+      RunningTotals.Item.Format.Alignment := haDefault;
+      RunningTotals.Item.Format.SuppressIfDuplicated := False;
+      RunningTotals.Item.Format.CanGrow := False;
+      RunningTotals.Item.Format.MaxNLines := 0;
+      RunningTotals.Item.Format.Field.Number.CurrencySymbol := '$';
+      RunningTotals.Item.Format.Field.Number.ThousandSymbol := ',';
+      RunningTotals.Item.Format.Field.Number.DecimalSymbol := '.';
+      RunningTotals.Item.Format.Field.Number.ShowZeroValueAs := '0';
+      RunningTotals.Item.Format.Field.Date.FirstSeparator := '/';
+      RunningTotals.Item.Format.Field.Date.SecondSeparator := '/';
+      RunningTotals.Item.Format.Field.Time.AMString := 'AM';
+      RunningTotals.Item.Format.Field.Time.PMString := 'PM';
+      RunningTotals.Item.Format.Field.Time.HourMinSeparator := ':';
+      RunningTotals.Item.Format.Field.Time.MinSecSeparator := ':';
+      RunningTotals.Item.Format.Field.Paragraph.LineSpacing := 1.000000000000000000;
+      RunningTotals.Item.Font.Charset := DEFAULT_CHARSET;
+      RunningTotals.Item.Font.Color := clWindowText;
+      RunningTotals.Item.Font.Height := -11;
+      RunningTotals.Item.Font.Name := 'MS Sans Serif';
+      RunningTotals.Item.Font.Style := [];
+      RunningTotals.Item.HiliteConditions.Item.FontColor := clNone;
+      RunningTotals.Item.HiliteConditions.Item.Background := clNone;
+      WindowZoom.Preview := pwDefault;
+      WindowZoom.Magnification := -1;
+      WindowState := wsMaximized;
+      WindowButtonBar.CancelBtn := True;
+      WindowButtonBar.CloseBtn := True;
+      WindowButtonBar.PrintSetupBtn := True;
+      WindowCursor.GroupArea := wcDefault;
+      WindowCursor.GroupAreaField := wcMagnify;
+      WindowCursor.DetailArea := wcDefault;
+      WindowCursor.DetailAreaField := wcDefault;
+      WindowCursor.Graph := wcMagnify;
+      WindowCursor.OnDemandSubreport := wcMagnify;
+      WindowCursor.HyperLink := wcMagnify;
+      Graphs.Number := -1;
+      Graphs.Item.Top := -1;
+      Graphs.Item.Left := -1;
+      Graphs.Item.Width := -1;
+      Graphs.Item.Height := -1;
+      Graphs.Item.Border.Left := lsNone;
+      Graphs.Item.Border.Right := lsNone;
+      Graphs.Item.Border.Top := lsNone;
+      Graphs.Item.Border.Bottom := lsNone;
+      Graphs.Item.Border.TightHorizontal := False;
+      Graphs.Item.Border.DropShadow := False;
+      Graphs.Item.Border.ForeColor := clNone;
+      Graphs.Item.Border.BackgroundColor := clNone;
+      Graphs.Item.Style := unknownGraphType;
+      Graphs.Item.Text.TitleFont.Charset := DEFAULT_CHARSET;
+      Graphs.Item.Text.TitleFont.Color := clWindowText;
+      Graphs.Item.Text.TitleFont.Height := -11;
+      Graphs.Item.Text.TitleFont.Name := 'MS Sans Serif';
+      Graphs.Item.Text.TitleFont.Style := [];
+      Graphs.Item.Text.SubTitleFont.Charset := DEFAULT_CHARSET;
+      Graphs.Item.Text.SubTitleFont.Color := clWindowText;
+      Graphs.Item.Text.SubTitleFont.Height := -11;
+      Graphs.Item.Text.SubTitleFont.Name := 'MS Sans Serif';
+      Graphs.Item.Text.SubTitleFont.Style := [];
+      Graphs.Item.Text.FootNoteFont.Charset := DEFAULT_CHARSET;
+      Graphs.Item.Text.FootNoteFont.Color := clWindowText;
+      Graphs.Item.Text.FootNoteFont.Height := -11;
+      Graphs.Item.Text.FootNoteFont.Name := 'MS Sans Serif';
+      Graphs.Item.Text.FootNoteFont.Style := [];
+      Graphs.Item.Text.GroupsTitleFont.Charset := DEFAULT_CHARSET;
+      Graphs.Item.Text.GroupsTitleFont.Color := clWindowText;
+      Graphs.Item.Text.GroupsTitleFont.Height := -11;
+      Graphs.Item.Text.GroupsTitleFont.Name := 'MS Sans Serif';
+      Graphs.Item.Text.GroupsTitleFont.Style := [];
+      Graphs.Item.Text.DataTitleFont.Charset := DEFAULT_CHARSET;
+      Graphs.Item.Text.DataTitleFont.Color := clWindowText;
+      Graphs.Item.Text.DataTitleFont.Height := -11;
+      Graphs.Item.Text.DataTitleFont.Name := 'MS Sans Serif';
+      Graphs.Item.Text.DataTitleFont.Style := [];
+      Graphs.Item.Text.LegendFont.Charset := DEFAULT_CHARSET;
+      Graphs.Item.Text.LegendFont.Color := clWindowText;
+      Graphs.Item.Text.LegendFont.Height := -11;
+      Graphs.Item.Text.LegendFont.Name := 'MS Sans Serif';
+      Graphs.Item.Text.LegendFont.Style := [];
+      Graphs.Item.Text.GroupLabelsFont.Charset := DEFAULT_CHARSET;
+      Graphs.Item.Text.GroupLabelsFont.Color := clWindowText;
+      Graphs.Item.Text.GroupLabelsFont.Height := -11;
+      Graphs.Item.Text.GroupLabelsFont.Name := 'MS Sans Serif';
+      Graphs.Item.Text.GroupLabelsFont.Style := [];
+      Graphs.Item.Text.DataLabelsFont.Charset := DEFAULT_CHARSET;
+      Graphs.Item.Text.DataLabelsFont.Color := clWindowText;
+      Graphs.Item.Text.DataLabelsFont.Height := -11;
+      Graphs.Item.Text.DataLabelsFont.Name := 'MS Sans Serif';
+      Graphs.Item.Text.DataLabelsFont.Style := [];
+      Graphs.Item.Axis.GridLineX := gglNone;
+      Graphs.Item.Axis.GridLineY := gglMajor;
+      Graphs.Item.Axis.GridLineY2 := gglNone;
+      Graphs.Item.Axis.GridLineZ := gglNone;
+      Graphs.Item.Axis.DataValuesY := gdvAutomatic;
+      Graphs.Item.Axis.DataValuesY2 := gdvAutomatic;
+      Graphs.Item.Axis.DataValuesZ := gdvAutomatic;
+      Graphs.Item.Axis.MinY := -1.000000000000000000;
+      Graphs.Item.Axis.MaxY := -1.000000000000000000;
+      Graphs.Item.Axis.MinY2 := -1.000000000000000000;
+      Graphs.Item.Axis.MaxY2 := -1.000000000000000000;
+      Graphs.Item.Axis.MinZ := -1.000000000000000000;
+      Graphs.Item.Axis.MaxZ := -1.000000000000000000;
+      Graphs.Item.Axis.NumberFormatY := gnfNoDecimal;
+      Graphs.Item.Axis.NumberFormatY2 := gnfNoDecimal;
+      Graphs.Item.Axis.NumberFormatZ := gnfNoDecimal;
+      Graphs.Item.Axis.DivisionTypeY := gdvAutomatic;
+      Graphs.Item.Axis.DivisionTypeY2 := gdvAutomatic;
+      Graphs.Item.Axis.DivisionTypeZ := gdvAutomatic;
+      Graphs.Item.Axis.DivisionsY := -1;
+      Graphs.Item.Axis.DivisionsY2 := -1;
+      Graphs.Item.Axis.DivisionsZ := -1;
+      SummaryInfo.SavePreviewPicture := False;
+   end;
+
+   Relatorio.LoadEngine();
+end;
+
+procedure TPrincipalForm.CarregarParametrosGerais;
+const
+   PASTA_NAO_DEFINIDA = '[pasta indefinida]';
+begin
+   strReports := DM.GetUnimestreINI().ReadString( 'Configuracoes', 'Relatorios', ExtractFilePath(Application.ExeName) + '..\relatorios\');
+
+   { Parâmetros Gerais }
+   ThousandSeparator := '.';
+   DecimalSeparator := ',';
+   CurrencyDecimals := 4;
+   ShortDateFormat := 'dd/mm/yyyy';
+
+   LongMonthNames[1] := 'Janeiro';
+   LongMonthNames[2] := 'Fevereiro';
+   LongMonthNames[3] := 'Março';
+   LongMonthNames[4] := 'Abril';
+   LongMonthNames[5] := 'Maio';
+   LongMonthNames[6] := 'Junho';
+   LongMonthNames[7] := 'Julho';
+   LongMonthNames[8] := 'Agosto';
+   LongMonthNames[9] := 'Setembro';
+   LongMonthNames[10] := 'Outubro';
+   LongMonthNames[11] := 'Novembro';
+   LongMonthNames[12] := 'Dezembro';
+
+   ShortMonthNames[1] := 'JAN';
+   ShortMonthNames[2] := 'FEV';
+   ShortMonthNames[3] := 'MAR';
+   ShortMonthNames[4] := 'ABR';
+   ShortMonthNames[5] := 'MAI';
+   ShortMonthNames[6] := 'JUN';
+   ShortMonthNames[7] := 'JUL';
+   ShortMonthNames[8] := 'AGO';
+   ShortMonthNames[9] := 'SET';
+   ShortMonthNames[10] := 'OUT';
+   ShortMonthNames[11] := 'NOV';
+   ShortMonthNames[12] := 'DEZ';
+
+   LongDayNames[1] := 'Domingo';
+   LongDayNames[2] := 'Segunda-Feira';
+   LongDayNames[3] := 'Terça-Feira';
+   LongDayNames[4] := 'Quarta-Feira';
+   LongDayNames[5] := 'Quinta-Feira';
+   LongDayNames[6] := 'Sexta-Feira';
+   LongDayNames[7] := 'Sábado';
+end;
+
+procedure TPrincipalForm.CarregarInformacoesPorMatriz;
+begin
+   PrincipalForm.Caption := Application.Title + ' - ' + DM.sColigadaSelecionada + ' - (' + TGeneral.getVersaoSistema() + ')';
+
+   if DM.lite then
+      PrincipalForm.Caption := PrincipalForm.Caption + ' - LITE ';
+
+   // Ligar as coligadas selecionas para utilizar nas combobox
+   DM.qryColigadas.Close();
+   DM.qryColigadas.SQL.Text :=
+     ' SELECT CD_COLIGADA, NM_COLIGADA FROM COLIGADAS ' +
+     '  WHERE CD_COLIGADA IN ( ' + DM.GetColigadas() + ' ) '+
+     '  ORDER BY NM_COLIGADA ';
+   DM.qryColigadas.Open();
+
+   // Ligar as coligadas com a opção de TODAS AS COLIGADAS
+   if(DM.db.Protocol = DB_PROTOCOL_MYSQL)then
+   begin
+      DM.qryColigadasTodas.Close();
+      DM.qryColigadasTodas.SQL.Text :=
+        ' ( SELECT CAST(0 AS SIGNED)  AS CD_COLIGADA, ' + QuotedStr('Todas as Unidades de Ensino') +' AS NM_COLIGADA )  ' +
+        ' UNION ALL '+
+        ' ( SELECT CD_COLIGADA, NM_COLIGADA FROM COLIGADAS ' +
+        '  WHERE CD_COLIGADA IN ( ' + DM.GetColigadas() + ' ) ' +
+        '  ORDER BY NM_COLIGADA )';
+      DM.qryColigadasTodas.Open();
+   end
+   else
+   begin
+      DM.qryColigadasTodas.Close();
+      DM.qryColigadasTodas.SQL.Text :=         ''+
+      'SELECT                                   '+
+      '  cast(0 as NUMBER(5))   AS CD_COLIGADA, '+
+      QuotedStr('Todas as Unidades de Ensino')+' AS NM_COLIGADA '+
+      'FROM dual                                                                 ' +
+      'UNION ALL                                                                 ' +
+      'SELECT                                                                    ' +
+      '  CD_COLIGADA,                                                            ' +
+      '  NM_COLIGADA                                                             ' +
+      'FROM                                                                      ' +
+      '  COLIGADAS                                                               ' +
+      'WHERE                                                                     ' +
+      '  CD_COLIGADA IN ( ' + DM.GetColigadas() + ' )                            ' +
+      'ORDER BY                                                                  ' +
+      '  NM_COLIGADA                                                             ';
+      DM.qryColigadasTodas.Open();
+   end;
+end;
+
+procedure TPrincipalForm.Celendrio1Click(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 2026, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(FrmCadCalendario) ) then
+    Application.CreateForm( TFrmCadCalendario, FrmCadCalendario )
+  else
+    FrmCadCalendario.Show;
+end;
+
+procedure TPrincipalForm.secRegistroCertificadoEventoClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(1109, npAcesso, true) then
+   begin
+     if not ProcuraForm(TForm(fCertificadosEventos)) then
+       Application.CreateForm(TfCertificadosEventos, fCertificadosEventos);
+       fCertificadosEventos.Show;
+   end;
+end;
+
+procedure TPrincipalForm.recFinPlanilhaCobrancaClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(2053, npAcesso, false) or DM.UsuarioLogado.TemPermissao(2065, npAcesso, false) then
+   begin
+      if not ProcuraForm(TForm(frmCobranca)) then
+         Application.CreateForm(TfrmCobranca, frmCobranca)
+      else
+         frmCobranca.Show;
+   end
+   else
+     DM.UsuarioLogado.TemPermissao(2053, npAcesso, true);
+end;
+
+procedure TPrincipalForm.comFinPlanilhaCompromissoClick(Sender: TObject);
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2033, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_Compromisso_Planilha) ) then
+    Application.CreateForm( Tfrm_Compromisso_Planilha, frm_Compromisso_Planilha )
+  else
+    frm_Compromisso_Planilha.Show;
+
+end;
+
+procedure TPrincipalForm.comFinPagamentoPreparadoClick(Sender: TObject);
+begin
+
+  if not DM.UsuarioLogado.TemPermissao( 2034, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_compromisso_preparados) ) then
+    Application.CreateForm( Tfrm_compromisso_preparados, frm_compromisso_preparados )
+  else
+    frm_compromisso_preparados.Show;
+
+end;
+
+procedure TPrincipalForm.relFinRelatorioContasReceberClick(Sender: TObject);
+begin
+
+   if not DM.UsuarioLogado.TemPermissao( 2011, npAcesso, True ) then Exit;
+
+   Application.CreateForm(Tfrm_relatorios_financeiros, frm_relatorios_financeiros);
+
+   frm_Relatorios_financeiros.ShowModal ;
+
+
+end;
+
+procedure TPrincipalForm.tesFinReclassificarContaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 2060, npAcesso, True ) then Exit;
+
+   if frmReclassificar = nil then
+      Application.CreateForm(TfrmReclassificar, frmReclassificar);
+
+   frmReclassificar.ShowModal;
+end;
+
+procedure TPrincipalForm.Timer1Timer(Sender: TObject);
+begin
+   confTrocaUsuarioClick(nil);
+end;
+
+procedure TPrincipalForm.cadFinRegistrarEntradaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.Compras.Registro.Entradas', npAcesso, True ) then Exit;
+
+   if not ProcuraForm(frmComprasRegistroEntradas) then
+      Application.CreateForm(TfrmComprasRegistroEntradas, frmComprasRegistroEntradas);
+
+   frmComprasRegistroEntradas.ShowModal();
+end;
+
+procedure TPrincipalForm.cadFinRegistrarSaidaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.Compras.Registro.Saidas', npAcesso, True ) then Exit;
+
+   if not ProcuraForm(frmComprasRegistroSaidas) then
+      Application.CreateForm(TfrmComprasRegistroSaidas, frmComprasRegistroSaidas);
+
+   frmComprasRegistroSaidas.ShowModal();
+end;
+
+procedure TPrincipalForm.cadFinTipoTituloClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 2032, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_CadTituloTipos) ) then
+    Application.CreateForm( Tfrm_CadTituloTipos, frm_CadTituloTipos )
+  else
+    frm_CadTituloTipos.Show;
+end;
+
+procedure TPrincipalForm.secRegistroDiplomaClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(1106, npAcesso, true) then
+   begin
+      if not ProcuraForm(frmCertificados) then
+         Application.CreateForm(TfrmCertificados, frmCertificados);
+      frmCertificados.Show;
+   end;
+end;
+
+procedure TPrincipalForm.relFinRelatorioContaPagarClick(Sender: TObject);
+begin
+
+   if not DM.UsuarioLogado.TemPermissao( 2048, npAcesso, True ) then Exit;
+
+   Application.CreateForm(Tfrm_relatorios_cp, frm_relatorios_cp);
+
+   frm_Relatorios_cp.Modulo := 4;
+   frm_Relatorios_cp.ShowModal;
+
+end;
+
+procedure TPrincipalForm.comFinGeraoNFSeClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(2068, npAcesso, true) then
+   begin
+      if DM.variavel_parametro('nfse_usar_webservice') = 'S' then
+      begin
+         if not ProcuraForm(fNFSeWS) then
+            Application.CreateForm(TfNFSeWS, fNFSeWS);
+         fNFSeWS.Show;
+      end
+      else
+      begin
+         if not ProcuraForm(fNFSe) then
+            Application.CreateForm(TfNFSe, fNFSe);
+         fNFSe.Show;
+      end;
+   end;
+end;
+
+procedure TPrincipalForm.cadFinGerarTtuloClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.Compras.GerarTitulosAcumulados', npAcesso, True ) then Exit;
+
+   if not ProcuraForm(frmComprasGerarTitulo) then
+      Application.CreateForm(TfrmComprasGerarTitulo, frmComprasGerarTitulo);
+
+   frmComprasGerarTitulo.ShowModal();   
+end;
+
+procedure TPrincipalForm.relFinGerencialClick(Sender: TObject);
+begin
+
+   if not DM.UsuarioLogado.TemPermissao( 2025, npAcesso, True ) then Exit;
+
+   Application.CreateForm(Tfrm_relatorios_cp, frm_relatorios_cp);
+
+   frm_Relatorios_cp.Modulo := 3 ;
+   frm_Relatorios_cp.ShowModal ;
+
+end;
+
+procedure TPrincipalForm.cadFinAcaoMovimentoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 2031, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_CadAcoesMovto) ) then
+    Application.CreateForm( Tfrm_CadAcoesMovto, frm_CadAcoesMovto )
+  else
+    frm_CadAcoesMovto.Show;
+end;
+
+procedure TPrincipalForm.cadFinAdminCartaoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.AdminCartao', npAcesso, True )then
+   begin
+      Exit;
+   end;
+
+   if not ProcuraForm( TForm(frmAdministradoraCartao) ) then
+   begin
+      Application.CreateForm(TfrmAdministradoraCartao, frmAdministradoraCartao);
+   end
+   else
+   begin
+      frmAdministradoraCartao.Show;
+   end;
+end;
+
+procedure TPrincipalForm.cadFinAreaAtuacaoClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(2061, npAcesso, true) then
+   begin
+      Application.CreateForm(Tfrm_CadAreasAtuacao, frm_CadAreasAtuacao);
+      frm_CadAreasAtuacao.Show();
+   end;
+end;
+
+procedure TPrincipalForm.tesFinControleCartaoClick(Sender: TObject);
+begin
+
+   if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.ControleCartao', npAcesso, True ) then
+   begin
+      Exit;
+   end;
+
+   if not ProcuraForm( TForm(frmControleCartao) ) then
+   begin
+      Application.CreateForm(TfrmControleCartao, frmControleCartao);
+   end
+   else
+   begin
+      frmControleCartao.Show;
+   end;
+end;
+
+procedure TPrincipalForm.tesFinControleChequeClick(Sender: TObject);
+begin
+
+   if not DM.UsuarioLogado.TemPermissao( 2050, npAcesso, True ) then Exit;
+
+   if not PrincipalForm.ProcuraForm( TForm(fControleCheques) ) then begin
+      Application.CreateForm( TfControleCheques, fControleCheques )
+   end;
+
+   fControleCheques.Show();
+end;
+
+procedure TPrincipalForm.cadFinContaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 2028, npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm(frm_CadContas) ) then
+      Application.CreateForm( Tfrm_CadContas, frm_CadContas )
+   else
+      frm_CadContas.Show;
+end;
+
+procedure TPrincipalForm.cadFinControleEstoqueClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.Compras.ControleEstoque', npAcesso, True ) then Exit;
+
+   if not ProcuraForm(frmComprasControleEstoque) then
+      Application.CreateForm(TfrmComprasControleEstoque, frmComprasControleEstoque);
+
+   frmComprasControleEstoque.Show();
+end;
+
+procedure TPrincipalForm.cadFinConvenioPgtoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 0, 'UMFinanceiro.ConvenioPgto', npAcesso, True ) then Exit;
+
+   if not ProcuraForm( TForm(frmCadConvenioPgto) ) then
+   begin
+      Application.CreateForm( TfrmCadConvenioPgto, frmCadConvenioPgto )
+   end
+   else
+   begin
+      frmCadConvenioPgto.Show;
+   end;
+end;
+
+procedure TPrincipalForm.cadFinCriterioApropriaoClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 2030, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_CadCriterios) ) then
+    Application.CreateForm( Tfrm_CadCriterios, frm_CadCriterios )
+  else
+    frm_CadCriterios.Show;
+end;
+
+procedure TPrincipalForm.cadFinCambioMoedaClick(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( DM.iCdPessoaLogado,
+      'UMFinanceiro.CadCambioMoedas', npAcesso, true ) then exit;
+                                
+   Application.CreateForm(TfMoedas, fMoedas);
+end;
+
+procedure TPrincipalForm.cadCampusClick(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(1114, npAcesso, true) then
+   begin
+      if not ProcuraForm(TForm(frm_Campus)) then
+         Application.CreateForm(Tfrm_Campus, frm_Campus)
+      else
+         frm_Campus.Show;
+   end;
+end;
+
+procedure TPrincipalForm.DocumentosparaInscries1Click(Sender: TObject);
+begin
+   if DM.UsuarioLogado.TemPermissao(1118, npAcesso, true) then
+      Application.CreateForm(Tfrm_DocumentosOnLine, frm_DocumentosOnLine);
+end;
+
+procedure TPrincipalForm.eadeatuao1Click(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( dm.iCdPessoaLogado, 'Academico.AreasAtuacao', npAcesso, True ) then Exit;
+
+   Application.CreateForm(TfrmAreasAtuacao, frmAreasAtuacao);
+end;
+
+procedure TPrincipalForm.ExcluirReservadeVagas1Click(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1011, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmReserva) ) then begin
+      Application.CreateForm(TfrmReserva, frmReserva);
+  end else begin
+    frmReserva.Show;
+  end;
+  frmReserva.PrepararTelaReserva(true);
+end;
+
+procedure TPrincipalForm.Excluirreservasdevaga1Click(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1011, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmReserva) ) then begin
+      Application.CreateForm(TfrmReserva, frmReserva);
+  end else begin
+    frmReserva.Show;
+  end;
+  frmReserva.PrepararTelaReserva(true);
+end;
+
+procedure TPrincipalForm.ExportaodeDados1Click(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 12005, npAcesso, True ) then Exit;
+
+   { Exportação de Dados do CENSO / ENADE }
+   if not ProcuraForm( TForm(fExportacaoDados) ) then
+      Application.CreateForm( TfExportacaoDados, fExportacaoDados )
+   else
+      fExportacaoDados.Show;
+end;
+
+procedure TPrincipalForm.Exportaoparaocenso1Click(Sender: TObject);
+begin
+   if not DM.UsuarioLogado.TemPermissao( 1200, npAcesso, True ) then Exit;
+
+   { Exportação de Dados do CENSO / MEC }
+   if not ProcuraForm( TForm(fExportacaoCenso) ) then
+      Application.CreateForm( TfExportacaoCenso, fExportacaoCenso )
+   else
+      fExportacaoCenso.Show;
+end;
+
+procedure TPrincipalForm.OpesdeIngresso1Click(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1030, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_CadOpcoesIngresso) ) then
+      Application.CreateForm( Tfrm_CadOpcoesIngresso, frm_CadOpcoesIngresso )
+  else
+      frm_CadOpcoesIngresso.Show;
+end;
+
+procedure TPrincipalForm.reasdeconcentrao1Click(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1031, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_CadProcSelAreas) ) then
+    Application.CreateForm(Tfrm_CadProcSelAreas, frm_CadProcSelAreas)
+  else
+      frm_CadProcSelAreas.Show;
+end;
+
+procedure TPrincipalForm.ProcessosSeletivos2Click(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1032, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frm_CadProcSel) ) then
+    Application.CreateForm(Tfrm_CadProcSel, frm_CadProcSel)
+  else
+      frm_CadProcSel.Show;
+end;
+
+procedure TPrincipalForm.MenuItem14Click(Sender: TObject);
+{ Alterar para Menu Acadêmico  }
+begin
+   Application.ProcessMessages;
+
+   toolFinanceiro.Visible := False;
+   toolEscolar.Visible := True;
+   PrincipalForm.Menu := MenuAcademico;
+end;
+
+procedure TPrincipalForm.MenuItem15Click(Sender: TObject);
+{ Alterar para Menu Financeiro  }
+begin
+   Application.ProcessMessages;
+
+   toolEscolar.Visible := False;
+   toolFinanceiro.Visible := True;
+   PrincipalForm.Menu := MenuFinanceiro;
+end;
+
+procedure TPrincipalForm.MenuItem2Click(Sender: TObject);
+begin
+
+  toolFinanceiro.Visible := False;
+  toolEscolar.Visible := True;
+  PrincipalForm.Menu := MenuAcademico;
+
+
+end;
+
+procedure TPrincipalForm.MenuItem3Click(Sender: TObject);
+begin
+
+  toolEscolar.Visible := False;
+  toolFinanceiro.Visible := True;
+  PrincipalForm.Menu := MenuFinanceiro;
+
+end;
+
+procedure TPrincipalForm.miDespesasAulasClick(Sender: TObject);
+const
+   SChave = 'UMFinanceiro.Compromissos.DespesasAula';
+begin
+   if DM.UsuarioLogado.TemPermissao(DM.UsuarioLogado.Pessoa.Codigo, SChave, npAcesso, True) then
+   begin
+      if frmLGTCDespesas = nil then
+         Application.CreateForm(TfrmLGTCDespesas, frmLGTCDespesas);
+      frmLGTCDespesas.btnFiltrar.Click;
+      frmLGTCDespesas.Show;
+   end;
+end;
+
+procedure TPrincipalForm.miLGTCDespesasTipoClick(Sender: TObject);
+const
+   SChave = 'UMFinanceiro.Cadastro.GerenciamentoTiposDespesas';
+begin
+   if DM.UsuarioLogado.TemPermissao(DM.UsuarioLogado.Pessoa.Codigo, SChave, npAcesso, True) then
+   begin
+      if frmLGTCDespesasTipos = nil then
+         Application.CreateForm(TfrmLGTCDespesasTipos, frmLGTCDespesasTipos);
+      frmLGTCDespesasTipos.Show;
+   end;
+end;
+
+procedure TPrincipalForm.miRelatoriosClick(Sender: TObject);
+begin
+   if frmReportUI = nil then
+   begin
+      Application.CreateForm(TfrmReportUI, frmReportUI);
+   end;
+   frmReportUI.Show;
+end;
+
+procedure TPrincipalForm.miVouchersClick(Sender: TObject);
+const
+   SChavePermissao = 'UMFinanceiro.Vouchers';
+begin
+   if DM.UsuarioLogado.TemPermissao(DM.UsuarioLogado.Pessoa.Codigo, SChavePermissao, npAcesso, True) then
+   begin
+      if frmVouchers = nil then
+         Application.CreateForm(TfrmVouchers, frmVouchers);
+      frmVouchers.Show;
+   end;
+end;
+
+procedure TPrincipalForm.pesPlanilhaContatoClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1035, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(fPessoasInformacoes) ) then
+    Application.CreateForm(TfPessoasInformacoes, fPessoasInformacoes)
+  else
+    fPessoasInformacoes.Show;
+
+end;
+
+procedure TPrincipalForm.confInformacaoSobreInstituicaoClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1040, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmParametros) ) then
+    Application.CreateForm(TfrmParametros, frmParametros)
+  else
+    frmParametros.Show;
+  frmParametros.Filtra(DadosCliente, DM.UsuarioLogado.TemPermissao( 1040, npAlterar, False ));
+end;
+
+procedure TPrincipalForm.secBloquearDesbloquearEtapaClick(
+  Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 1050, npAcesso, True ) then Exit;
+
+  if not ProcuraForm( TForm(frmBloqueioEtapa) ) then
+    Application.CreateForm(TfrmBloqueioEtapa, frmBloqueioEtapa);
+
+  frmBloqueioEtapa.ShowModal;
+
+end;
+
+procedure TPrincipalForm.recFinArquivoRemessaClick(Sender: TObject);
+begin
+
+  if (DM.variavel_parametro('sn_processo_remessa_novo') = '1') and
+    DM.UsuarioLogado.TemPermissao(2062, npAcesso, true) then
+  begin
+    Application.CreateForm(TfrmRemessaBancaria, frmRemessaBancaria);
+    frmRemessaBancaria.Show();
+  end else if (DM.variavel_parametro('financeiro_remessa_banco') = 'S') and
+    DM.UsuarioLogado.TemPermissao(2062, npAcesso, true) then
+  begin
+    Application.CreateForm(TfrmRemessa, frmRemessa);
+    frmRemessa.Show();
+  end else begin
+    Mensagem('O cliente não está habilitado para utilizar o arquivo de remessa.',  'Informação', MB_OK + MB_ICONINFORMATION, Handle);
+  end;
+      
+end;
+
+procedure TPrincipalForm.recFinBloqueioFinanceiroClick(Sender: TObject);
+begin
+  if not DM.UsuarioLogado.TemPermissao( 2054, npAcesso, True ) then Exit;
+  
+  if not ProcuraForm( TForm(frmBloquearFinanceiro) ) then
+    Application.CreateForm(TfrmBloquearFinanceiro, frmBloquearFinanceiro);
+   frmBloquearFinanceiro.Showmodal();
+end;
+
+procedure TPrincipalForm.recFinFacturasClick(Sender: TObject);
+begin
+  if DM.UsuarioLogado.TemPermissao( 9999, npAcesso, false) then
+   begin
+      if not ProcuraForm(TForm(frmFacturas)) then
+         Application.CreateForm(TfrmFacturas, frmFacturas)
+      else
+         frmFacturas.Show;
+   end
+   else
+     DM.UsuarioLogado.TemPermissao( 9999, npAcesso, true);
+end;
+
+procedure TPrincipalForm.LimpaRelObj;
+begin
+    RelObj.Clear();
+end;
+
+procedure TPrincipalForm.tmRelogio2Timer(Sender: TObject);
+begin
+   FStopWatch.Stop;
+   FRelogio := DM.DataAtual;
+   FStopWatch.Start;                                                   
+   btnDatas.Caption := Format('Data/hora servidor: %s', [FormatDateTime('dd/mm/yyyy hh:nn', FRelogio)]);
+
+   //nova tentativa de evitar desconexão com o banco de dados
+   try
+      with DM.db do
+      begin
+        Connected := true;
+        //showmessage('Banco de Dados Conectado' );
+      end;
+   except on E:exception do
+      begin
+        DM.db.Connected := false;
+        showmessage('Falha ao conectar com o banco de dados. Erro = "'+E.message+'"' );
+        Application.Terminate;
+      end;
+   end;
+   //nova tentativa de evitar desconexão com o banco de dados
+end;
+
+procedure TPrincipalForm.tmRelogioTimer(Sender: TObject);
+begin
+   if ( FCarregarMenus ) then
+   begin
+      FCarregarMenus := False;
+      AtualizarMenu(DM.lite);
+   end;
+end;
+
+procedure TPrincipalForm.btnTrocaUnidadeEnsinoClick(Sender: TObject);
+begin
+   if MDIChildCount > 0 then
+   begin
+      if Mensagem('Para trocar de Unidade de Ensino é necessário fechar todas as telas. Deseja continuar?', '', MB_YESNO + MB_ICONEXCLAMATION, Handle) <> mrYes then
+      begin
+         Exit;
+      end;
+
+      FecharFormularios();
+   end;
+
+   if TLoginManager.GetInstancia().TrocarColigadaLogada() then
+   begin
+      CarregarInformacoesPorMatriz();
+   end;
+end;
+
+
+{ Essa função foi criada para tentar fazer o banco de dados se reconectar}
+procedure TPrincipalForm.tratarErroBanco(Sender:Tobject);
+var
+   Parametros: TParamsIni;
+   FormularioErro : TfrmMensagem;
+   problema_resolvido : boolean;
+begin
+   Sleep(1000);
+   inc(tentativas_conexao);
+   problema_resolvido := False;
+
+   Try
+      dm.db.Disconnect;
+      dm.db.Reconnect;
+      dm.db.Connect;
+
+      if dm.db.Ping = true then
+      begin
+         problema_resolvido := true;
+         tentativas_conexao := 0;
+      end;
+   Except
+      // nada
+   end;
+
+
+   // nao teve como... a conexao nao foi mais realizada
+   // mostra mensagem de erro
+   if problema_resolvido = false then
+   begin
+
+      // se chegou no limite de tentativas, mostra tela para usuario
+      if (tentativas_conexao > nr_tentativas_conexao) then
+      begin
+         Parametros.titulo := 'Encontrada uma inconsistência no sistema!';
+         Parametros.opcoes := (BT_OK + ICO_ERROR);
+         Parametros.mensagens.msgPrincipal := 'Falha na conexão: o UNIMESTRE não está mais conseguindo se conectar ao banco de dados. O sistema será fechado.';
+         Parametros.dimensao.altura := 250;
+         Parametros.dimensao.largura := 600;
+         Parametros.snErroBanco := true;
+
+         tentativas_conexao := 0;
+
+         FormularioErro := TfrmMensagem.create(nil, parametros);
+         FormularioErro.btnReconectar.Visible := true;  
+         FormularioErro.ShowModal;
+
+         FormularioErro.setValores(
+            Pointer(self),
+            self.MethodAddress('tratarErroBanco')
+         );
+
+
+      end
+      else
+      begin
+         // apenas abre a tela para rechamar esta funcao
+         Parametros.titulo := 'Encontrada uma inconsistência no sistema!';
+         Parametros.opcoes := (BT_OK + ICO_ERROR);
+         Parametros.mensagens.msgPrincipal := 'Falha na conexão: o UNIMESTRE não está mais conseguindo se conectar ao banco de dados. O sistema será fechado.';
+         Parametros.dimensao.altura := 250;
+         Parametros.dimensao.largura := 600;
+         Parametros.snErroBanco := true;
+
+         FormularioErro := TfrmMensagem.create(nil, parametros);
+         FormularioErro.Show;
+
+         FormularioErro.setValores(
+            Pointer(self),
+            self.MethodAddress('tratarErroBanco')
+         );
+
+         FormularioErro.btnReconectar.Visible := false;
+         FormularioErro.btnReconectarClick(Sender);
+      end;
+   end;
+
+
+
+end;
+
+end.
+
+
+

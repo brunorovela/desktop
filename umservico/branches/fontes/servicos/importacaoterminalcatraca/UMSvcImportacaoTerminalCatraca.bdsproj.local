@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2012/05/22 08:58:46.718.bdsproj,C:\Users\Dev\Documents\Borland Studio Projects\Package1.bdsproj=C:\Users\Dev\Documents\Borland Studio Projects\UMSvcImportacaCatraca.bdsproj</Transaction>
+    <Transaction>2012/05/22 08:59:20.820.bdsproj,C:\Users\Dev\Documents\Borland Studio Projects\UMSvcImportacaCatraca.bdsproj=C:\Users\Dev\Documents\Borland Studio Projects\UMSvcImportacaTerminalCatraca.bdsproj</Transaction>
+    <Transaction>2012/05/22 09:02:13.899.bdsproj,C:\Users\Dev\Documents\Borland Studio Projects\UMSvcImportacaTerminalCatraca.bdsproj=C:\Users\Dev\Documents\Borland Studio Projects\UMSvcImportacaoTerminalCatraca.bdsproj</Transaction>
+    <Transaction>2012/05/22 09:02:41.881.bdsproj,C:\Users\Dev\Documents\Borland Studio Projects\UMSvcImportacaoTerminalCatraca.bdsproj=D:\Programacao\Desenvolvimento\unimestre\umservico\branches\fontes\servicos\importacaoterminalcatraca\UMSvcImportacaoTerminalCatraca.bdsproj</Transaction>
+    <Transaction>2012/05/22 09:26:55.814.pas,D:\Programacao\Desenvolvimento\unimestre\umservico\branches\fontes\servicos\importacaoterminalcatraca\Unit1.pas=D:\Programacao\Desenvolvimento\unimestre\umservico\branches\fontes\servicos\importacaoterminalcatraca\uSvcImportacaoTerminalCatraca.pas</Transaction>
+    <Transaction>2012/05/23 09:57:01.246.pas,D:\Programacao\Desenvolvimento\unimestre\umservico\branches\fontes\servicos\importacaoterminalcatraca\Unit1.pas=D:\Programacao\Desenvolvimento\unimestre\umservico\branches\fontes\servicos\importacaoterminalcatraca\uSvcImportacaoTerminalCatracaExecucao.pas</Transaction>
+    <Transaction>2012/05/23 09:57:14.433.pas,D:\Programacao\Desenvolvimento\unimestre\umservico\branches\fontes\servicos\importacaoterminalcatraca\Unit1.pas=D:\Programacao\Desenvolvimento\unimestre\umservico\branches\fontes\servicos\importacaoterminalcatraca\uSvcImportacaoTerminalCatracaArquivo.pas</Transaction>
+    <Transaction>2012/05/23 10:08:15.202.pas,D:\Programacao\Desenvolvimento\unimestre\umservico\branches\fontes\servicos\importacaoterminalcatraca\uSvcImportacaoTerminalCatracaArquivo.pas=</Transaction>
+    <Transaction>2012/05/23 10:08:17.559.pas,D:\Programacao\Desenvolvimento\unimestre\umservico\branches\fontes\servicos\importacaoterminalcatraca\uSvcImportacaoTerminalCatracaExecucao.pas=</Transaction>
+    <Transaction>2012/05/23 18:07:14.816.pas,D:\Programacao\Desenvolvimento\unimestre\umservico\branches\fontes\servicos\importacaoterminalcatraca\Unit1.pas=D:\Programacao\Desenvolvimento\unimestre\umservico\branches\fontes\servicos\importacaoterminalcatraca\uSvcImportacaoTerminalCatracaImpRegistro.pas</Transaction>
+  </Transactions>
+</BorlandProject>

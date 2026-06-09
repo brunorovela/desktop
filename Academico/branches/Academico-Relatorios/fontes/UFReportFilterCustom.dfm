@@ -1,0 +1,2 @@
+inherited frmReportFilterCustom: TfrmReportFilterCustom
+end

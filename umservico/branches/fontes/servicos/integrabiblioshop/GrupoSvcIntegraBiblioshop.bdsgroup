@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{39F44059-A4A5-4FFA-BA66-DF00C47E90BF}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  <Projects>
+      <Projects Name="UMFuncoes.bpl">..\..\..\..\..\SISTEMAS\UMFuncoes\fontes\UMFuncoes.bdsproj</Projects>
+      <Projects Name="UMConexao.bpl">..\..\..\..\..\SISTEMAS\UMConexao\fontes\UMConexao.bdsproj</Projects>
+      <Projects Name="UMIntegraBase.bpl">..\integrabase\UMIntegraBase.bdsproj</Projects>
+      <Projects Name="UMSvcIntegraBiblioShop.bpl">UMSvcIntegraBiblioShop.bdsproj</Projects>
+      <Projects Name="TesteIntegracao.exe">TesteIntegracao.bdsproj</Projects>
+      <Projects Name="Targets">UMFuncoes.bpl UMConexao.bpl UMIntegraBase.bpl UMSvcIntegraBiblioShop.bpl TesteIntegracao.exe</Projects>
+    </Projects>
+    <Dependencies>
+      <Dependency GUID="{2D81E905-C29A-495A-BAFC-7BD1B56EE7EF}">
+        <Dependency GUID="{7BADFB97-B310-4B78-BEE5-9F270D2C9A66}"/>
+        <Dependency GUID="{C068A8B2-3480-42D1-B8E8-9CE9B44FC624}"/>
+      </Dependency>
+      <Dependency GUID="{2B1AF2E3-31AC-40BB-B5BA-5B75ADBA17BF}">
+        <Dependency GUID="{7BADFB97-B310-4B78-BEE5-9F270D2C9A66}"/>
+        <Dependency GUID="{C068A8B2-3480-42D1-B8E8-9CE9B44FC624}"/>
+        <Dependency GUID="{2D81E905-C29A-495A-BAFC-7BD1B56EE7EF}"/>
+      </Dependency>
+      <Dependency GUID="{02AD02B7-6434-4B1E-83B5-3F96CE19A56D}">
+        <Dependency GUID="{7BADFB97-B310-4B78-BEE5-9F270D2C9A66}"/>
+        <Dependency GUID="{2D81E905-C29A-495A-BAFC-7BD1B56EE7EF}"/>
+        <Dependency GUID="{2B1AF2E3-31AC-40BB-B5BA-5B75ADBA17BF}"/>
+      </Dependency>
+    </Dependencies>
+  </Default.Personality>
+	<StarTeamAssociation></StarTeamAssociation>
+	<StarTeamNonRelativeFiles></StarTeamNonRelativeFiles>
+</BorlandProject>

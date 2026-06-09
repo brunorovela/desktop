@@ -1,0 +1,7 @@
+[Main]
+OutputDir=C:\Programas\Desenvolvimento\Script\PSScript\Bin\Import\
+SingleUnit=1
+UseUnitAtDT=1
+FilePrefix=uPSImport
+[Files]
+File0=D:\Programacao\Desenvolvimento\UNIMESTRE\Exportacao\fontes\uScriptFunctions.pas

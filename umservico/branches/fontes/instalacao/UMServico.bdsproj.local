@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/02/26 17:17:21.046.bdsproj,C:\Documents and Settings\Josimar Zimermann\Meus documentos\Borland Studio Projects\Project1.bdsproj=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\instalacao\UMVerificaInstalacao.bdsproj</Transaction>
+    <Transaction>2010/02/26 17:19:20.546.bdsproj,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\instalacao\UMVerificaInstalacao.bdsproj=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\instalacao\UMCheckInstall.bdsproj</Transaction>
+    <Transaction>2010/03/01 07:39:54.531.bdsproj,D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\instalacao\UMCheckInstall.bdsproj=D:\programacao\desenvolvimento\unimestre\umservico\trunk\fontes\instalacao\UMServico.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

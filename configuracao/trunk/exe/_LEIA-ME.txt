@@ -1,0 +1,7 @@
+Copie os arquivos listados abaixo para a pasta juntamente com o executável:
+
+1. backup.pif
+2. restaura.pif
+3. mysql.exe
+4. mysqldump.exe
+5. UniMestre_Parametros.exe
