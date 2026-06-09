@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2019/10/08 18:07:55.650.pas,D:\Documentos\Borland Studio Projects\Unit1.pas=C:\Users\Unimestre\Desktop\desenv\uPrincipal.pas</Transaction>
-    <Transaction>2019/10/08 18:07:55.651.dfm,D:\Documentos\Borland Studio Projects\Unit1.dfm=C:\Users\Unimestre\Desktop\desenv\uPrincipal.dfm</Transaction>
-    <Transaction>2019/10/08 18:07:59.582.bdsproj,D:\Documentos\Borland Studio Projects\Project1.bdsproj=C:\Users\Unimestre\Desktop\desenv\socket.bdsproj</Transaction>
-    <Transaction>2019/11/01 17:35:42.579.bdsproj,C:\Programacao\Desenvolvimento\unimestre\umcatracas\branches\develop\src\app\simulador\socket.bdsproj=C:\Programacao\Desenvolvimento\unimestre\umcatracas\branches\develop\src\app\simulador\umSocket.bdsproj</Transaction>
-  </Transactions>
-</BorlandProject>

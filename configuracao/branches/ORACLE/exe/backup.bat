@@ -1,1 +1,0 @@
-"D:\PROGRA~1\DESENV~1\UNIMES~1\CONFIG~1\trunk\exe\mysqldump" unimestre diario_matriculas -h 200.138.202.101 -P 3306 --add-drop-table -a -c -r "D:\PROGRA~1\DESENV~1\UNIMES~1\CONFIG~1\trunk\exe\temp\diario_matriculas.sql" -u backup --password=UniSeguro

@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2019/10/07 11:00:15.177.pas,C:\Documents and Settings\Delphi VM\Meus documentos\Borland Studio Projects\Unit1.pas=C:\Programacao\Desenvolvimento\unimestre\umcatracas\branches\develop\src\app\uPrincipal.pas</Transaction>
-    <Transaction>2019/10/07 11:00:15.177.dfm,C:\Documents and Settings\Delphi VM\Meus documentos\Borland Studio Projects\Unit1.dfm=C:\Programacao\Desenvolvimento\unimestre\umcatracas\branches\develop\src\app\uPrincipal.dfm</Transaction>
-    <Transaction>2019/10/07 11:01:19.660.bdsproj,C:\Documents and Settings\Delphi VM\Meus documentos\Borland Studio Projects\Project1.bdsproj=C:\Programacao\Desenvolvimento\unimestre\umcatracas\branches\develop\src\app\umGuardianCatracas.bdsproj</Transaction>
-  </Transactions>
-</BorlandProject>

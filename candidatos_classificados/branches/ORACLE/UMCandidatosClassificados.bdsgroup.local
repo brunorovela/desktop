@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2016/03/08 08:58:43.623.bdsgroup,D:\Programacao\Desenvolvimento\unimestre\candidatos_classificados\branches\ORACLE\UMProvaInterdisciplinar.bdsgroup=D:\Programacao\Desenvolvimento\unimestre\candidatos_classificados\branches\ORACLE\UMCandidatosClassificados.bdsgroup</Transaction>
-  </Transactions>
-	<Default.Personality>
-		<Projects ActiveProject="UMUteis.bpl"/>
-	</Default.Personality>
-</BorlandProject>

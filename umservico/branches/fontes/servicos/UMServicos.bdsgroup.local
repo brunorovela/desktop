@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2008/04/22 10:12:54.243.bdsgroup,D:\_PERON_\Pessoais\Documents\Borland Studio Projects\ProjectGroup1.bdsgroup=D:\Programacao\Desenvolvimento\UNIMESTRE\umservico\trunk\fontes\UMServicos.bdsgroup</Transaction>
-  </Transactions>
-	<Default.Personality>
-		<Projects ActiveProject="UMServicoConfig.exe"/>
-	</Default.Personality>
-</BorlandProject>

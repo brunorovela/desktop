@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2013/08/01 10:54:17.372.bdsgroup,C:\Users\Amauri\Documents\Borland Studio Projects\ProjectGroup1.bdsgroup=D:\Programacao\Desenvolvimento\Unimestre\terminalacesso\branches\ORACLE_COLIGADAS\TerminalAcesso.bdsgroup</Transaction>
-  </Transactions>
-	<Default.Personality>
-		<Projects ActiveProject="TerminalAcesso.exe"/>
-	</Default.Personality>
-</BorlandProject>
