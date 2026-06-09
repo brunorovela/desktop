@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2013/05/20 11:35:50.321.pas,C:\Users\Claudionor\Documents\Borland Studio Projects\Unit1.pas=D:\Programacao\Desenvolvimento\unimestre\academico\branches\ORACLE\fontes\uPastaRelatorios.pas</Transaction>
-    <Transaction>2013/05/20 11:35:50.322.dfm,C:\Users\Claudionor\Documents\Borland Studio Projects\Unit1.dfm=D:\Programacao\Desenvolvimento\unimestre\academico\branches\ORACLE\fontes\uPastaRelatorios.dfm</Transaction>
-    <Transaction>2013/05/20 11:35:56.517.bdsproj,C:\Users\Claudionor\Documents\Borland Studio Projects\Project1.bdsproj=D:\Programacao\Desenvolvimento\unimestre\academico\branches\ORACLE\fontes\PastaRelatorios.bdsproj</Transaction>
-    <Transaction>2013/05/20 12:36:46.632.pas,D:\Programacao\Desenvolvimento\unimestre\academico\branches\ORACLE\fontes\General.pas=</Transaction>
-  </Transactions>
-</BorlandProject>
